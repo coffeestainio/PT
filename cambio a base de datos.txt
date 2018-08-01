@@ -1,0 +1,40 @@
+cambiar campo precio por precio1 y crear precio2 de la tabla producto
+crear campo id_precio de la tabla cliente
+campo costo tabla v_bodega_existencia para el reporte
+
+
+
+USE [PT]
+GO
+/****** Object:  Table [dbo].[nota_debito]    Script Date: 12/22/2008 09:46:08 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[nota_debito](
+	[id_nota_debito] [int] IDENTITY(1,1) NOT NULL,
+	[id_documento] [int] NOT NULL,
+	[observaciones] [varchar](100) NOT NULL,
+	[fecha] [datetime] NOT NULL CONSTRAINT [DF_nota_debito_fecha]  DEFAULT (getdate()),
+	[id_usuario] [int] NOT NULL,
+	[id_cliente] [int] NOT NULL
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+
+
+USE [PT]
+GO
+/****** Object:  Table [dbo].[nota_Debito_detalle]    Script Date: 12/22/2008 09:46:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[nota_Debito_detalle](
+	[id_factura] [int] NOT NULL,
+	[id_nota_debito] [int] NOT NULL,
+	[monto] [decimal](16, 2) NOT NULL
+) ON [PRIMARY]
