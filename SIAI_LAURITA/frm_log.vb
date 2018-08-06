@@ -304,7 +304,7 @@ Public Class frm_log
             Intento = 0
 
 
-            CONN1 = New SqlConnection("server=" + SERVER + ";User ID=pcalvo;password=Skaman89;Database=PT;Persist Security Info=True")
+            CONN1 = New SqlConnection(SERVER)
             CONN1.Open()
 
 

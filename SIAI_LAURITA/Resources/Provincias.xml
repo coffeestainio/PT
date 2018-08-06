@@ -56,7 +56,7 @@
         </canton>
       <canton>
         <nombre>Escazu</nombre>
-        <codigo>1</codigo>
+        <codigo>2</codigo>
         <distritos>
           <distrito>
             <nombre>Escazu</nombre>
@@ -74,7 +74,7 @@
         </canton>
         <canton>
           <nombre>Desamparados</nombre>
-          <codigo>1</codigo>
+          <codigo>3</codigo>
           <distritos>
             <distrito>
               <nombre>Desamparados</nombre>
