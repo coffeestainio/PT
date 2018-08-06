@@ -761,7 +761,7 @@ Public Class frm_cliente_mantenimiento
 #End Region
 
     Public Provincias As ArrayList
-
+    Public loading As Boolean
 
     Private Sub btnaceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnaceptar.Click
         'Try
@@ -824,6 +824,10 @@ Public Class frm_cliente_mantenimiento
             .rowc("id_grupo") = cbid(cbgrupo.Text)
             .rowc("id_zona") = cbid(cbid_zona.Text)
             .rowc("id_precio") = Val(cbprecio.SelectedIndex + 1)
+            .rowc("provincia") = Val(cbProvincia.SelectedIndex + 1)
+            .rowc("canton") = Val(cbCanton.SelectedIndex + 1)
+            .rowc("distrito") = Val(cbDistrito.SelectedIndex + 1)
+
 
             If lbltitulo.Text = "Incluir Cliente" Then .Dvcliente.Table.Rows.Add(.rowc)
             .Dacliente.Update(.Dscliente, "cliente")
@@ -998,10 +1002,22 @@ Public Class frm_cliente_mantenimiento
         End If
     End Sub
 
+    Public Sub PopulateCBAddress()
+        Provincias = PopulateDistritos()
+
+        For Each prov As Provincia In Provincias
+            cbProvincia.Items.Add(prov.name)
+        Next
+        cbProvincia.SelectedIndex = 0
+
+    End Sub
    
 
     Private Sub frm_cliente_mantenimiento_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Provincias = PopulateDistritos()
+
+        If Provincias.Count = 0 Then
+            Provincias = PopulateDistritos()
+        End If
 
         For Each prov As Provincia In Provincias
             cbProvincia.Items.Add(prov.name)

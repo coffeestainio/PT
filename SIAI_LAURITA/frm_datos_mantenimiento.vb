@@ -173,25 +173,6 @@ Public Class frm_datos_mantenimiento
     Friend WithEvents aidentificacion As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents aobservaciones As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents dtgaeliminado As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents dtgcid As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents cnombre As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents cTelefono As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents cdireccion As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents cidentificacion As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents cplazo As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents cnombre_sociedad As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents cfax As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents cemail As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents cnombre_encargado As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ctelefono_encargado As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents descuento As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents climite As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents cid_agente As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents cid_lista As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents cobservaciones As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents celiminado As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents id_grupo As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents id_zona As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents tabfamilia As System.Windows.Forms.TabPage
     Friend WithEvents btncerrar_familia As System.Windows.Forms.Button
     Friend WithEvents dtgfamilia As System.Windows.Forms.DataGridView
@@ -216,6 +197,29 @@ Public Class frm_datos_mantenimiento
     Friend WithEvents existencia As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents pid_proverdor As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents pbarcode As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents dtgcid As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cnombre As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cTelefono As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cdireccion As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cidentificacion As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cplazo As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cnombre_sociedad As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cfax As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cemail As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cnombre_encargado As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ctelefono_encargado As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents descuento As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents climite As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cid_agente As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cid_lista As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cobservaciones As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents celiminado As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents id_grupo As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents id_precio As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents provincia As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents distrito As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents canton As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents id_zona As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents lblm2 As System.Windows.Forms.Label
 
 
@@ -258,29 +262,29 @@ Public Class frm_datos_mantenimiento
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_datos_mantenimiento))
-        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle26 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle27 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle28 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle29 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle36 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle30 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle31 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle32 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle33 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle34 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle35 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle37 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle38 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle39 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle40 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle44 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle41 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle42 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle43 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle45 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle46 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.txtbuscar_proveedor = New System.Windows.Forms.TextBox
         Me.txtbuscar_producto = New System.Windows.Forms.TextBox
@@ -383,25 +387,6 @@ Public Class frm_datos_mantenimiento
         Me.id_producto = New System.Windows.Forms.DataGridTextBoxColumn
         Me.Tabcliente = New System.Windows.Forms.TabPage
         Me.dtgcliente = New System.Windows.Forms.DataGridView
-        Me.dtgcid = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cnombre = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cTelefono = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cdireccion = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cidentificacion = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cplazo = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cnombre_sociedad = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cfax = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cemail = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cnombre_encargado = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.ctelefono_encargado = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.descuento = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.climite = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cid_agente = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cid_lista = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cobservaciones = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.celiminado = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.id_grupo = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.id_zona = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.PictureBox2 = New System.Windows.Forms.PictureBox
         Me.Label3 = New System.Windows.Forms.Label
         Me.telefonocliente = New System.Windows.Forms.DataGridTextBoxColumn
@@ -430,6 +415,29 @@ Public Class frm_datos_mantenimiento
         Me.tsproducto_presentacion = New System.Windows.Forms.DataGridTextBoxColumn
         Me.tsproducto_nombre = New System.Windows.Forms.DataGridTextBoxColumn
         Me.tsproducto_id_producto = New System.Windows.Forms.DataGridTextBoxColumn
+        Me.dtgcid = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cnombre = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cTelefono = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cdireccion = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cidentificacion = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cplazo = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cnombre_sociedad = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cfax = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cemail = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cnombre_encargado = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ctelefono_encargado = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.descuento = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.climite = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cid_agente = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cid_lista = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cobservaciones = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.celiminado = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.id_grupo = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.id_precio = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.provincia = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.distrito = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.canton = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.id_zona = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.Tabparametro.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Tabusuario.SuspendLayout()
@@ -948,8 +956,8 @@ Public Class frm_datos_mantenimiento
         'dtguusuario
         '
         Me.dtguusuario.DataPropertyName = "nombre"
-        DataGridViewCellStyle24.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtguusuario.DefaultCellStyle = DataGridViewCellStyle24
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtguusuario.DefaultCellStyle = DataGridViewCellStyle1
         Me.dtguusuario.HeaderText = "Usuario"
         Me.dtguusuario.Name = "dtguusuario"
         Me.dtguusuario.ReadOnly = True
@@ -958,9 +966,9 @@ Public Class frm_datos_mantenimiento
         'univel
         '
         Me.univel.DataPropertyName = "nivel"
-        DataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle25.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.univel.DefaultCellStyle = DataGridViewCellStyle25
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.univel.DefaultCellStyle = DataGridViewCellStyle2
         Me.univel.HeaderText = "Nivel"
         Me.univel.Name = "univel"
         Me.univel.ReadOnly = True
@@ -969,8 +977,8 @@ Public Class frm_datos_mantenimiento
         'unombre_real
         '
         Me.unombre_real.DataPropertyName = "nombre_real"
-        DataGridViewCellStyle26.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.unombre_real.DefaultCellStyle = DataGridViewCellStyle26
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.unombre_real.DefaultCellStyle = DataGridViewCellStyle3
         Me.unombre_real.HeaderText = "Nombre Real"
         Me.unombre_real.Name = "unombre_real"
         Me.unombre_real.ReadOnly = True
@@ -1063,9 +1071,9 @@ Public Class frm_datos_mantenimiento
         'dtgprvid
         '
         Me.dtgprvid.DataPropertyName = "id_proveedor"
-        DataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle27.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtgprvid.DefaultCellStyle = DataGridViewCellStyle27
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtgprvid.DefaultCellStyle = DataGridViewCellStyle4
         Me.dtgprvid.HeaderText = "Código"
         Me.dtgprvid.Name = "dtgprvid"
         Me.dtgprvid.ReadOnly = True
@@ -1074,8 +1082,8 @@ Public Class frm_datos_mantenimiento
         'prNombre
         '
         Me.prNombre.DataPropertyName = "Nombre"
-        DataGridViewCellStyle28.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.prNombre.DefaultCellStyle = DataGridViewCellStyle28
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.prNombre.DefaultCellStyle = DataGridViewCellStyle5
         Me.prNombre.HeaderText = "Nombre"
         Me.prNombre.Name = "prNombre"
         Me.prNombre.ReadOnly = True
@@ -1290,15 +1298,15 @@ Public Class frm_datos_mantenimiento
         Me.dtgproducto.AllowUserToDeleteRows = False
         Me.dtgproducto.AllowUserToResizeColumns = False
         Me.dtgproducto.AllowUserToResizeRows = False
-        DataGridViewCellStyle29.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtgproducto.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle29
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtgproducto.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dtgproducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgproducto.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dtgprdid, Me.pnombre, Me.precio1, Me.precio2, Me.piv, Me.pid_proveedor, Me.pid_familia, Me.pobservaciones, Me.Ppresentacion, Me.eliminado, Me.costo, Me.existencia, Me.pid_proverdor, Me.pbarcode})
         Me.dtgproducto.Location = New System.Drawing.Point(43, 57)
         Me.dtgproducto.Name = "dtgproducto"
         Me.dtgproducto.ReadOnly = True
-        DataGridViewCellStyle36.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtgproducto.RowsDefaultCellStyle = DataGridViewCellStyle36
+        DataGridViewCellStyle13.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtgproducto.RowsDefaultCellStyle = DataGridViewCellStyle13
         Me.dtgproducto.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtgproducto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dtgproducto.Size = New System.Drawing.Size(682, 477)
@@ -1307,9 +1315,9 @@ Public Class frm_datos_mantenimiento
         'dtgprdid
         '
         Me.dtgprdid.DataPropertyName = "id_producto"
-        DataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle30.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtgprdid.DefaultCellStyle = DataGridViewCellStyle30
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtgprdid.DefaultCellStyle = DataGridViewCellStyle7
         Me.dtgprdid.FillWeight = 65.0!
         Me.dtgprdid.HeaderText = "Código"
         Me.dtgprdid.Name = "dtgprdid"
@@ -1319,8 +1327,8 @@ Public Class frm_datos_mantenimiento
         'pnombre
         '
         Me.pnombre.DataPropertyName = "nombre"
-        DataGridViewCellStyle31.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.pnombre.DefaultCellStyle = DataGridViewCellStyle31
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.pnombre.DefaultCellStyle = DataGridViewCellStyle8
         Me.pnombre.FillWeight = 350.0!
         Me.pnombre.HeaderText = "Nombre"
         Me.pnombre.Name = "pnombre"
@@ -1330,10 +1338,10 @@ Public Class frm_datos_mantenimiento
         'precio1
         '
         Me.precio1.DataPropertyName = "precio1"
-        DataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle32.Format = "N2"
-        DataGridViewCellStyle32.NullValue = Nothing
-        Me.precio1.DefaultCellStyle = DataGridViewCellStyle32
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle9.Format = "N2"
+        DataGridViewCellStyle9.NullValue = Nothing
+        Me.precio1.DefaultCellStyle = DataGridViewCellStyle9
         Me.precio1.HeaderText = "Precio 1"
         Me.precio1.Name = "precio1"
         Me.precio1.ReadOnly = True
@@ -1341,9 +1349,9 @@ Public Class frm_datos_mantenimiento
         'precio2
         '
         Me.precio2.DataPropertyName = "precio2"
-        DataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle33.Format = "N2"
-        Me.precio2.DefaultCellStyle = DataGridViewCellStyle33
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle10.Format = "N2"
+        Me.precio2.DefaultCellStyle = DataGridViewCellStyle10
         Me.precio2.HeaderText = "Precio 2"
         Me.precio2.Name = "precio2"
         Me.precio2.ReadOnly = True
@@ -1351,10 +1359,10 @@ Public Class frm_datos_mantenimiento
         'piv
         '
         Me.piv.DataPropertyName = "iv"
-        DataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle34.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle34.NullValue = False
-        Me.piv.DefaultCellStyle = DataGridViewCellStyle34
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle11.NullValue = False
+        Me.piv.DefaultCellStyle = DataGridViewCellStyle11
         Me.piv.FillWeight = 20.0!
         Me.piv.HeaderText = "iv"
         Me.piv.Name = "piv"
@@ -1389,9 +1397,9 @@ Public Class frm_datos_mantenimiento
         'Ppresentacion
         '
         Me.Ppresentacion.DataPropertyName = "presentacion"
-        DataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle35.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Ppresentacion.DefaultCellStyle = DataGridViewCellStyle35
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Ppresentacion.DefaultCellStyle = DataGridViewCellStyle12
         Me.Ppresentacion.FillWeight = 40.0!
         Me.Ppresentacion.HeaderText = "Prst"
         Me.Ppresentacion.Name = "Ppresentacion"
@@ -1512,7 +1520,7 @@ Public Class frm_datos_mantenimiento
         Me.dtgcliente.AllowUserToResizeColumns = False
         Me.dtgcliente.AllowUserToResizeRows = False
         Me.dtgcliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtgcliente.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dtgcid, Me.cnombre, Me.cTelefono, Me.cdireccion, Me.cidentificacion, Me.cplazo, Me.cnombre_sociedad, Me.cfax, Me.cemail, Me.cnombre_encargado, Me.ctelefono_encargado, Me.descuento, Me.climite, Me.cid_agente, Me.cid_lista, Me.cobservaciones, Me.celiminado, Me.id_grupo, Me.id_zona})
+        Me.dtgcliente.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dtgcid, Me.cnombre, Me.cTelefono, Me.cdireccion, Me.cidentificacion, Me.cplazo, Me.cnombre_sociedad, Me.cfax, Me.cemail, Me.cnombre_encargado, Me.ctelefono_encargado, Me.descuento, Me.climite, Me.cid_agente, Me.cid_lista, Me.cobservaciones, Me.celiminado, Me.id_grupo, Me.id_precio, Me.provincia, Me.distrito, Me.canton, Me.id_zona})
         Me.dtgcliente.Location = New System.Drawing.Point(64, 60)
         Me.dtgcliente.Name = "dtgcliente"
         Me.dtgcliente.ReadOnly = True
@@ -1520,167 +1528,6 @@ Public Class frm_datos_mantenimiento
         Me.dtgcliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dtgcliente.Size = New System.Drawing.Size(661, 474)
         Me.dtgcliente.TabIndex = 28
-        '
-        'dtgcid
-        '
-        Me.dtgcid.DataPropertyName = "id_cliente"
-        DataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle37.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtgcid.DefaultCellStyle = DataGridViewCellStyle37
-        Me.dtgcid.HeaderText = "Código"
-        Me.dtgcid.Name = "dtgcid"
-        Me.dtgcid.ReadOnly = True
-        Me.dtgcid.Width = 65
-        '
-        'cnombre
-        '
-        Me.cnombre.DataPropertyName = "nombre_comercial"
-        DataGridViewCellStyle38.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cnombre.DefaultCellStyle = DataGridViewCellStyle38
-        Me.cnombre.HeaderText = "Nombre"
-        Me.cnombre.Name = "cnombre"
-        Me.cnombre.ReadOnly = True
-        Me.cnombre.Width = 450
-        '
-        'cTelefono
-        '
-        Me.cTelefono.DataPropertyName = "telefono"
-        DataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle39.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cTelefono.DefaultCellStyle = DataGridViewCellStyle39
-        Me.cTelefono.HeaderText = "Teléfono"
-        Me.cTelefono.Name = "cTelefono"
-        Me.cTelefono.ReadOnly = True
-        Me.cTelefono.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.cTelefono.Width = 80
-        '
-        'cdireccion
-        '
-        Me.cdireccion.DataPropertyName = "direccion"
-        Me.cdireccion.HeaderText = "direccion"
-        Me.cdireccion.Name = "cdireccion"
-        Me.cdireccion.ReadOnly = True
-        Me.cdireccion.Visible = False
-        '
-        'cidentificacion
-        '
-        Me.cidentificacion.DataPropertyName = "identificacion"
-        Me.cidentificacion.HeaderText = "identificacion"
-        Me.cidentificacion.Name = "cidentificacion"
-        Me.cidentificacion.ReadOnly = True
-        Me.cidentificacion.Visible = False
-        '
-        'cplazo
-        '
-        Me.cplazo.DataPropertyName = "plazo"
-        Me.cplazo.HeaderText = "plazo"
-        Me.cplazo.Name = "cplazo"
-        Me.cplazo.ReadOnly = True
-        Me.cplazo.Visible = False
-        '
-        'cnombre_sociedad
-        '
-        Me.cnombre_sociedad.DataPropertyName = "nombre_sociedad"
-        Me.cnombre_sociedad.HeaderText = "nombre_sociedad"
-        Me.cnombre_sociedad.Name = "cnombre_sociedad"
-        Me.cnombre_sociedad.ReadOnly = True
-        Me.cnombre_sociedad.Visible = False
-        '
-        'cfax
-        '
-        Me.cfax.DataPropertyName = "fax"
-        Me.cfax.HeaderText = "fax"
-        Me.cfax.Name = "cfax"
-        Me.cfax.ReadOnly = True
-        Me.cfax.Visible = False
-        '
-        'cemail
-        '
-        Me.cemail.DataPropertyName = "email"
-        Me.cemail.HeaderText = "email"
-        Me.cemail.Name = "cemail"
-        Me.cemail.ReadOnly = True
-        Me.cemail.Visible = False
-        '
-        'cnombre_encargado
-        '
-        Me.cnombre_encargado.DataPropertyName = "nombre_encargado"
-        Me.cnombre_encargado.HeaderText = "nombre_encargado"
-        Me.cnombre_encargado.Name = "cnombre_encargado"
-        Me.cnombre_encargado.ReadOnly = True
-        Me.cnombre_encargado.Visible = False
-        '
-        'ctelefono_encargado
-        '
-        Me.ctelefono_encargado.DataPropertyName = "telefono_encargado"
-        Me.ctelefono_encargado.HeaderText = "telefono_encargado"
-        Me.ctelefono_encargado.Name = "ctelefono_encargado"
-        Me.ctelefono_encargado.ReadOnly = True
-        Me.ctelefono_encargado.Visible = False
-        '
-        'descuento
-        '
-        Me.descuento.DataPropertyName = "descuento"
-        Me.descuento.HeaderText = "descuento"
-        Me.descuento.Name = "descuento"
-        Me.descuento.ReadOnly = True
-        Me.descuento.Visible = False
-        '
-        'climite
-        '
-        Me.climite.DataPropertyName = "limite_credito"
-        Me.climite.HeaderText = "limte_credito"
-        Me.climite.Name = "climite"
-        Me.climite.ReadOnly = True
-        Me.climite.Visible = False
-        '
-        'cid_agente
-        '
-        Me.cid_agente.DataPropertyName = "id_agente"
-        Me.cid_agente.HeaderText = "id_agente"
-        Me.cid_agente.Name = "cid_agente"
-        Me.cid_agente.ReadOnly = True
-        Me.cid_agente.Visible = False
-        '
-        'cid_lista
-        '
-        Me.cid_lista.DataPropertyName = "id_lista"
-        Me.cid_lista.HeaderText = "id_lista"
-        Me.cid_lista.Name = "cid_lista"
-        Me.cid_lista.ReadOnly = True
-        Me.cid_lista.Visible = False
-        '
-        'cobservaciones
-        '
-        Me.cobservaciones.DataPropertyName = "observaciones"
-        Me.cobservaciones.HeaderText = "observaciones"
-        Me.cobservaciones.Name = "cobservaciones"
-        Me.cobservaciones.ReadOnly = True
-        Me.cobservaciones.Visible = False
-        '
-        'celiminado
-        '
-        Me.celiminado.DataPropertyName = "eliminado"
-        Me.celiminado.HeaderText = "eliminado"
-        Me.celiminado.Name = "celiminado"
-        Me.celiminado.ReadOnly = True
-        Me.celiminado.Visible = False
-        '
-        'id_grupo
-        '
-        Me.id_grupo.DataPropertyName = "id_grupo"
-        Me.id_grupo.HeaderText = "Column1"
-        Me.id_grupo.Name = "id_grupo"
-        Me.id_grupo.ReadOnly = True
-        Me.id_grupo.Visible = False
-        '
-        'id_zona
-        '
-        Me.id_zona.DataPropertyName = "id_zona"
-        Me.id_zona.HeaderText = "id_zona"
-        Me.id_zona.Name = "id_zona"
-        Me.id_zona.ReadOnly = True
-        Me.id_zona.Visible = False
         '
         'PictureBox2
         '
@@ -1751,16 +1598,16 @@ Public Class frm_datos_mantenimiento
         Me.dtgagente.AllowUserToDeleteRows = False
         Me.dtgagente.AllowUserToResizeColumns = False
         Me.dtgagente.AllowUserToResizeRows = False
-        DataGridViewCellStyle40.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtgagente.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle40
+        DataGridViewCellStyle17.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtgagente.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle17
         Me.dtgagente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgagente.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dtgaid, Me.dtganombre, Me.dtgatelefono, Me.aidentificacion, Me.aobservaciones, Me.dtgaeliminado})
         Me.dtgagente.Location = New System.Drawing.Point(142, 53)
         Me.dtgagente.Name = "dtgagente"
         Me.dtgagente.ReadOnly = True
         Me.dtgagente.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        DataGridViewCellStyle44.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtgagente.RowsDefaultCellStyle = DataGridViewCellStyle44
+        DataGridViewCellStyle21.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtgagente.RowsDefaultCellStyle = DataGridViewCellStyle21
         Me.dtgagente.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtgagente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dtgagente.Size = New System.Drawing.Size(491, 473)
@@ -1769,9 +1616,9 @@ Public Class frm_datos_mantenimiento
         'dtgaid
         '
         Me.dtgaid.DataPropertyName = "id_agente"
-        DataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle41.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtgaid.DefaultCellStyle = DataGridViewCellStyle41
+        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle18.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtgaid.DefaultCellStyle = DataGridViewCellStyle18
         Me.dtgaid.HeaderText = "Código"
         Me.dtgaid.Name = "dtgaid"
         Me.dtgaid.ReadOnly = True
@@ -1780,8 +1627,8 @@ Public Class frm_datos_mantenimiento
         'dtganombre
         '
         Me.dtganombre.DataPropertyName = "nombre"
-        DataGridViewCellStyle42.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtganombre.DefaultCellStyle = DataGridViewCellStyle42
+        DataGridViewCellStyle19.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtganombre.DefaultCellStyle = DataGridViewCellStyle19
         Me.dtganombre.HeaderText = "Nombre"
         Me.dtganombre.Name = "dtganombre"
         Me.dtganombre.ReadOnly = True
@@ -1790,9 +1637,9 @@ Public Class frm_datos_mantenimiento
         'dtgatelefono
         '
         Me.dtgatelefono.DataPropertyName = "telefono"
-        DataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle43.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtgatelefono.DefaultCellStyle = DataGridViewCellStyle43
+        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle20.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtgatelefono.DefaultCellStyle = DataGridViewCellStyle20
         Me.dtgatelefono.HeaderText = "Teléfono"
         Me.dtgatelefono.Name = "dtgatelefono"
         Me.dtgatelefono.ReadOnly = True
@@ -1922,9 +1769,9 @@ Public Class frm_datos_mantenimiento
         'dtgfid
         '
         Me.dtgfid.DataPropertyName = "id_familia"
-        DataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle45.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtgfid.DefaultCellStyle = DataGridViewCellStyle45
+        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle22.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtgfid.DefaultCellStyle = DataGridViewCellStyle22
         Me.dtgfid.HeaderText = "Código"
         Me.dtgfid.Name = "dtgfid"
         Me.dtgfid.ReadOnly = True
@@ -1933,8 +1780,8 @@ Public Class frm_datos_mantenimiento
         'DataGridViewTextBoxColumn2
         '
         Me.DataGridViewTextBoxColumn2.DataPropertyName = "Nombre"
-        DataGridViewCellStyle46.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle46
+        DataGridViewCellStyle23.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle23
         Me.DataGridViewTextBoxColumn2.HeaderText = "Nombre"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
@@ -1981,6 +1828,199 @@ Public Class frm_datos_mantenimiento
         Me.tsproducto_id_producto.HeaderText = "Cód"
         Me.tsproducto_id_producto.MappingName = "id_producto"
         Me.tsproducto_id_producto.Width = 55
+        '
+        'dtgcid
+        '
+        Me.dtgcid.DataPropertyName = "id_cliente"
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle14.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtgcid.DefaultCellStyle = DataGridViewCellStyle14
+        Me.dtgcid.HeaderText = "Código"
+        Me.dtgcid.Name = "dtgcid"
+        Me.dtgcid.ReadOnly = True
+        Me.dtgcid.Width = 65
+        '
+        'cnombre
+        '
+        Me.cnombre.DataPropertyName = "nombre_comercial"
+        DataGridViewCellStyle15.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cnombre.DefaultCellStyle = DataGridViewCellStyle15
+        Me.cnombre.HeaderText = "Nombre"
+        Me.cnombre.Name = "cnombre"
+        Me.cnombre.ReadOnly = True
+        Me.cnombre.Width = 450
+        '
+        'cTelefono
+        '
+        Me.cTelefono.DataPropertyName = "telefono"
+        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle16.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cTelefono.DefaultCellStyle = DataGridViewCellStyle16
+        Me.cTelefono.HeaderText = "Teléfono"
+        Me.cTelefono.Name = "cTelefono"
+        Me.cTelefono.ReadOnly = True
+        Me.cTelefono.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.cTelefono.Width = 80
+        '
+        'cdireccion
+        '
+        Me.cdireccion.DataPropertyName = "direccion"
+        Me.cdireccion.HeaderText = "direccion"
+        Me.cdireccion.Name = "cdireccion"
+        Me.cdireccion.ReadOnly = True
+        Me.cdireccion.Visible = False
+        '
+        'cidentificacion
+        '
+        Me.cidentificacion.DataPropertyName = "identificacion"
+        Me.cidentificacion.HeaderText = "identificacion"
+        Me.cidentificacion.Name = "cidentificacion"
+        Me.cidentificacion.ReadOnly = True
+        Me.cidentificacion.Visible = False
+        '
+        'cplazo
+        '
+        Me.cplazo.DataPropertyName = "plazo"
+        Me.cplazo.HeaderText = "plazo"
+        Me.cplazo.Name = "cplazo"
+        Me.cplazo.ReadOnly = True
+        Me.cplazo.Visible = False
+        '
+        'cnombre_sociedad
+        '
+        Me.cnombre_sociedad.DataPropertyName = "nombre_sociedad"
+        Me.cnombre_sociedad.HeaderText = "nombre_sociedad"
+        Me.cnombre_sociedad.Name = "cnombre_sociedad"
+        Me.cnombre_sociedad.ReadOnly = True
+        Me.cnombre_sociedad.Visible = False
+        '
+        'cfax
+        '
+        Me.cfax.DataPropertyName = "fax"
+        Me.cfax.HeaderText = "fax"
+        Me.cfax.Name = "cfax"
+        Me.cfax.ReadOnly = True
+        Me.cfax.Visible = False
+        '
+        'cemail
+        '
+        Me.cemail.DataPropertyName = "email"
+        Me.cemail.HeaderText = "email"
+        Me.cemail.Name = "cemail"
+        Me.cemail.ReadOnly = True
+        Me.cemail.Visible = False
+        '
+        'cnombre_encargado
+        '
+        Me.cnombre_encargado.DataPropertyName = "nombre_encargado"
+        Me.cnombre_encargado.HeaderText = "nombre_encargado"
+        Me.cnombre_encargado.Name = "cnombre_encargado"
+        Me.cnombre_encargado.ReadOnly = True
+        Me.cnombre_encargado.Visible = False
+        '
+        'ctelefono_encargado
+        '
+        Me.ctelefono_encargado.DataPropertyName = "telefono_encargado"
+        Me.ctelefono_encargado.HeaderText = "telefono_encargado"
+        Me.ctelefono_encargado.Name = "ctelefono_encargado"
+        Me.ctelefono_encargado.ReadOnly = True
+        Me.ctelefono_encargado.Visible = False
+        '
+        'descuento
+        '
+        Me.descuento.DataPropertyName = "descuento"
+        Me.descuento.HeaderText = "descuento"
+        Me.descuento.Name = "descuento"
+        Me.descuento.ReadOnly = True
+        Me.descuento.Visible = False
+        '
+        'climite
+        '
+        Me.climite.DataPropertyName = "limite_credito"
+        Me.climite.HeaderText = "limte_credito"
+        Me.climite.Name = "climite"
+        Me.climite.ReadOnly = True
+        Me.climite.Visible = False
+        '
+        'cid_agente
+        '
+        Me.cid_agente.DataPropertyName = "id_agente"
+        Me.cid_agente.HeaderText = "id_agente"
+        Me.cid_agente.Name = "cid_agente"
+        Me.cid_agente.ReadOnly = True
+        Me.cid_agente.Visible = False
+        '
+        'cid_lista
+        '
+        Me.cid_lista.DataPropertyName = "id_lista"
+        Me.cid_lista.HeaderText = "id_lista"
+        Me.cid_lista.Name = "cid_lista"
+        Me.cid_lista.ReadOnly = True
+        Me.cid_lista.Visible = False
+        '
+        'cobservaciones
+        '
+        Me.cobservaciones.DataPropertyName = "observaciones"
+        Me.cobservaciones.HeaderText = "observaciones"
+        Me.cobservaciones.Name = "cobservaciones"
+        Me.cobservaciones.ReadOnly = True
+        Me.cobservaciones.Visible = False
+        '
+        'celiminado
+        '
+        Me.celiminado.DataPropertyName = "eliminado"
+        Me.celiminado.HeaderText = "eliminado"
+        Me.celiminado.Name = "celiminado"
+        Me.celiminado.ReadOnly = True
+        Me.celiminado.Visible = False
+        '
+        'id_grupo
+        '
+        Me.id_grupo.DataPropertyName = "id_grupo"
+        Me.id_grupo.HeaderText = "id_grupo"
+        Me.id_grupo.Name = "id_grupo"
+        Me.id_grupo.ReadOnly = True
+        Me.id_grupo.Visible = False
+        '
+        'id_precio
+        '
+        Me.id_precio.DataPropertyName = "id_precio"
+        Me.id_precio.HeaderText = "id_precio"
+        Me.id_precio.Name = "id_precio"
+        Me.id_precio.ReadOnly = True
+        Me.id_precio.Visible = False
+        '
+        'provincia
+        '
+        Me.provincia.DataPropertyName = "provincia"
+        Me.provincia.HeaderText = "provincia"
+        Me.provincia.Name = "provincia"
+        Me.provincia.ReadOnly = True
+        Me.provincia.Visible = False
+        '
+        'distrito
+        '
+        Me.distrito.DataPropertyName = "distrito"
+        Me.distrito.HeaderText = "distrito"
+        Me.distrito.Name = "distrito"
+        Me.distrito.ReadOnly = True
+        Me.distrito.Visible = False
+        '
+        'canton
+        '
+        Me.canton.DataPropertyName = "canton"
+        Me.canton.HeaderText = "canton"
+        Me.canton.Name = "canton"
+        Me.canton.ReadOnly = True
+        Me.canton.Visible = False
+        '
+        'id_zona
+        '
+        Me.id_zona.DataPropertyName = "id_zona"
+        Me.id_zona.HeaderText = "id_zona"
+        Me.id_zona.Name = "id_zona"
+        Me.id_zona.ReadOnly = True
+        Me.id_zona.Visible = False
         '
         'frm_datos_mantenimiento
         '
@@ -2175,12 +2215,12 @@ Public Class frm_datos_mantenimiento
             ' Insert
             Dacliente.InsertCommand = CONN1.CreateCommand()
             Dacliente.InsertCommand.CommandText = "INSERT INTO cliente(identificacion, nombre_comercial, nombre_sociedad,telefono,fax,email,direccion,nombre_encargado," + _
-            "telefono_encargado,descuento,plazo,limite_credito,id_agente,observaciones,id_grupo,id_zona,id_precio)" + _
+            "telefono_encargado,descuento,plazo,limite_credito,id_agente,observaciones,id_grupo,id_zona,id_precio, provincia, canton, distrito)" + _
             "values(@identificacion, @nombre_comercial, @nombre_sociedad,@telefono,@fax,@email,@direccion,@nombre_encargado," + _
-            "@telefono_encargado,@descuento,@plazo,@limite_credito,@id_agente,@observaciones,@id_grupo,@id_zona,@id_precio);" + _
+            "@telefono_encargado,@descuento,@plazo,@limite_credito,@id_agente,@observaciones,@id_grupo,@id_zona,@id_precio, @provincia, @canton, @distrito);" + _
            "SELECT * FROM cliente WHERE (id_cliente = @@IDENTITY)"
             AddParams(Dacliente.InsertCommand, "identificacion", "nombre_comercial", "nombre_sociedad", "telefono", "fax", "email", "direccion", "nombre_encargado", _
-            "telefono_encargado", "descuento", "id_agente", "plazo", "limite_credito", "observaciones", "id_grupo", "id_zona", "id_precio")
+            "telefono_encargado", "descuento", "id_agente", "plazo", "limite_credito", "observaciones", "id_grupo", "id_zona", "id_precio", "provincia", "canton", "distrito")
 
             ' Update
             Dacliente.UpdateCommand = CONN1.CreateCommand()
@@ -2188,10 +2228,10 @@ Public Class frm_datos_mantenimiento
                 "UPDATE cliente SET " + _
                 "identificacion=@identificacion, nombre_comercial=@nombre_comercial, nombre_sociedad=@nombre_sociedad,telefono=@telefono,fax=@fax,email=@email," + _
                 "direccion=@direccion,nombre_encargado=@nombre_encargado,telefono_encargado=@telefono_encargado,descuento=@descuento," + _
-                "plazo=@plazo,limite_credito=@limite_credito,id_agente=@id_agente,observaciones=@observaciones,id_grupo=@id_grupo, id_precio = @id_precio, id_zona=@id_zona" + _
+                "plazo=@plazo,limite_credito=@limite_credito,id_agente=@id_agente,observaciones=@observaciones,id_grupo=@id_grupo, provincia = @provincia, canton = @canton, distrito = @distrito, id_precio = @id_precio, id_zona=@id_zona" + _
                 " WHERE id_cliente = @id_cliente"
             AddParams(Dacliente.UpdateCommand, "id_cliente", "identificacion", "nombre_comercial", "nombre_sociedad", "telefono", "fax", "email", "direccion", "nombre_encargado", _
-            "telefono_encargado", "descuento", "plazo", "id_agente", "limite_credito", "observaciones", "id_grupo", "id_zona", "id_precio")
+            "telefono_encargado", "descuento", "plazo", "id_agente", "limite_credito", "observaciones", "id_grupo", "id_zona", "id_precio", "provincia", "canton", "distrito")
 
 
         Catch myerror As Exception
@@ -2247,6 +2287,7 @@ Public Class frm_datos_mantenimiento
         Dim cliente_Mantenimiento As New frm_cliente_mantenimiento
         With cliente_Mantenimiento
             .Owner = Me
+            .PopulateCBAddress()
             .lblid_cliente.Text = rowc("id_cliente").ToString
             .txtidentificacion.Text = rowc("identificacion").ToString.TrimEnd
             .txtnombre_sociedad.Text = rowc("nombre_sociedad")
@@ -2262,7 +2303,9 @@ Public Class frm_datos_mantenimiento
             .txtnombre_encargado.Text = rowc("nombre_encargado").ToString.TrimEnd
             .txttelefono_encargado.Text = rowc("telefono_encargado").ToString.TrimEnd
             .cbprecio.SelectedIndex = rowc("id_precio") - 1
-
+            .cbProvincia.SelectedIndex = rowc("provincia").ToString - 1
+            .cbCanton.SelectedIndex = rowc("canton").ToString - 1
+            .cbDistrito.SelectedIndex = rowc("distrito").ToString - 1
 
             CB_crear(.cbid_agente, "Agente", "id_agente")
             .cbid_agente.SelectedIndex = cb_buscar(.cbid_agente, rowc("id_agente").ToString)
@@ -2301,13 +2344,6 @@ Public Class frm_datos_mantenimiento
             ONEX(Me.Name, myerror)
         End Try
     End Sub
-
-
-
-
-
-
-
 
 
     '*** Producto
@@ -2562,16 +2598,6 @@ Public Class frm_datos_mantenimiento
 
     End Sub
 
-
-
-
-
-
-
-
-
-
-
     '*** Usuario
     Private Sub Usuario_Sql()
         Try
@@ -2677,13 +2703,6 @@ Public Class frm_datos_mantenimiento
             .Show()
         End With
     End Sub
-
-
-
-
-
-
-
 
 
     '*** Parametro
