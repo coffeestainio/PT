@@ -450,13 +450,15 @@ Public Class frm_pedido
         Dim Sql As String
         Dim P As DataTable
         If cbid_pedido.Text = "Nuevo" Then
-            Sql = "Insert into Pedido (id_cliente,id_agente,fecha,plazo,transporte,id_usuario) values (" + _
+            Sql = "Insert into Pedido (id_cliente,id_agente,fecha,plazo,transporte,id_usuario, ordenCompra, fechaOrden) values (" + _
             txtid_cliente.Text + "," + _
             cbid(cbid_agente.Text) + "," + _
             "'" + EDATE(Date.Today.ToShortDateString) + "'," + _
             Val(txtplazo.Text).ToString + "," + _
             "'" + txttransporte.Text + "'," + _
-            USUARIO_ID + ")"
+            USUARIO_ID + "," + _
+            "'" + txtOrden.Text + "'," + _
+             "'" + EDATE(dtpOrden.Value.ToString("dd/mm/yyyy")) + "')"
 
             P = Table(Sql + " select @@IDENTITY as id_pedido", "")
             PedidoID = P.Rows(0).Item("id_Pedido")
@@ -468,7 +470,9 @@ Public Class frm_pedido
                 "id_agente=" + cbid(cbid_agente.Text) + "," + _
                 "plazo=" + Val(txtplazo.Text).ToString + "," + _
                 "transporte='" + txttransporte.Text + "'," + _
-                "id_usuario=" + USUARIO_ID + _
+                "id_usuario=" + USUARIO_ID + "," + _
+                "ordenCompra='" + txtOrden.Text + "'," + _
+                "fechaOrden='" + EDATE(dtpOrden.Value.ToString("dd/MM/yyyy")) + "'" + _
                 " where id_pedido=" + cbid_pedido.Text
 
             cmd.CommandText = Sql
@@ -502,6 +506,14 @@ Public Class frm_pedido
 
     Private Sub btnfacturar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnfacturar.Click
         'Try
+        If txt_orden.Text = "" Then
+            Dim i As MsgBoxResult
+            i = MsgBox("Desea imprimir la factura sin orden de Compra?", MsgBoxStyle.YesNo, "No orden de compra")
+            If i = MsgBoxResult.No Then
+                Exit Sub
+            End If
+        End If
+
         If TPD.Rows.Count = 0 Then
             MessageBox.Show("No Hay Productos que Facturar", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
@@ -591,7 +603,7 @@ Public Class frm_pedido
             Fdescuento = 0
             Fiv = 0
 
-            Sql = "INSERT INTO FACTURA (id_cliente,id_agente,fecha,plazo,transporte,piv,id_usuario,observaciones,orden) values (" + _
+            Sql = "INSERT INTO FACTURA (id_cliente,id_agente,fecha,plazo,transporte,piv,id_usuario,observaciones,orden,ordenCompra,fechaOrden) values (" + _
             txtid_cliente.Text + "," + _
             cbid(cbid_agente.Text) + "," + _
             "'" + EDATE(Date.Today.ToShortDateString) + "'," + _
@@ -599,8 +611,10 @@ Public Class frm_pedido
             "'" + txttransporte.Text + "'," + _
             PIV.ToString + "," + _
             USUARIO_ID + "," + _
-            "''," + _
-            "'" + txt_orden.Text + "')"
+            "'" + txt_observaciones.Text + "'," + _
+            "'" + txt_orden.Text + "', " + _
+            "'" + txtOrden.Text + "'," + _
+            "'" + EDATE(dtpOrden.Value.ToString("dd/MM/yyyy")) + "')"
 
 
             F = Table(Sql + " select @@IDENTITY as id_factura", "")
@@ -938,13 +952,13 @@ Public Class frm_pedido
             rParameterFieldLocation.ApplyCurrentValues(rParameterValues)
 
 
-            rfactura.PrintOptions.PrinterName = PrinterServer
-            rfactura.PrintOptions.PaperOrientation = PaperOrientation.Portrait
-            rfactura.PrintToPrinter(1, False, 1, 1)
+            'rfactura.PrintOptions.PrinterName = PrinterServer
+            'rfactura.PrintOptions.PaperOrientation = PaperOrientation.Portrait
+            'rfactura.PrintToPrinter(1, False, 1, 1)
 
-            'Dim rv As New frm_Report_Viewer
-            'rv.crv.ReportSource = rfactura
-            'rv.Show()
+            Dim rv As New frm_Report_Viewer
+            rv.crv.ReportSource = rfactura
+            rv.Show()
 
         Next h
         'Catch myerror As Exception
@@ -1109,6 +1123,7 @@ Public Class frm_pedido
         If chkoriginal.Checked Then Facturas_imprimir(1)
         If chkcopia.Checked Then Facturas_imprimir(2)
         If chkarchivo.Checked Then Facturas_imprimir(3)
+
     End Sub
 
     Private Sub chkoriginal_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkoriginal.CheckedChanged
@@ -1120,6 +1135,14 @@ Public Class frm_pedido
     End Sub
 
     Private Sub txt_orden_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_orden.TextChanged
+
+    End Sub
+
+    Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtOrden.TextChanged
+
+    End Sub
+
+    Private Sub Label8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label8.Click
 
     End Sub
 End Class
