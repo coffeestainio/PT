@@ -1,0 +1,2 @@
+Tenemos que guardar la identificacion del cliente!
+Neceisto saber cual es nuestro numero de cuenta!:
