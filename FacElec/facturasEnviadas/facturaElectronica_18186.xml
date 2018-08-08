@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <FacturaElectronicaXML>
+    <Encabezado>
+      <NumeroFactura>18186</NumeroFactura>
+      <FechaFactura>2018-07-17</FechaFactura>
+      <Emisor>
+        <numCuenta>1234</numCuenta>
+      </Emisor>
+      <TipoCambio>1.00</TipoCambio>
+      <TipoDoc>4</TipoDoc>
+      <CondicionVenta>1</CondicionVenta>
+      <NumOrdenCompra />
+      <Moneda>1</Moneda>
+      <idMedioPago>1</idMedioPago>
+      <DiasCredito>0</DiasCredito>
+      <Sucursal>1</Sucursal>
+      <Terminal>1</Terminal>
+      <FechaVencimiento></FechaVencimiento>
+      <SituacionEnvio>1</SituacionEnvio>
+      <Periodo>2018</Periodo>
+      <Receptor>
+        <TipoIdentificacion>2</TipoIdentificacion>
+        <IdentificacionReceptor>3-101-249091</IdentificacionReceptor>
+        <NombreReceptor>Armería Armix,  S. A.</NombreReceptor>
+        <idProvincia>1</idProvincia>
+        <idCanton>1</idCanton>
+        <idDistrito>1</idDistrito>
+        <idBarrio>1</idBarrio>
+        <DireccionReceptor>Heredia, costado norte del Mercado Municipal</DireccionReceptor>
+        <NumeroAreaTelReceptor>506</NumeroAreaTelReceptor>
+        <NumeroTelReceptor>2261-6059</NumeroTelReceptor>
+        <CorreoElectronicoReceptor>                                   </CorreoElectronicoReceptor>
+        <CopiaCortesia>rmorae@ice.co.cr;pcalvo@coffeestain.io</CopiaCortesia>
+      </Receptor>
+    </Encabezado>
+    <Detalle>(&lt;Tipo&gt;M&lt;/Tipo&gt;, &lt;CodigoProducto&gt;189&lt;/CodigoProducto&gt;, &lt;UnidadMedida&gt;40&lt;/UnidadMedida&gt;, &lt;DetalleMerc&gt;Gas para encendedor Newport  300 ml.&lt;/DetalleMerc&gt;, &lt;PrecioUnitario&gt;1893&lt;/PrecioUnitario&gt;, &lt;MontoDescuento&gt;1135.800000&lt;/MontoDescuento&gt;, &lt;NaturalezaDescuento&gt;&lt;/NaturalezaDescuento&gt;, &lt;Impuestos&gt;
+  &lt;Impuesto&gt;
+    &lt;CodigoImpuesto&gt;1&lt;/CodigoImpuesto&gt;
+    &lt;PorcentajeImpuesto&gt;13.00&lt;/PorcentajeImpuesto&gt;
+    &lt;MontoImpuesto&gt;2805.42600000&lt;/MontoImpuesto&gt;
+    &lt;Exoneracion /&gt;
+  &lt;/Impuesto&gt;
+&lt;/Impuestos&gt;)</Detalle>
+    <Totales>
+      <TotalServGravados>0</TotalServGravados>
+      <TotalServExentos>0</TotalServExentos>
+      <TotalMercanciasGravadas>22716.00</TotalMercanciasGravadas>
+      <TotalMercanciasExentas>0</TotalMercanciasExentas>
+      <TotalMercanciasGravadas>22716.00</TotalMercanciasGravadas>
+      <TotalGravado>22716.00</TotalGravado>
+      <TotalExento>0</TotalExento>
+      <TotalVenta>22716.00</TotalVenta>
+      <TotalDescuento>1135.800000</TotalDescuento>
+      <TotalVentaNeta>21580.200000</TotalVentaNeta>
+      <TotalImpuesto>2805.42600000</TotalImpuesto>
+      <TotalComprobante>25521.42600000</TotalComprobante>
+    </Totales>
+    <Otros></Otros>
+  </FacturaElectronicaXML>
+</root>
