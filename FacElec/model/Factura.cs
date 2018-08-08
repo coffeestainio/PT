@@ -16,8 +16,10 @@ namespace FacElec.model
         public List<cliente> cliente;
         public string ordenCompra;
         public DateTime fechaOrden;
+        public int sincronizada;
 
-        public Factura(string id_factura, int id_cliente, int id_agente, int plazo, DateTime fecha, int id_usuario, decimal pIV, List<factura_Detalle> factura_Detalle, List<cliente> cliente, string ordenCompra, DateTime fechaOrden)
+        public Factura(string id_factura, int id_cliente, int id_agente, int plazo, DateTime fecha, int id_usuario, decimal pIV, List<factura_Detalle> factura_Detalle, List<cliente> cliente, string ordenCompra, DateTime fechaOrden,
+                      int sincronizada)
         {
             this.id_factura = id_factura;
             this.id_cliente = id_cliente;
@@ -30,6 +32,7 @@ namespace FacElec.model
             this.cliente = cliente;
             this.ordenCompra = ordenCompra;
             this.fechaOrden = fechaOrden;
+            this.sincronizada = sincronizada;
         }
     }
 }

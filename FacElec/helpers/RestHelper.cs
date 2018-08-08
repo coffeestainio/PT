@@ -1,5 +1,6 @@
 ﻿using System;
 using RestSharp;
+using System.Xml.Linq;
 
 namespace FacElec.helpers
 {
@@ -7,9 +8,9 @@ namespace FacElec.helpers
     {
         private const string apiUrl = "https://coffeestain-api.herokuapp.com/api";
 
-        public static void DoSomething()
+        public static bool SendFacturaElectronica(XDocument docXml)
         {
-            var client = new RestClient(apiUrl);
+            /*var client = new RestClient(apiUrl);
 
             var request = new RestRequest("contact/add", Method.POST);
             request.AddHeader("Accept", "application/vnd.twitter-v1+json");
@@ -21,7 +22,9 @@ namespace FacElec.helpers
             dynamic name = response2.Content;
             var nombre = name.Result;
 
-            // return content type is sniffed but can be explicitly set via RestClient.AddHandler()
+            // return content type is sniffed but can be explicitly set via RestClient.AddHandler()*/
+
+            return true;
 
         }
     }

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <FacturaElectronicaXML>
+    <Encabezado>
+      <NumeroFactura>18187</NumeroFactura>
+      <FechaFactura>2018-07-17</FechaFactura>
+      <Emisor>
+        <numCuenta>1234</numCuenta>
+      </Emisor>
+      <TipoCambio>1.00</TipoCambio>
+      <TipoDoc>4</TipoDoc>
+      <CondicionVenta>1</CondicionVenta>
+      <NumOrdenCompra />
+      <Moneda>1</Moneda>
+      <idMedioPago>1</idMedioPago>
+      <DiasCredito>0</DiasCredito>
+      <Sucursal>1</Sucursal>
+      <Terminal>1</Terminal>
+      <FechaVencimiento></FechaVencimiento>
+      <SituacionEnvio>1</SituacionEnvio>
+      <Periodo>2018</Periodo>
+      <Receptor>
+        <TipoIdentificacion>1</TipoIdentificacion>
+      </Receptor>
+    </Encabezado>
+  </FacturaElectronicaXML>
+</root>

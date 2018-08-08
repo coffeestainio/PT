@@ -49,5 +49,9 @@ namespace FacElec.helpers
             return factura;
 
         }
+
+        public static void GuardarEstado(List<Factura> facturasListas){
+            
+        }
     }
 }
