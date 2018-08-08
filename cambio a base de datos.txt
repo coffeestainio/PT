@@ -12,4 +12,7 @@ fechaOrden DateTime NULL;
 ALTER TABLE dbo.factura ADD
 sincronizada int NULL DEFAULT 0;
 
-UPDATA dbo.factura SET sincronizada =3;
+UPDATe dbo.factura SET sincronizada =3;
+
+Alter table dbo.cliente add
+tipoIdentificacion int null;

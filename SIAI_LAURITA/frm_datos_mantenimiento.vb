@@ -198,6 +198,7 @@ Public Class frm_datos_mantenimiento
     Friend WithEvents pid_proverdor As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents pbarcode As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents dtgcid As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents tipoIdentificacion As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cnombre As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cTelefono As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cdireccion As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -417,6 +418,7 @@ Public Class frm_datos_mantenimiento
         Me.tsproducto_nombre = New System.Windows.Forms.DataGridTextBoxColumn
         Me.tsproducto_id_producto = New System.Windows.Forms.DataGridTextBoxColumn
         Me.dtgcid = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.tipoIdentificacion = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.cnombre = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.cTelefono = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.cdireccion = New System.Windows.Forms.DataGridViewTextBoxColumn
@@ -1522,7 +1524,7 @@ Public Class frm_datos_mantenimiento
         Me.dtgcliente.AllowUserToResizeColumns = False
         Me.dtgcliente.AllowUserToResizeRows = False
         Me.dtgcliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtgcliente.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dtgcid, Me.cnombre, Me.cTelefono, Me.cdireccion, Me.cidentificacion, Me.cplazo, Me.cnombre_sociedad, Me.cfax, Me.cemail, Me.cnombre_encargado, Me.ctelefono_encargado, Me.descuento, Me.climite, Me.cid_agente, Me.cid_lista, Me.cobservaciones, Me.celiminado, Me.id_grupo, Me.id_precio, Me.provincia, Me.distrito, Me.canton, Me.id_zona, Me.idautomercado})
+        Me.dtgcliente.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dtgcid, Me.tipoIdentificacion, Me.cnombre, Me.cTelefono, Me.cdireccion, Me.cidentificacion, Me.cplazo, Me.cnombre_sociedad, Me.cfax, Me.cemail, Me.cnombre_encargado, Me.ctelefono_encargado, Me.descuento, Me.climite, Me.cid_agente, Me.cid_lista, Me.cobservaciones, Me.celiminado, Me.id_grupo, Me.id_precio, Me.provincia, Me.distrito, Me.canton, Me.id_zona, Me.idautomercado})
         Me.dtgcliente.Location = New System.Drawing.Point(64, 60)
         Me.dtgcliente.Name = "dtgcliente"
         Me.dtgcliente.ReadOnly = True
@@ -1841,6 +1843,14 @@ Public Class frm_datos_mantenimiento
         Me.dtgcid.Name = "dtgcid"
         Me.dtgcid.ReadOnly = True
         Me.dtgcid.Width = 65
+        '
+        'tipoIdentificacion
+        '
+        Me.tipoIdentificacion.DataPropertyName = "tipoIdentificacion"
+        Me.tipoIdentificacion.HeaderText = "tipoIdentificacion"
+        Me.tipoIdentificacion.Name = "tipoIdentificacion"
+        Me.tipoIdentificacion.ReadOnly = True
+        Me.tipoIdentificacion.Visible = False
         '
         'cnombre
         '
@@ -2225,12 +2235,12 @@ Public Class frm_datos_mantenimiento
             ' Insert
             Dacliente.InsertCommand = CONN1.CreateCommand()
             Dacliente.InsertCommand.CommandText = "INSERT INTO cliente(identificacion, nombre_comercial, nombre_sociedad,telefono,fax,email,direccion,nombre_encargado," + _
-            "telefono_encargado,descuento,plazo,limite_credito,id_agente,observaciones,id_grupo,id_zona,id_precio, provincia, canton, distrito)" + _
+            "telefono_encargado,descuento,plazo,limite_credito,id_agente,observaciones,id_grupo,id_zona,id_precio, provincia, canton, distrito, tipoIdentificacion)" + _
             "values(@identificacion, @nombre_comercial, @nombre_sociedad,@telefono,@fax,@email,@direccion,@nombre_encargado," + _
-            "@telefono_encargado,@descuento,@plazo,@limite_credito,@id_agente,@observaciones,@id_grupo,@id_zona,@id_precio, @provincia, @canton, @distrito);" + _
+            "@telefono_encargado,@descuento,@plazo,@limite_credito,@id_agente,@observaciones,@id_grupo,@id_zona,@id_precio, @provincia, @canton, @distrito, @tipoIdentificacion);" + _
            "SELECT * FROM cliente WHERE (id_cliente = @@IDENTITY)"
             AddParams(Dacliente.InsertCommand, "identificacion", "nombre_comercial", "nombre_sociedad", "telefono", "fax", "email", "direccion", "nombre_encargado", _
-            "telefono_encargado", "descuento", "id_agente", "plazo", "limite_credito", "observaciones", "id_grupo", "id_zona", "id_precio", "provincia", "canton", "distrito", "idautomercado")
+            "telefono_encargado", "descuento", "id_agente", "plazo", "limite_credito", "observaciones", "id_grupo", "id_zona", "id_precio", "provincia", "canton", "distrito", "idautomercado", "tipoIdentificacion")
 
             ' Update
             Dacliente.UpdateCommand = CONN1.CreateCommand()
@@ -2238,10 +2248,10 @@ Public Class frm_datos_mantenimiento
                 "UPDATE cliente SET " + _
                 "identificacion=@identificacion, nombre_comercial=@nombre_comercial, nombre_sociedad=@nombre_sociedad,telefono=@telefono,fax=@fax,email=@email," + _
                 "direccion=@direccion,nombre_encargado=@nombre_encargado,telefono_encargado=@telefono_encargado,descuento=@descuento," + _
-                "plazo=@plazo,limite_credito=@limite_credito,idautomercado = @idautomercado, id_agente=@id_agente,observaciones=@observaciones,id_grupo=@id_grupo, provincia = @provincia, canton = @canton, distrito = @distrito, id_precio = @id_precio, id_zona=@id_zona" + _
+                "plazo=@plazo,limite_credito=@limite_credito,tipoIdentificacion = @tipoIdentificacion, idautomercado = @idautomercado, id_agente=@id_agente,observaciones=@observaciones,id_grupo=@id_grupo, provincia = @provincia, canton = @canton, distrito = @distrito, id_precio = @id_precio, id_zona=@id_zona" + _
                 " WHERE id_cliente = @id_cliente"
             AddParams(Dacliente.UpdateCommand, "id_cliente", "identificacion", "nombre_comercial", "nombre_sociedad", "telefono", "fax", "email", "direccion", "nombre_encargado", _
-            "telefono_encargado", "descuento", "plazo", "id_agente", "limite_credito", "observaciones", "id_grupo", "id_zona", "id_precio", "provincia", "canton", "distrito", "idautomercado")
+            "telefono_encargado", "descuento", "plazo", "id_agente", "limite_credito", "observaciones", "id_grupo", "id_zona", "id_precio", "provincia", "canton", "distrito", "idautomercado", "tipoIdentificacion")
 
 
         Catch myerror As Exception
@@ -2317,6 +2327,7 @@ Public Class frm_datos_mantenimiento
             .cbCanton.SelectedIndex = rowc("canton").ToString - 1
             .cbDistrito.SelectedIndex = rowc("distrito").ToString - 1
             .txtAutomercado.Text = rowc("idautomercado").ToString
+            .cbIdentificacion.SelectedIndex = rowc("tipoIdentificacion").ToString - 1
 
             CB_crear(.cbid_agente, "Agente", "id_agente")
             .cbid_agente.SelectedIndex = cb_buscar(.cbid_agente, rowc("id_agente").ToString)

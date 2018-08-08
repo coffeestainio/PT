@@ -1,11 +1,23 @@
-﻿using System.Diagnostics.Contracts;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Linq;
 using FacElec.model;
 namespace FacElec.helpers
 {
     public static class XmlHelper
     {
+        private static decimal totalGravado;
+        private static decimal totalExento;
+        private static decimal total;
+        private static decimal totalDescuentos;
+        private static decimal totalVentaNeta;
+        private static decimal totalImpuestos;
+
         public static XDocument generateXML(Factura factura){
+
+            calculateTotals(factura);
+
+            var cliente = factura.cliente[0];
 
             var numCuenta = 1234;
             var periodo = 0;
@@ -15,7 +27,7 @@ namespace FacElec.helpers
                 periodo = System.DateTime.Today.Year + 1;
 
             var xmlDoc = new XDocument(
-                             new XDeclaration("1.0", "utf-8",""),
+                             new XDeclaration("1.0", "utf-8", ""),
                              new XElement("root",
                              new XElement("FacturaElectronicaXML",
                                    new XElement("Encabezado",
@@ -35,13 +47,105 @@ namespace FacElec.helpers
                                                 new XElement("SituacionEnvio", 1),
                                                 new XElement("Periodo", periodo),
                                                 new XElement("Receptor",
-                                                             new XElement("TipoIdentificacion", 1)
+                                                             new XElement("TipoIdentificacion", cliente.tipoIdentificacion),
+                                                             new XElement("IdentificacionReceptor", cliente.identificacion),
+                                                             new XElement("NombreReceptor",cliente.nombre_sociedad),
+                                                             new XElement("idProvincia",cliente.provincia),
+                                                             new XElement("idCanton", cliente.canton),
+                                                             new XElement("idDistrito", cliente.distrito),
+                                                             new XElement("idBarrio",1),
+                                                             new XElement("DireccionReceptor",cliente.direccion),
+                                                             new XElement("NumeroAreaTelReceptor","506"),
+                                                             new XElement("NumeroTelReceptor",cliente.telefono),
+                                                             new XElement("CorreoElectronicoReceptor", cliente.email),
+                                                             new XElement("CopiaCortesia", "rmorae@ice.co.cr;pcalvo@coffeestain.io")
                                                             )
-                                               )
-                                        )
-                            ));
+                                                             
+                                               ),
+                                          generateDetailsXml(factura.factura_Detalle),
+                                                new XElement("Totales",
+                                                             new XElement("TotalServGravados", 0),
+                                                             new XElement("TotalServExentos", 0),
+                                                             new XElement("TotalMercanciasGravadas", totalGravado),
+                                                             new XElement("TotalMercanciasExentas", totalExento),
+                                                             new XElement("TotalMercanciasGravadas", totalGravado),
+                                                             new XElement("TotalGravado", totalGravado),
+                                                             new XElement("TotalExento", totalExento),
+                                                             new XElement("TotalVenta", total),
+                                                             new XElement("TotalDescuento", totalDescuentos),
+                                                             new XElement("TotalVentaNeta", totalVentaNeta),
+                                                             new XElement("TotalImpuesto", totalImpuestos),
+                                                             new XElement("TotalComprobante", totalVentaNeta + totalImpuestos)
+                                                             ),
+                                                new XElement("Otros","")
+                                         )
+                                     )
+                                );
             return xmlDoc;
         } 
+
+        private static XElement generateDetailsXml(List<factura_Detalle> detalles){
+            var xml = new XElement("Detalle");
+
+               foreach(factura_Detalle detalle in detalles)
+                xml.Add(new XElement("Linea",
+                                new XElement("Tipo", "M"),
+                               new XElement("CodigoProducto", detalle.producto[0].id_producto),
+                               new XElement("UnidadMedida", 40),
+                               new XElement("DetalleMerc", detalle.producto[0].nombre),
+                               new XElement("PrecioUnitario", detalle.precio),
+                               new XElement("MontoDescuento", getDescuento(detalle)),
+                               new XElement("NaturalezaDescuento",""),
+                               new XElement("Impuestos",
+                                           new XElement("Impuesto",
+                                                           new XElement("CodigoImpuesto",1),
+                                                           new XElement("PorcentajeImpuesto",(detalle.IV == true) ? "13.00":"00.00"),
+                                                           new XElement("MontoImpuesto",getMontoImpuesto(detalle)),
+                                                           new XElement("Exoneracion",null)
+                                                          )
+                                             )
+                                ) 
+                       );
+
+            return xml;
+
+
+        }
+
+        private static decimal getDescuento(factura_Detalle detalle)
+        {
+            return detalle.cantidad * detalle.precio * detalle.descuento;
+        }
+
+        private static decimal getMontoImpuesto(factura_Detalle detalle){
+            if (!detalle.IV)
+                return 0;
+            return (
+                ((detalle.precio * detalle.cantidad) - getDescuento(detalle)) * decimal.Parse("0.13")
+            );
+        }
+
+        private static void calculateTotals(Factura factura)
+        {
+            foreach (factura_Detalle det in factura.factura_Detalle)
+            {
+
+                if (det.IV == true)
+                    totalGravado += det.cantidad * det.precio;
+                else
+                    totalExento += det.cantidad * det.precio;
+
+                if (det.descuento > 0)
+                    totalDescuentos += getDescuento(det);
+
+                if (det.IV)
+                    totalImpuestos += getMontoImpuesto(det);
+
+                total = totalExento + totalGravado;
+                totalVentaNeta = total - totalDescuentos;
+            }
+        }
+
 
         public static void storeXml(XDocument xmlDoc, string facId){
             var fileName = $"facturasEnviadas/facturaElectronica_{facId}.xml";

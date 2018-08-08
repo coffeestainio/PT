@@ -84,6 +84,8 @@ Public Class frm_cliente_mantenimiento
     Friend WithEvents cbProvincia As System.Windows.Forms.ComboBox
     Friend WithEvents txtAutomercado As System.Windows.Forms.TextBox
     Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents Label23 As System.Windows.Forms.Label
+    Friend WithEvents cbIdentificacion As System.Windows.Forms.ComboBox
     Friend WithEvents btnaceptar As System.Windows.Forms.Button
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
@@ -92,6 +94,8 @@ Public Class frm_cliente_mantenimiento
         Me.btncancelar = New System.Windows.Forms.Button
         Me.btnaceptar = New System.Windows.Forms.Button
         Me.Panel1 = New System.Windows.Forms.Panel
+        Me.txtAutomercado = New System.Windows.Forms.TextBox
+        Me.Label22 = New System.Windows.Forms.Label
         Me.cbDistrito = New System.Windows.Forms.ComboBox
         Me.cbCanton = New System.Windows.Forms.ComboBox
         Me.cbProvincia = New System.Windows.Forms.ComboBox
@@ -141,8 +145,8 @@ Public Class frm_cliente_mantenimiento
         Me.Label1 = New System.Windows.Forms.Label
         Me.PictureBox3 = New System.Windows.Forms.PictureBox
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Label22 = New System.Windows.Forms.Label
-        Me.txtAutomercado = New System.Windows.Forms.TextBox
+        Me.Label23 = New System.Windows.Forms.Label
+        Me.cbIdentificacion = New System.Windows.Forms.ComboBox
         Me.Panel1.SuspendLayout()
         CType(Me.pblimite_credito, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbnombre_comercial, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -190,6 +194,8 @@ Public Class frm_cliente_mantenimiento
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Panel1.Controls.Add(Me.cbIdentificacion)
+        Me.Panel1.Controls.Add(Me.Label23)
         Me.Panel1.Controls.Add(Me.txtAutomercado)
         Me.Panel1.Controls.Add(Me.Label22)
         Me.Panel1.Controls.Add(Me.cbDistrito)
@@ -244,6 +250,26 @@ Public Class frm_cliente_mantenimiento
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(754, 684)
         Me.Panel1.TabIndex = 0
+        '
+        'txtAutomercado
+        '
+        Me.txtAutomercado.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAutomercado.Location = New System.Drawing.Point(166, 181)
+        Me.txtAutomercado.MaxLength = 35
+        Me.txtAutomercado.Name = "txtAutomercado"
+        Me.txtAutomercado.Size = New System.Drawing.Size(255, 26)
+        Me.txtAutomercado.TabIndex = 106
+        Me.ToolTip1.SetToolTip(Me.txtAutomercado, "Id Para clientes de automercado")
+        '
+        'Label22
+        '
+        Me.Label22.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.Location = New System.Drawing.Point(20, 183)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(143, 24)
+        Me.Label22.TabIndex = 105
+        Me.Label22.Text = "ID Auto Mercado"
+        Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'cbDistrito
         '
@@ -738,25 +764,26 @@ Public Class frm_cliente_mantenimiento
         Me.PictureBox3.TabIndex = 67
         Me.PictureBox3.TabStop = False
         '
-        'Label22
+        'Label23
         '
-        Me.Label22.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.Location = New System.Drawing.Point(20, 183)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(143, 24)
-        Me.Label22.TabIndex = 105
-        Me.Label22.Text = "ID Auto Mercado"
-        Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label23.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Location = New System.Drawing.Point(334, 47)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(144, 24)
+        Me.Label23.TabIndex = 107
+        Me.Label23.Text = "Tipo Identificacion"
+        Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'txtAutomercado
+        'cbIdentificacion
         '
-        Me.txtAutomercado.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAutomercado.Location = New System.Drawing.Point(166, 181)
-        Me.txtAutomercado.MaxLength = 35
-        Me.txtAutomercado.Name = "txtAutomercado"
-        Me.txtAutomercado.Size = New System.Drawing.Size(255, 26)
-        Me.txtAutomercado.TabIndex = 106
-        Me.ToolTip1.SetToolTip(Me.txtAutomercado, "Id Para clientes de automercado")
+        Me.cbIdentificacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbIdentificacion.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbIdentificacion.Items.AddRange(New Object() {"Cedula Fisica", "Cedula Juridica", "Dimex", "Nite", "Extranjera"})
+        Me.cbIdentificacion.Location = New System.Drawing.Point(468, 45)
+        Me.cbIdentificacion.Name = "cbIdentificacion"
+        Me.cbIdentificacion.Size = New System.Drawing.Size(251, 26)
+        Me.cbIdentificacion.TabIndex = 108
+        Me.ToolTip1.SetToolTip(Me.cbIdentificacion, "Seleccione el agente del cliente")
         '
         'frm_cliente_mantenimiento
         '
@@ -854,6 +881,7 @@ Public Class frm_cliente_mantenimiento
             .rowc("canton") = Val(cbCanton.SelectedIndex + 1)
             .rowc("distrito") = Val(cbDistrito.SelectedIndex + 1)
             .rowc("idautomercado") = txtAutomercado.Text
+            .rowc("tipoIdentificacion") = cbIdentificacion.SelectedIndex + 1
 
 
             If lbltitulo.Text = "Incluir Cliente" Then .Dvcliente.Table.Rows.Add(.rowc)
@@ -1038,7 +1066,7 @@ Public Class frm_cliente_mantenimiento
         cbProvincia.SelectedIndex = 0
 
     End Sub
-   
+
 
     Private Sub frm_cliente_mantenimiento_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
@@ -1078,6 +1106,10 @@ Public Class frm_cliente_mantenimiento
         Next
 
         cbDistrito.SelectedIndex = 0
+    End Sub
+
+    Private Sub Label23_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label23.Click
+
     End Sub
 End Class
 
