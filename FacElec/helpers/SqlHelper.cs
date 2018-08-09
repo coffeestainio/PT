@@ -51,8 +51,37 @@ namespace FacElec.helpers
 
         }
 
-        public static void GuardarEstado(List<GTIResponse> resultados){
-            
+        public static void GuardarEstado(List<GTIResponse> resultados)
+        {
+            var sqlCommando = "";
+            foreach (GTIResponse res in resultados)
+            {
+                sqlCommando +=
+                    $"update dbo.factura set idCarga='{res.IdCarga}', " +
+                    $"ClaveNumerica='{res.ClaveNumerica}', " +
+                    $"NumConsecutivo='{res.NumConsecutivoCompr}', " +
+                    $"CodError='{res.CodigoError}', " +
+                    $"DescripcionError='{res.DescripcionError}', " +
+                    $"sincronizada=1 " +
+                    $" where id_factura = {res.NumFacturaInterno};";
+            }
+
+            try
+            {
+                using (var connection = new SqlConnection(sqlConnection))
+                {
+                    var command = new SqlCommand(sqlCommando, connection);
+                    connection.Open();
+
+                    var updatedRows = command.ExecuteNonQuery();
+                    Console.WriteLine($"Number of processed rows {updatedRows}");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

@@ -27,6 +27,9 @@ namespace FacElec.sync
 
                 }
             }
+            else{
+                Console.WriteLine("Nothing to sync.");
+            }
 
             SqlHelper.GuardarEstado(resultados);
 

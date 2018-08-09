@@ -167,6 +167,10 @@ namespace FacElec.helpers
                 response.ClaveNumerica = res.Element("ClaveNumerica").Value;
                 response.NumConsecutivoCompr = res.Element("NumConsecutivoCompr").Value;
             }
+            else{
+                response.ClaveNumerica = "";
+                response.NumConsecutivoCompr = "";
+            }
             response.NumDocumento = res.Element("NumDocumento").Value;
             response.IdCarga = res.Element("IdCarga").Value;
             response.NumFacturaInterno = res.Element("NumFacturaInterno").Value;

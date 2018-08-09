@@ -8,6 +8,7 @@
     <Folder Include="sync\" />
     <Folder Include="model\" />
     <Folder Include="helpers\" />
+    <Folder Include="facturasEnviadas\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Data.SqlClient" Version="4.5.1" />
@@ -22,5 +23,9 @@
     <PackageReference Include="System.ServiceModel.Http" Version="4.4.*" />
     <PackageReference Include="System.ServiceModel.NetTcp" Version="4.4.*" />
     <PackageReference Include="System.ServiceModel.Security" Version="4.4.*" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="facturasEnviadas\facturaElectronica_18186.xml" />
+    <None Remove="facturasEnviadas\facturaElectronica_18186.xml" />
   </ItemGroup>
 </Project>
