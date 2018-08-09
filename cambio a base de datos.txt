@@ -16,3 +16,6 @@ UPDATe dbo.factura SET sincronizada =3;
 
 Alter table dbo.cliente add
 tipoIdentificacion int null;
+
+
+
