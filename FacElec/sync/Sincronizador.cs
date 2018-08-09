@@ -12,6 +12,7 @@ namespace FacElec.sync
         public static void SincronizarFacturas()
         {
             var facturas = new List<Factura>();
+            var resultados = new List<GTIResponse>();
             facturas = SqlHelper.GetFacturas();
             if (facturas != null && facturas.Count > 0)
             {
@@ -22,13 +23,12 @@ namespace FacElec.sync
                     XmlHelper.storeXml(xmlFac, fac.id_factura);
                     var resultado = RestHelper.SendFacturaElectronica(xmlFac);
 
-                    if (resultado)
-                        fac.sincronizada = 3;
+                    resultados.Add(XmlHelper.validateResponse(resultado));
 
                 }
             }
 
-            SqlHelper.GuardarEstado(facturas);
+            SqlHelper.GuardarEstado(resultados);
 
         }
     }

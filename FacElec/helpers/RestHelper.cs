@@ -1,44 +1,32 @@
-﻿using System;
-using RestSharp;
+﻿
+using System;
 using System.Xml.Linq;
 
 namespace FacElec.helpers
 {
     public static class RestHelper
     {
-        private const string apiUrl = "https://coffeestain-api.herokuapp.com/api";
+        private const string email = "rmorae@ice.co.cr";
+        private const string password = "CtaGTI*2017";
 
-        public static bool SendFacturaElectronica(XDocument docXml)
+        public static XDocument SendFacturaElectronica(XDocument docXml)
         {
-            /*var client = new RestClient(apiUrl);
+            string respuesta = "";
 
-            var request = new RestRequest("contact/add", Method.POST);
-            request.AddHeader("Accept", "application/vnd.twitter-v1+json");
-            request.RequestFormat = DataFormat.Json;
-            request.AddJsonBody(new {email="pass1asdadda",phone="sdaa1sdasdasasdfssda",}); // replaces matching token in request.Resource
+            try
+            {
+                var servicio = new GTICargaFacturaSoapClient(GTICargaFacturaSoapClient.EndpointConfiguration.GTICargaFacturaSoap);
+                var response = servicio.InsertarDocumentosAsync(docXml.ToString(), email, password);
+                response.Wait();
+                respuesta = response.Result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
-            // execute the request
-            IRestResponse response2 = client.Execute<ResponseResultado>(request);
-            dynamic name = response2.Content;
-            var nombre = name.Result;
-
-            // return content type is sniffed but can be explicitly set via RestClient.AddHandler()*/
-
-            return true;
-
-        }
-    }
-
-    public class ResponseResultado{
-        public string Result;
-
-        public ResponseResultado(string result)
-        {
-            Result = result;
-        }
-
-        public ResponseResultado(){
-            
+            XDocument resXml = XDocument.Parse(respuesta);
+            return resXml;
         }
     }
 }

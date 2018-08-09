@@ -20,8 +20,8 @@
       <SituacionEnvio>1</SituacionEnvio>
       <Periodo>2018</Periodo>
       <Receptor>
-        <TipoIdentificacion>1</TipoIdentificacion>
-        <IdentificacionReceptor>3-101-249091</IdentificacionReceptor>
+        <TipoIdentificacion>2</TipoIdentificacion>
+        <IdentificacionReceptor>3101249091</IdentificacionReceptor>
         <NombreReceptor>Armería Armix,  S. A.</NombreReceptor>
         <idProvincia>1</idProvincia>
         <idCanton>1</idCanton>
@@ -38,16 +38,17 @@
       <Linea>
         <Tipo>M</Tipo>
         <CodigoProducto>189</CodigoProducto>
+        <Cantidad>12.00</Cantidad>
         <UnidadMedida>40</UnidadMedida>
         <DetalleMerc>Gas para encendedor Newport  300 ml.</DetalleMerc>
         <PrecioUnitario>1893</PrecioUnitario>
-        <MontoDescuento>1135.800000</MontoDescuento>
-        <NaturalezaDescuento></NaturalezaDescuento>
+        <MontoDescuento>1135.80</MontoDescuento>
+        <NaturalezaDescuento>Descuento</NaturalezaDescuento>
         <Impuestos>
           <Impuesto>
             <CodigoImpuesto>1</CodigoImpuesto>
             <PorcentajeImpuesto>13.00</PorcentajeImpuesto>
-            <MontoImpuesto>2805.42600000</MontoImpuesto>
+            <MontoImpuesto>2805.43</MontoImpuesto>
             <Exoneracion />
           </Impuesto>
         </Impuestos>
@@ -55,16 +56,17 @@
       <Linea>
         <Tipo>M</Tipo>
         <CodigoProducto>183</CodigoProducto>
+        <Cantidad>2.00</Cantidad>
         <UnidadMedida>40</UnidadMedida>
         <DetalleMerc>Boquilla Star (caja master de 240 unidades) </DetalleMerc>
         <PrecioUnitario>7200</PrecioUnitario>
-        <MontoDescuento>720.000000</MontoDescuento>
-        <NaturalezaDescuento></NaturalezaDescuento>
+        <MontoDescuento>720.00</MontoDescuento>
+        <NaturalezaDescuento>Descuento</NaturalezaDescuento>
         <Impuestos>
           <Impuesto>
             <CodigoImpuesto>1</CodigoImpuesto>
             <PorcentajeImpuesto>13.00</PorcentajeImpuesto>
-            <MontoImpuesto>1778.40000000</MontoImpuesto>
+            <MontoImpuesto>1778.40</MontoImpuesto>
             <Exoneracion />
           </Impuesto>
         </Impuestos>
@@ -79,10 +81,10 @@
       <TotalGravado>37116.00</TotalGravado>
       <TotalExento>0</TotalExento>
       <TotalVenta>37116.00</TotalVenta>
-      <TotalDescuento>1855.800000</TotalDescuento>
-      <TotalVentaNeta>35260.200000</TotalVentaNeta>
-      <TotalImpuesto>4583.82600000</TotalImpuesto>
-      <TotalComprobante>39844.02600000</TotalComprobante>
+      <TotalDescuentos>1855.80</TotalDescuentos>
+      <TotalVentaNeta>35260.20</TotalVentaNeta>
+      <TotalImpuesto>4583.83</TotalImpuesto>
+      <TotalComprobante>39844.03</TotalComprobante>
     </Totales>
     <Otros></Otros>
   </FacturaElectronicaXML>

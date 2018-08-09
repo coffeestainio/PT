@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Xml.Linq;
 using FacElec.model;
@@ -19,7 +20,7 @@ namespace FacElec.helpers
 
             var cliente = factura.cliente[0];
 
-            var numCuenta = 1234;
+            var numCuenta = "4445";
             var periodo = 0;
             if (System.DateTime.Today.Month < 10)
                 periodo = System.DateTime.Today.Year;
@@ -33,7 +34,7 @@ namespace FacElec.helpers
                                    new XElement("Encabezado",
                                                new XElement("NumeroFactura", factura.id_factura),
                                                 new XElement("FechaFactura", factura.fecha.ToString("yyyy-MM-dd")),
-                                                new XElement("Emisor", new XElement("numCuenta", numCuenta)),
+                                                new XElement("Emisor", new XElement("NumCuenta", numCuenta)),
                                                 new XElement("TipoCambio", "1.00"),
                                                 new XElement("TipoDoc", 4),
                                                 new XElement("CondicionVenta", 1),
@@ -48,15 +49,15 @@ namespace FacElec.helpers
                                                 new XElement("Periodo", periodo),
                                                 new XElement("Receptor",
                                                              new XElement("TipoIdentificacion", cliente.tipoIdentificacion),
-                                                             new XElement("IdentificacionReceptor", cliente.identificacion),
-                                                             new XElement("NombreReceptor",cliente.nombre_sociedad),
-                                                             new XElement("idProvincia",cliente.provincia),
+                                                             new XElement("IdentificacionReceptor", cliente.identificacion.Replace("-","")),
+                                                             new XElement("NombreReceptor", cliente.nombre_sociedad),
+                                                             new XElement("idProvincia", cliente.provincia),
                                                              new XElement("idCanton", cliente.canton),
                                                              new XElement("idDistrito", cliente.distrito),
-                                                             new XElement("idBarrio",1),
-                                                             new XElement("DireccionReceptor",cliente.direccion),
-                                                             new XElement("NumeroAreaTelReceptor","506"),
-                                                             new XElement("NumeroTelReceptor",cliente.telefono),
+                                                             new XElement("idBarrio", 1),
+                                                             new XElement("DireccionReceptor", cliente.direccion),
+                                                             new XElement("NumeroAreaTelReceptor", "506"),
+                                                             new XElement("NumeroTelReceptor", cliente.telefono.Replace("-", "")),
                                                              new XElement("CorreoElectronicoReceptor", cliente.email),
                                                              new XElement("CopiaCortesia", "rmorae@ice.co.cr;pcalvo@coffeestain.io")
                                                             )
@@ -72,7 +73,7 @@ namespace FacElec.helpers
                                                              new XElement("TotalGravado", totalGravado),
                                                              new XElement("TotalExento", totalExento),
                                                              new XElement("TotalVenta", total),
-                                                             new XElement("TotalDescuento", totalDescuentos),
+                                                             new XElement("TotalDescuentos", totalDescuentos),
                                                              new XElement("TotalVentaNeta", totalVentaNeta),
                                                              new XElement("TotalImpuesto", totalImpuestos),
                                                              new XElement("TotalComprobante", totalVentaNeta + totalImpuestos)
@@ -91,16 +92,17 @@ namespace FacElec.helpers
                 xml.Add(new XElement("Linea",
                                 new XElement("Tipo", "M"),
                                new XElement("CodigoProducto", detalle.producto[0].id_producto),
+                                     new XElement("Cantidad",detalle.cantidad),
                                new XElement("UnidadMedida", 40),
                                new XElement("DetalleMerc", detalle.producto[0].nombre),
                                new XElement("PrecioUnitario", detalle.precio),
                                new XElement("MontoDescuento", getDescuento(detalle)),
-                               new XElement("NaturalezaDescuento",""),
+                                     new XElement("NaturalezaDescuento","Descuento"),
                                new XElement("Impuestos",
                                            new XElement("Impuesto",
                                                            new XElement("CodigoImpuesto",1),
                                                            new XElement("PorcentajeImpuesto",(detalle.IV == true) ? "13.00":"00.00"),
-                                                           new XElement("MontoImpuesto",getMontoImpuesto(detalle)),
+                                                        new XElement("MontoImpuesto",getMontoImpuesto(detalle)),
                                                            new XElement("Exoneracion",null)
                                                           )
                                              )
@@ -114,14 +116,14 @@ namespace FacElec.helpers
 
         private static decimal getDescuento(factura_Detalle detalle)
         {
-            return detalle.cantidad * detalle.precio * detalle.descuento;
+            return decimal.Round(detalle.cantidad * detalle.precio * detalle.descuento,2);
         }
 
         private static decimal getMontoImpuesto(factura_Detalle detalle){
             if (!detalle.IV)
                 return 0;
             return (
-                ((detalle.precio * detalle.cantidad) - getDescuento(detalle)) * decimal.Parse("0.13")
+                decimal.Round(((detalle.precio * detalle.cantidad) - getDescuento(detalle)) * decimal.Parse("0.13"),2)
             );
         }
 
@@ -152,6 +154,27 @@ namespace FacElec.helpers
             System.IO.FileInfo file = new System.IO.FileInfo(fileName);
             file.Directory.Create();
             xmlDoc.Save(fileName);
+        }
+
+        public static GTIResponse validateResponse(XDocument xResponse)
+        {
+            var res = xResponse.Element("root").Element("FacturaElectronicaXML");
+
+            var response  = new GTIResponse();
+
+            if (res.Element("ClaveNumerica") != null)
+            {
+                response.ClaveNumerica = res.Element("ClaveNumerica").Value;
+                response.NumConsecutivoCompr = res.Element("NumConsecutivoCompr").Value;
+            }
+            response.NumDocumento = res.Element("NumDocumento").Value;
+            response.IdCarga = res.Element("IdCarga").Value;
+            response.NumFacturaInterno = res.Element("NumFacturaInterno").Value;
+            response.CodigoError = res.Element("CodigoError").Value;
+            response.DescripcionError = res.Element("DescripcionError").Value;
+
+            return response;
+
         }
 
     }

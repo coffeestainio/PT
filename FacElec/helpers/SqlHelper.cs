@@ -43,6 +43,7 @@ namespace FacElec.helpers
                 }
             }
             catch (Exception ex ){
+                Console.WriteLine(ex);
                 return null;
             }
 
@@ -50,7 +51,7 @@ namespace FacElec.helpers
 
         }
 
-        public static void GuardarEstado(List<Factura> facturasListas){
+        public static void GuardarEstado(List<GTIResponse> resultados){
             
         }
     }
