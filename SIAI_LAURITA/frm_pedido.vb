@@ -458,7 +458,7 @@ Public Class frm_pedido
             "'" + txttransporte.Text + "'," + _
             USUARIO_ID + "," + _
             "'" + txtOrden.Text + "'," + _
-             "'" + EDATE(dtpOrden.Value.ToString("dd/mm/yyyy")) + "')"
+             "'" + dtpOrden.Value.ToString("dd/MM/yyyy") + "')"
 
             P = Table(Sql + " select @@IDENTITY as id_pedido", "")
             PedidoID = P.Rows(0).Item("id_Pedido")
@@ -472,7 +472,7 @@ Public Class frm_pedido
                 "transporte='" + txttransporte.Text + "'," + _
                 "id_usuario=" + USUARIO_ID + "," + _
                 "ordenCompra='" + txtOrden.Text + "'," + _
-                "fechaOrden='" + EDATE(dtpOrden.Value.ToString("dd/MM/yyyy")) + "'" + _
+                "fechaOrden='" + dtpOrden.Value.ToString("dd/MM/yyyy") + "'" + _
                 " where id_pedido=" + cbid_pedido.Text
 
             cmd.CommandText = Sql
@@ -499,6 +499,7 @@ Public Class frm_pedido
             cmd.CommandText = Sql
             cmd.ExecuteNonQuery()
         Next i
+
         'Catch myerror As Exception
         'ONEX(Me.Name, myerror)
         'End Try
@@ -603,7 +604,7 @@ Public Class frm_pedido
             Fdescuento = 0
             Fiv = 0
 
-            Sql = "INSERT INTO FACTURA (id_cliente,id_agente,fecha,plazo,transporte,piv,id_usuario,observaciones,orden,ordenCompra,fechaOrden) values (" + _
+            Sql = "INSERT INTO FACTURA (id_cliente,id_agente,fecha,plazo,transporte,piv,id_usuario,observaciones,orden,sincronizada,ordenCompra,fechaOrden) values (" + _
             txtid_cliente.Text + "," + _
             cbid(cbid_agente.Text) + "," + _
             "'" + EDATE(Date.Today.ToShortDateString) + "'," + _
@@ -613,8 +614,9 @@ Public Class frm_pedido
             USUARIO_ID + "," + _
             "'" + txt_observaciones.Text + "'," + _
             "'" + txt_orden.Text + "', " + _
+            "0, " + _
             "'" + txtOrden.Text + "'," + _
-            "'" + EDATE(dtpOrden.Value.ToString("dd/MM/yyyy")) + "')"
+            "'" + dtpOrden.Value.ToString("dd/MM/yyyy") + "')"
 
 
             F = Table(Sql + " select @@IDENTITY as id_factura", "")
@@ -652,6 +654,8 @@ Public Class frm_pedido
             Next z
 
         Next h
+
+        Process.Start("cmd", "/c dotnet c:/FacElec/FacElec.dll")
 
         'Catch myerror As Exception
         'ONEX(Me.Name, myerror)

@@ -10,17 +10,7 @@ namespace FacElec.model
         public string NumConsecutivoCompr;
         public string CodigoError;
         public string DescripcionError;
-
-        public GTIResponse(string numDocumento, string idCarga, string numFacturaInterno, string claveNumerica, string numConsecutivoCompr, string codigoError, string descripcionError)
-        {
-            NumDocumento = numDocumento;
-            IdCarga = idCarga;
-            NumFacturaInterno = numFacturaInterno;
-            ClaveNumerica = claveNumerica;
-            NumConsecutivoCompr = numConsecutivoCompr;
-            CodigoError = codigoError;
-            DescripcionError = descripcionError;
-        }
+        public int Sincronizada;
 
         public GTIResponse() { }
     }

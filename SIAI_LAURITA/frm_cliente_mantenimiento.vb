@@ -1073,6 +1073,7 @@ Public Class frm_cliente_mantenimiento
         If Provincias.Count = 0 Then
             Provincias = PopulateDistritos()
         End If
+        cbProvincia.Items.Clear()
 
         For Each prov As Provincia In Provincias
             cbProvincia.Items.Add(prov.name)

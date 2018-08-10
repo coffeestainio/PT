@@ -2353,6 +2353,7 @@ Public Class frm_datos_mantenimiento
             Dim cliente_mantenimiento As New frm_cliente_mantenimiento
             With cliente_mantenimiento
                 .Owner = Me
+                .PopulateCBAddress()
                 cliente_mantenimiento.Show()
                 .lbltitulo.Text = "Incluir Cliente"
                 CB_crear(.cbid_agente, "Agente", "id_agente")

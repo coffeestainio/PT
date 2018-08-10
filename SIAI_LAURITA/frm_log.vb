@@ -303,7 +303,6 @@ Public Class frm_log
             Path = System.AppDomain.CurrentDomain.BaseDirectory()
             Intento = 0
 
-
             CONN1 = New SqlConnection(SERVER)
             CONN1.Open()
 

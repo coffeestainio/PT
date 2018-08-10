@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Text;
 using FacElec.model;
 using Newtonsoft.Json;
 
@@ -12,13 +13,13 @@ namespace FacElec.helpers
 
         public static List<Factura> GetFacturas()
         {
-            List<Factura> factura = new List<Factura>();
+            List<Factura> facturas = new List<Factura>();
             try
             {
                 var sqlQuery = "SELECT *, " +
                     "factura_Detalle = ( " +
                                        "select *, " +
-                                       "producto = (select id_producto, nombre, costo from producto p where p.id_producto = fd.id_producto for JSON PATH) " +
+                                       "producto = (select id_producto, nombre from producto p where p.id_producto = fd.id_producto for JSON PATH) " +
                                        "from Factura_Detalle fd where f.id_factura = fd.id_factura " +
                     "FOR JSON PATH ) ,    " +
                     " cliente = ( " +
@@ -31,15 +32,17 @@ namespace FacElec.helpers
                 using (var connection = new SqlConnection(sqlConnection))
                 {
                     var command = new SqlCommand(sqlQuery, connection);
+                    var jsonResult =  new StringBuilder();
                     connection.Open();
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            factura = JsonConvert.DeserializeObject<List<Factura>>(reader[0].ToString());
-
+                            jsonResult.Append(reader[0].ToString());
                         }
                     }
+
+                    facturas = JsonConvert.DeserializeObject<List<Factura>>(jsonResult.ToString());
                 }
             }
             catch (Exception ex ){
@@ -47,7 +50,7 @@ namespace FacElec.helpers
                 return null;
             }
 
-            return factura;
+            return facturas;
 
         }
 
@@ -64,8 +67,8 @@ namespace FacElec.helpers
                         $"NumConsecutivo='{res.NumConsecutivoCompr}', " +
                         $"CodError='{res.CodigoError}', " +
                         $"DescripcionError='{res.DescripcionError}', " +
-                        $"sincronizada=1, " +
-                        $"Actualizada='{DateTime.Today.ToShortDateString()}'" +
+                        $"sincronizada={res.Sincronizada}, " +
+                        $"Actualizada='{DateTime.Today}'" +
                         $" where id_factura = {res.NumFacturaInterno};";
                 }
 

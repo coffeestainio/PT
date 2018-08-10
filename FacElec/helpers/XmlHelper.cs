@@ -129,6 +129,13 @@ namespace FacElec.helpers
 
         private static void calculateTotals(Factura factura)
         {
+            totalExento = 0;
+            totalGravado = 0;
+            totalImpuestos = 0;
+            totalVentaNeta = 0;
+            totalDescuentos = 0;
+            total = 0;
+
             foreach (factura_Detalle det in factura.factura_Detalle)
             {
 
@@ -166,10 +173,12 @@ namespace FacElec.helpers
             {
                 response.ClaveNumerica = res.Element("ClaveNumerica").Value;
                 response.NumConsecutivoCompr = res.Element("NumConsecutivoCompr").Value;
+                response.Sincronizada = 1;
             }
             else{
                 response.ClaveNumerica = "";
                 response.NumConsecutivoCompr = "";
+                response.Sincronizada = 0;
             }
             response.NumDocumento = res.Element("NumDocumento").Value;
             response.IdCarga = res.Element("IdCarga").Value;
