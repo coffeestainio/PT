@@ -19,10 +19,11 @@ tipoIdentificacion int null;
 
 alter table dbo.factura ADD
 IdCarga INT NULL,
-ClaveNumerica varchar(50) NULL,
-NumConsecutivo varchar(50) NULL,
-CodError varchar NULL,
-DescripcionError varchar NULL 
+ClaveNumerica nvarchar(50) NULL,
+NumConsecutivo nvarchar(50) NULL,
+CodError nvarchar NULL,
+DescripcionError nvarchar(250) NULL,
+Actualizada datetime null 
 ;
 
 
