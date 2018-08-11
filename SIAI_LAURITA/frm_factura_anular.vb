@@ -130,7 +130,8 @@ Public Class frm_factura_anular
          txtid_factura.Text + "," + _
          "2" + "," + _
           "'" + EDATE(Date.Today.ToShortDateString) + "'," + _
-         USUARIO_ID + ")"
+         USUARIO_ID + ");" + _
+         "update dbo.factura set NotaCredito = 1 , sincronizada = 0 where id_factura = " + txtid_factura.Text + ";"
 
         cmd.CommandText = sql
         cmd.ExecuteNonQuery()

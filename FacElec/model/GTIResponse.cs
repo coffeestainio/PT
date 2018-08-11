@@ -11,6 +11,7 @@ namespace FacElec.model
         public string CodigoError;
         public string DescripcionError;
         public int Sincronizada;
+        public bool NotaCredito;
 
         public GTIResponse() { }
     }

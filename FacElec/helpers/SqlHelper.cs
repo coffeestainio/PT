@@ -61,15 +61,22 @@ namespace FacElec.helpers
             {
                 foreach (GTIResponse res in resultados)
                 {
-                    sqlCommando +=
-                        $"update dbo.factura set idCarga={res.IdCarga}, " +
-                        $"ClaveNumerica='{res.ClaveNumerica}', " +
-                        $"NumConsecutivo='{res.NumConsecutivoCompr}', " +
-                        $"CodError='{res.CodigoError}', " +
-                        $"DescripcionError='{res.DescripcionError}', " +
-                        $"sincronizada={res.Sincronizada}, " +
-                        $"Actualizada='{DateTime.Today}'" +
-                        $" where id_factura = {res.NumFacturaInterno};";
+                    if (!res.NotaCredito)
+                        sqlCommando +=
+                            $"update dbo.factura set idCarga={res.IdCarga}, " +
+                            $"ClaveNumerica='{res.ClaveNumerica}', " +
+                            $"NumConsecutivo='{res.NumConsecutivoCompr}', " +
+                            $"CodError='{res.CodigoError}', " +
+                            $"DescripcionError='{res.DescripcionError}', " +
+                            $"sincronizada=1, " +
+                            $"Actualizada='{DateTime.Today}'" +
+                            $" where id_factura = {res.NumFacturaInterno};";
+                    else
+                        sqlCommando +=
+                            "insert into dbo.notacreditoelec (idfactura, idCarga,ClaveNumerica,NumConsecutivo,CodError,DescripcionError,Actualizada) " +
+                            $" values ({res.NumFacturaInterno}, {res.IdCarga}, '{res.ClaveNumerica}','{res.NumConsecutivoCompr}','{res.CodigoError}', " +
+                            $" '{res.DescripcionError}', '{DateTime.Today}'); " +
+                            $"update dbo.factura set Sincronizada = 1 where id_factura = {res.NumFacturaInterno};";
                 }
 
                 try

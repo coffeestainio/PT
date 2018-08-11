@@ -26,4 +26,16 @@ DescripcionError nvarchar(250) NULL,
 Actualizada datetime null 
 ;
 
+Alter table dbo.factura ADD
+NotaCredito bit default 0;
+
+
+alter table dbo.factura ADD
+IdCarga INT NULL,
+ClaveNumerica nvarchar(50) NULL,
+NumConsecutivo nvarchar(50) NULL,
+CodError nvarchar(50) NULL,
+DescripcionError nvarchar(250) NULL,
+Actualizada datetime null 
+;
 

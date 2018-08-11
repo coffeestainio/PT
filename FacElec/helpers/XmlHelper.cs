@@ -14,7 +14,8 @@ namespace FacElec.helpers
         private static decimal totalVentaNeta;
         private static decimal totalImpuestos;
 
-        public static XDocument generateXML(Factura factura){
+        public static XDocument generateXML(Factura factura)
+        {
 
             calculateTotals(factura);
 
@@ -32,11 +33,11 @@ namespace FacElec.helpers
                              new XElement("root",
                              new XElement("FacturaElectronicaXML",
                                    new XElement("Encabezado",
-                                               new XElement("NumeroFactura", factura.id_factura),
+                                                new XElement("NumeroFactura", factura.id_factura),
                                                 new XElement("FechaFactura", factura.fecha.ToString("yyyy-MM-dd")),
                                                 new XElement("Emisor", new XElement("NumCuenta", numCuenta)),
                                                 new XElement("TipoCambio", "1.00"),
-                                                new XElement("TipoDoc", 4),
+                                                new XElement("TipoDoc", (!factura.notaCredito) ? "1" : "3"),
                                                 new XElement("CondicionVenta", 1),
                                                 new XElement("NumOrdenCompra", factura.ordenCompra),
                                                 new XElement("Moneda", 1),
@@ -49,7 +50,7 @@ namespace FacElec.helpers
                                                 new XElement("Periodo", periodo),
                                                 new XElement("Receptor",
                                                              new XElement("TipoIdentificacion", cliente.tipoIdentificacion),
-                                                             new XElement("IdentificacionReceptor", cliente.identificacion.Replace("-","")),
+                                                             new XElement("IdentificacionReceptor", cliente.identificacion.Replace("-", "")),
                                                              new XElement("NombreReceptor", cliente.nombre_sociedad),
                                                              new XElement("idProvincia", cliente.provincia),
                                                              new XElement("idCanton", cliente.canton),
@@ -61,9 +62,10 @@ namespace FacElec.helpers
                                                              new XElement("CorreoElectronicoReceptor", cliente.email),
                                                              new XElement("CopiaCortesia", "rmorae@ice.co.cr;pcalvo@coffeestain.io")
                                                             )
-                                                             
+
                                                ),
-                                          generateDetailsXml(factura.factura_Detalle),
+                                                generateDetailsXml(factura.factura_Detalle),
+                                                generarNotaCredito(factura),
                                                 new XElement("Totales",
                                                              new XElement("TotalServGravados", 0),
                                                              new XElement("TotalServExentos", 0),
@@ -78,12 +80,25 @@ namespace FacElec.helpers
                                                              new XElement("TotalImpuesto", totalImpuestos),
                                                              new XElement("TotalComprobante", totalVentaNeta + totalImpuestos)
                                                              ),
-                                                new XElement("Otros","")
+                                                new XElement("Otros", "")
+                                               )
                                          )
-                                     )
-                                );
+            );
             return xmlDoc;
-        } 
+        }
+
+
+        private static XElement generarNotaCredito(Factura factura){
+            if (factura.notaCredito)
+                return new XElement("InformacionDeReferencia",
+                                    new XElement("Referencia",
+                                                 new XElement("TipoDocRef", 3),
+                                                 new XElement("NumeroDeReferencia", 1),
+                                                 new XElement("CodigoReferencia", 1)
+                                                )
+                                   );
+            return new XElement("InformacionDeReferencia", null);
+        }
 
         private static XElement generateDetailsXml(List<factura_Detalle> detalles){
             var xml = new XElement("Detalle");
@@ -163,7 +178,7 @@ namespace FacElec.helpers
             xmlDoc.Save(fileName);
         }
 
-        public static GTIResponse validateResponse(XDocument xResponse)
+        public static GTIResponse validateResponse(XDocument xResponse, bool notaCredito)
         {
             var res = xResponse.Element("root").Element("FacturaElectronicaXML");
 
@@ -185,6 +200,7 @@ namespace FacElec.helpers
             response.NumFacturaInterno = res.Element("NumFacturaInterno").Value;
             response.CodigoError = res.Element("CodigoError").Value;
             response.DescripcionError = res.Element("DescripcionError").Value;
+            response.NotaCredito = notaCredito;
 
             return response;
 
