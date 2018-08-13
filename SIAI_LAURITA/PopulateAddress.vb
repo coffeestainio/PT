@@ -57,31 +57,36 @@ Module PopulateAddress
         Dim Provincias As New ArrayList()
         Dim cantones As New ArrayList()
         Dim distritos As New ArrayList()
+        Try
+            Dim fs As New FileStream("c:\facelec\provincias.xml", FileMode.Open, FileAccess.Read)
+            xmldoc.Load(fs)
+            xmlnode = xmldoc.GetElementsByTagName("provincia")
+            For i = 0 To xmlnode.Count - 1
 
-        Dim fs As New FileStream("c:\facelec\provincias.xml", FileMode.Open, FileAccess.Read)
-        xmldoc.Load(fs)
-        xmlnode = xmldoc.GetElementsByTagName("provincia")
-        For i = 0 To xmlnode.Count - 1
+                nombreProvincia = xmlnode(i).FirstChild.InnerText.Trim
+                xmlcanton = xmlnode(i).LastChild.SelectNodes("canton")
+                cantones = New ArrayList()
 
-            nombreProvincia = xmlnode(i).FirstChild.InnerText.Trim
-            xmlcanton = xmlnode(i).LastChild.SelectNodes("canton")
-            cantones = New ArrayList()
+                For j = 0 To xmlcanton.Count - 1
+                    nombreCanton = xmlcanton(j).FirstChild.InnerText.Trim
+                    xmldistrito = xmlcanton(j).LastChild.SelectNodes("distrito")
+                    distritos = New ArrayList()
 
-            For j = 0 To xmlcanton.Count - 1
-                nombreCanton = xmlcanton(j).FirstChild.InnerText.Trim
-                xmldistrito = xmlcanton(j).LastChild.SelectNodes("distrito")
-                distritos = New ArrayList()
+                    For h = 0 To xmldistrito.Count - 1
+                        nombreDistrito = xmldistrito(h).FirstChild.InnerText.Trim
+                        distritos.Add(New Distrito(nombreDistrito, h))
+                    Next
 
-                For h = 0 To xmldistrito.Count - 1
-                    nombreDistrito = xmldistrito(h).FirstChild.InnerText.Trim
-                    distritos.Add(New Distrito(nombreDistrito, h))
+                    cantones.Add(New Canton(nombreCanton, j + 1, distritos))
                 Next
 
-                cantones.Add(New Canton(nombreCanton, j + 1, distritos))
+                Provincias.Add(New Provincia(nombreProvincia, i + 1, cantones))
             Next
+        Catch ex As Exception
+            MsgBox("No se pudo abrir el archivo o esta mal formado")
 
-            Provincias.Add(New Provincia(nombreProvincia, i + 1, cantones))
-        Next
+        End Try
+
 
         Return Provincias
     End Function
