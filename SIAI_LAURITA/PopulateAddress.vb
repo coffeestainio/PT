@@ -58,7 +58,7 @@ Module PopulateAddress
         Dim cantones As New ArrayList()
         Dim distritos As New ArrayList()
 
-        Dim fs As New FileStream("resources\provincias.xml", FileMode.Open, FileAccess.Read)
+        Dim fs As New FileStream("c:\facelec\provincias.xml", FileMode.Open, FileAccess.Read)
         xmldoc.Load(fs)
         xmlnode = xmldoc.GetElementsByTagName("provincia")
         For i = 0 To xmlnode.Count - 1

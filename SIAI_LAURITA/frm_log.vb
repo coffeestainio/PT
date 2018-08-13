@@ -98,7 +98,7 @@ Public Class frm_log
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(555, 24)
         Me.Label1.TabIndex = 3
-        Me.Label1.Text = "PT 2016 02.24"
+        Me.Label1.Text = "Facturacion Electronica - Pruebas"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label3

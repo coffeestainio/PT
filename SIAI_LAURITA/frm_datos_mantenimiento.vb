@@ -2307,6 +2307,7 @@ Public Class frm_datos_mantenimiento
         Dim cliente_Mantenimiento As New frm_cliente_mantenimiento
         With cliente_Mantenimiento
             .Owner = Me
+            .loading = True
             .PopulateCBAddress()
             .lblid_cliente.Text = rowc("id_cliente").ToString
             .txtidentificacion.Text = rowc("identificacion").ToString.TrimEnd
@@ -2343,6 +2344,7 @@ Public Class frm_datos_mantenimiento
 
             .lbltitulo.Text = "Modificar Cliente"
             .Show()
+            .loading = False
         End With
         'Catch myerror As Exception
         'ONEX(Me.Name, myerror)
@@ -2360,7 +2362,6 @@ Public Class frm_datos_mantenimiento
                 CB_crear(.cbgrupo, "Grupo", "id_grupo")
                 CB_crear(.cbid_zona, "zona", "id_zona")
                 .cbprecio.SelectedIndex = 0
-
 
             End With
         Catch myerror As Exception
