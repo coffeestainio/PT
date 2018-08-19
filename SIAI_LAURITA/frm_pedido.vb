@@ -453,12 +453,12 @@ Public Class frm_pedido
             Sql = "Insert into Pedido (id_cliente,id_agente,fecha,plazo,transporte,id_usuario, ordenCompra, fechaOrden) values (" + _
             txtid_cliente.Text + "," + _
             cbid(cbid_agente.Text) + "," + _
-            "'" + EDATE(Date.Today.ToShortDateString) + "'," + _
+            "getDate()," + _
             Val(txtplazo.Text).ToString + "," + _
             "'" + txttransporte.Text + "'," + _
             USUARIO_ID + "," + _
             "'" + txtOrden.Text + "'," + _
-             "'" + dtpOrden.Value.ToString("dd/MM/yyyy") + "')"
+             "'" + dtpOrden.Value.ToString("MM/dd/yyyy") + "')"
 
             P = Table(Sql + " select @@IDENTITY as id_pedido", "")
             PedidoID = P.Rows(0).Item("id_Pedido")
@@ -472,7 +472,7 @@ Public Class frm_pedido
                 "transporte='" + txttransporte.Text + "'," + _
                 "id_usuario=" + USUARIO_ID + "," + _
                 "ordenCompra='" + txtOrden.Text + "'," + _
-                "fechaOrden='" + dtpOrden.Value.ToString("dd/MM/yyyy") + "'" + _
+                "fechaOrden='" + dtpOrden.Value.ToString("MM/dd/yyyy") + "'" + _
                 " where id_pedido=" + cbid_pedido.Text
 
             cmd.CommandText = Sql
@@ -607,7 +607,7 @@ Public Class frm_pedido
             Sql = "INSERT INTO FACTURA (id_cliente,id_agente,fecha,plazo,transporte,piv,id_usuario,observaciones,orden,sincronizada,ordenCompra,fechaOrden) values (" + _
             txtid_cliente.Text + "," + _
             cbid(cbid_agente.Text) + "," + _
-            "'" + EDATE(Date.Today.ToShortDateString) + "'," + _
+            "getDate()," + _
             Val(txtplazo.Text).ToString + "," + _
             "'" + txttransporte.Text + "'," + _
             PIV.ToString + "," + _
@@ -616,7 +616,7 @@ Public Class frm_pedido
             "'" + txt_orden.Text + "', " + _
             "0, " + _
             "'" + txtOrden.Text + "'," + _
-            "'" + dtpOrden.Value.ToString("dd/MM/yyyy") + "')"
+            "'" + dtpOrden.Value.ToString("MM/dd/yyyy") + "')"
 
 
             F = Table(Sql + " select @@IDENTITY as id_factura", "")
