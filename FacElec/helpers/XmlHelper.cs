@@ -178,13 +178,15 @@ namespace FacElec.helpers
             xmlDoc.Save(fileName);
         }
 
-        public static GTIResponse validateResponse(XDocument xResponse, bool notaCredito)
+        public static GTIResponse validateResponse(string idFactura, XDocument xResponse, bool notaCredito)
         {
             var res = xResponse.Element("root").Element("FacturaElectronicaXML");
 
             var response  = new GTIResponse();
 
-            if (res.Element("ClaveNumerica") != null)
+            response.NumFacturaInterno = idFactura;
+
+            if (res.Element("CodigoError").Value == "CodError:00")
             {
                 response.ClaveNumerica = res.Element("ClaveNumerica").Value;
                 response.NumConsecutivoCompr = res.Element("NumConsecutivoCompr").Value;
@@ -195,9 +197,8 @@ namespace FacElec.helpers
                 response.NumConsecutivoCompr = "";
                 response.Sincronizada = 0;
             }
-            response.NumDocumento = res.Element("NumDocumento").Value;
+
             response.IdCarga = res.Element("IdCarga").Value;
-            response.NumFacturaInterno = res.Element("NumFacturaInterno").Value;
             response.CodigoError = res.Element("CodigoError").Value;
             response.DescripcionError = res.Element("DescripcionError").Value;
             response.NotaCredito = notaCredito;
