@@ -956,13 +956,13 @@ Public Class frm_pedido
             rParameterFieldLocation.ApplyCurrentValues(rParameterValues)
 
 
-            'rfactura.PrintOptions.PrinterName = PrinterServer
-            'rfactura.PrintOptions.PaperOrientation = PaperOrientation.Portrait
-            'rfactura.PrintToPrinter(1, False, 1, 1)
+            rfactura.PrintOptions.PrinterName = PrinterServer
+            rfactura.PrintOptions.PaperOrientation = PaperOrientation.Portrait
+            rfactura.PrintToPrinter(1, False, 1, 1)
 
-            Dim rv As New frm_Report_Viewer
-            rv.crv.ReportSource = rfactura
-            rv.Show()
+            'Dim rv As New frm_Report_Viewer
+            'rv.crv.ReportSource = rfactura
+            'rv.Show()
 
         Next h
         'Catch myerror As Exception

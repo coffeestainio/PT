@@ -8,7 +8,7 @@ Module Module1
     'Public Const SERVER As String = "S1"
     'Public Const SERVER As String = "S1"
     'Public Const SERVER As String = "SQL01"
-    Public Const SERVER As String = "Server=tcp:pt2.database.windows.net,1433;Initial Catalog=PT2_test;Persist Security Info=False;User ID=PTSQL;Password=SQLPT12345!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+    Public Const SERVER As String = "Server=tcp:pt2.database.windows.net,1433;Initial Catalog=PT2;Persist Security Info=False;User ID=PTSQL;Password=SQLPT12345!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
 
     Public Const PrinterServer As String = "\\SQL01\LASER"
 
