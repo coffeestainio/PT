@@ -69,13 +69,13 @@ namespace FacElec.helpers
                             $"CodError='{res.CodigoError}', " +
                             $"DescripcionError='{res.DescripcionError}', " +
                             $"sincronizada=1, " +
-                            $"Actualizada=getDate()" +
+                            $"Actualizada= DATEADD (hour, -6, GETDATE())" +
                             $" where id_factura = {res.NumFacturaInterno};";
                     else
                         sqlCommando +=
                             "insert into dbo.notacreditoelec (idfactura, idCarga,ClaveNumerica,NumConsecutivo,CodError,DescripcionError,Actualizada) " +
                             $" values ({res.NumFacturaInterno}, {res.IdCarga}, '{res.ClaveNumerica}','{res.NumConsecutivoCompr}','{res.CodigoError}', " +
-                            $" '{res.DescripcionError}', getDate()); " +
+                            $" '{res.DescripcionError}', DATEADD (hour, -6, GETDATE())); " +
                             $"update dbo.factura set Sincronizada = 1 where id_factura = {res.NumFacturaInterno};";
                 }
 
