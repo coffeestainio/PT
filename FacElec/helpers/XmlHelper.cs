@@ -131,14 +131,14 @@ namespace FacElec.helpers
 
         private static decimal getDescuento(factura_Detalle detalle)
         {
-            return decimal.Round(detalle.cantidad * detalle.precio * detalle.descuento,2);
+            return decimal.Round(detalle.cantidad * detalle.precio * detalle.descuento,2, System.MidpointRounding.AwayFromZero);
         }
 
         private static decimal getMontoImpuesto(factura_Detalle detalle){
             if (!detalle.IV)
                 return 0;
             return (
-                decimal.Round(((detalle.precio * detalle.cantidad) - getDescuento(detalle)) * decimal.Parse("0.13"),2)
+                decimal.Round(((detalle.precio * detalle.cantidad) - getDescuento(detalle)) * decimal.Parse("0.13"),2,System.MidpointRounding.AwayFromZero)
             );
         }
 
