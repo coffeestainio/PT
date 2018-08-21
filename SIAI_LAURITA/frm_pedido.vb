@@ -453,7 +453,7 @@ Public Class frm_pedido
             Sql = "Insert into Pedido (id_cliente,id_agente,fecha,plazo,transporte,id_usuario, ordenCompra, fechaOrden) values (" + _
             txtid_cliente.Text + "," + _
             cbid(cbid_agente.Text) + "," + _
-            "getDate()," + _
+            "DATEADD (hour, -6, GETDATE())," + _
             Val(txtplazo.Text).ToString + "," + _
             "'" + txttransporte.Text + "'," + _
             USUARIO_ID + "," + _
@@ -607,7 +607,7 @@ Public Class frm_pedido
             Sql = "INSERT INTO FACTURA (id_cliente,id_agente,fecha,plazo,transporte,piv,id_usuario,observaciones,orden,sincronizada,ordenCompra,fechaOrden) values (" + _
             txtid_cliente.Text + "," + _
             cbid(cbid_agente.Text) + "," + _
-            "getDate()," + _
+            "DATEADD (hour, -6, GETDATE())," + _
             Val(txtplazo.Text).ToString + "," + _
             "'" + txttransporte.Text + "'," + _
             PIV.ToString + "," + _

@@ -36,7 +36,7 @@ Public Class frm_rpt_venta_producto_opciones
         btnaceptar.Enabled = False
         Dim C1 As String = ""
         Dim C2 As String = ""
-        C1 = " fecha>='" + EDATE(Dtpdesde.Text) + "' and fecha<='" + EDATE(dtphasta.Text) + "'"
+        C1 = " fecha>='" + EDATE(Dtpdesde.Text) + " 00:00:00' and fecha<='" + EDATE(dtphasta.Text) + " 23:59:59'"
 
 
         If Val(txtid_producto.Text) > 0 Then

@@ -42,13 +42,13 @@ Partial Class frm_consulta_documento
         Me.txtid_cliente = New System.Windows.Forms.TextBox
         Me.lbltitulo = New System.Windows.Forms.Label
         Me.dtgdocumento = New System.Windows.Forms.DataGridView
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.id_documento = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.fecha = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.id_cliente = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.monto = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.dtgdid_cliente = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.anulado = New System.Windows.Forms.DataGridViewCheckBoxColumn
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Panel1.SuspendLayout()
         CType(Me.dtgdocumento, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -246,7 +246,7 @@ Partial Class frm_consulta_documento
         Me.fecha.HeaderText = "Fecha"
         Me.fecha.Name = "fecha"
         Me.fecha.ReadOnly = True
-        Me.fecha.Width = 95
+        Me.fecha.Width = 170
         '
         'id_cliente
         '
@@ -258,7 +258,7 @@ Partial Class frm_consulta_documento
         Me.id_cliente.HeaderText = "Cliente"
         Me.id_cliente.Name = "id_cliente"
         Me.id_cliente.ReadOnly = True
-        Me.id_cliente.Width = 400
+        Me.id_cliente.Width = 340
         '
         'monto
         '
@@ -271,7 +271,7 @@ Partial Class frm_consulta_documento
         Me.monto.HeaderText = "Monto"
         Me.monto.Name = "monto"
         Me.monto.ReadOnly = True
-        Me.monto.Width = 120
+        Me.monto.Width = 115
         '
         'dtgdid_cliente
         '

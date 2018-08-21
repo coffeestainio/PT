@@ -21,7 +21,7 @@ Module Module1
     Public Const NEGOCIO As String = "PRODUCTOS TERMICOS, S.A."
     Public Const CJ As String = "Céd. Jur. 3-101-440551"
     Public Const TELEFONO As String = "Tel. 2288-2065   Fax. 2289-8818"
-    Public Const DIRECCION As String = "Escazú, Costa Rica   www.productostermicos.com"
+    Public Const DIRECCION As String = "Escazú, Costa Rica www.productostermicos.com"
 
     Public USUARIO_NOMBRE As String
     Public USUARIO_NIVEL As Integer

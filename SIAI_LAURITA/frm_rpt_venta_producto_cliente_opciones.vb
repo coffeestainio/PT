@@ -26,7 +26,7 @@ Public Class frm_rpt_venta_producto_cliente_opciones
             Dim C2 As String = ""
 
 
-            C1 = "fecha>='" + EDATE(Dtpdesde.Text) + "' and fecha<='" + EDATE(dtphasta.Text) + "'"
+            C1 = "fecha>='" + EDATE(Dtpdesde.Text) + " 00:00:00' and fecha<='" + EDATE(dtphasta.Text) + " 23:59:59'"
 
             If cbid_grupo.SelectedIndex > 0 Then
                 Dim c As DataTable = Table("select id_cliente from cliente where id_grupo=" + cbid(cbid_grupo.Text), "")
