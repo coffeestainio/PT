@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using System.Globalization;
 using System.Linq;
 using System.Xml.Linq;
 using FacElec.model;
@@ -34,7 +35,7 @@ namespace FacElec.helpers
                              new XElement("FacturaElectronicaXML",
                                    new XElement("Encabezado",
                                                 new XElement("NumeroFactura", factura.id_factura),
-                                                new XElement("FechaFactura", factura.fecha.ToString("yyyy-MM-dd hh:mm:ss tt")),
+                                                new XElement("FechaFactura", factura.fecha.ToString("yyyy-MM-dd hh:mm:ss tt",CultureInfo.InvariantCulture)),
                                                 new XElement("Emisor", new XElement("NumCuenta", numCuenta)),
                                                 new XElement("TipoCambio", "1.00"),
                                                 new XElement("TipoDoc", (!factura.notaCredito) ? "1" : "3"),
