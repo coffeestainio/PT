@@ -50,7 +50,7 @@ namespace FacElec.helpers
                                                 new XElement("Periodo", periodo),
                                                 new XElement("Receptor",
                                                              new XElement("TipoIdentificacion", cliente.tipoIdentificacion),
-                                                             new XElement("IdentificacionReceptor", cliente.identificacion.Replace("-", "")),
+                                                             new XElement("IdentificacionReceptor", cliente.identificacion.Replace("-", "").Replace(" ","").Trim()),
                                                              new XElement("NombreReceptor", cliente.nombre_sociedad),
                                                              new XElement("idProvincia", cliente.provincia),
                                                              new XElement("idCanton", cliente.canton),
