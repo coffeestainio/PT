@@ -34,11 +34,11 @@ namespace FacElec.helpers
                              new XElement("FacturaElectronicaXML",
                                    new XElement("Encabezado",
                                                 new XElement("NumeroFactura", factura.id_factura),
-                                                new XElement("FechaFactura", factura.fecha.ToString("yyyy-MM-ddThh:mm:ss")),
+                                                new XElement("FechaFactura", factura.fecha.ToString("yyyy-MM-dd hh:mm:ss tt")),
                                                 new XElement("Emisor", new XElement("NumCuenta", numCuenta)),
                                                 new XElement("TipoCambio", "1.00"),
                                                 new XElement("TipoDoc", (!factura.notaCredito) ? "1" : "3"),
-                                                new XElement("CondicionVenta", 1),
+                                                new XElement("CondicionVenta", (factura.plazo == 0) ? "1" : "2"),
                                                 new XElement("NumOrdenCompra", factura.ordenCompra),
                                                 new XElement("Moneda", 1),
                                                 new XElement("idMedioPago", 1),
@@ -92,8 +92,8 @@ namespace FacElec.helpers
             if (factura.notaCredito)
                 return new XElement("InformacionDeReferencia",
                                     new XElement("Referencia",
-                                                 new XElement("TipoDocRef", 3),
-                                                 new XElement("NumeroDeReferencia", 1),
+                                                 new XElement("TpoDocRef", 1),
+                                                 new XElement("NumeroReferencia", factura.claveNumerica),
                                                  new XElement("CodigoReferencia", 1)
                                                 )
                                    );

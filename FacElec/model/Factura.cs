@@ -18,9 +18,10 @@ namespace FacElec.model
         public DateTime fechaOrden;
         public int sincronizada;
         public bool notaCredito;
+        public string claveNumerica;
 
         public Factura(string id_factura, int id_cliente, int id_agente, int plazo, DateTime fecha, int id_usuario, decimal pIV, List<factura_Detalle> factura_Detalle, List<cliente> cliente, string ordenCompra, DateTime fechaOrden,
-                      int sincronizada, bool notaCredito)
+                      int sincronizada, bool notaCredito, string claveNumerica)
         {
             this.id_factura = id_factura;
             this.id_cliente = id_cliente;
@@ -35,6 +36,7 @@ namespace FacElec.model
             this.fechaOrden = fechaOrden;
             this.sincronizada = sincronizada;
             this.notaCredito = notaCredito;
+            this.claveNumerica = claveNumerica;
         }
     }
 }

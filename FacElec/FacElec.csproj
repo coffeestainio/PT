@@ -34,6 +34,7 @@
     <None Remove="facturasEnviadas\facturaElectronica_18199.xml" />
     <None Remove="app.config" />
     <None Remove="facturasEnviadas\facturaElectronica_18202.xml" />
+    <None Remove="facturasEnviadas\facturaElectronica_18354.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Update="appsettings.json">
