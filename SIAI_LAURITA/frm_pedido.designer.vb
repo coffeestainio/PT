@@ -74,6 +74,7 @@ Partial Class frm_pedido
         Me.txt_orden = New System.Windows.Forms.TextBox
         Me.txttransporte = New System.Windows.Forms.TextBox
         Me.txt_observaciones = New System.Windows.Forms.TextBox
+        Me.txtOrden = New System.Windows.Forms.TextBox
         Me.Label6 = New System.Windows.Forms.Label
         Me.lblcliente_nombre = New System.Windows.Forms.Label
         Me.Label3 = New System.Windows.Forms.Label
@@ -86,7 +87,6 @@ Partial Class frm_pedido
         Me.lbl_orden = New System.Windows.Forms.Label
         Me.Label7 = New System.Windows.Forms.Label
         Me.Label8 = New System.Windows.Forms.Label
-        Me.txtOrden = New System.Windows.Forms.TextBox
         Me.Label11 = New System.Windows.Forms.Label
         Me.dtpOrden = New System.Windows.Forms.DateTimePicker
         Me.Panel1.SuspendLayout()
@@ -593,6 +593,16 @@ Partial Class frm_pedido
         Me.txt_observaciones.TabIndex = 74
         Me.ToolTip1.SetToolTip(Me.txt_observaciones, "Escriba el Tipo de Transporte")
         '
+        'txtOrden
+        '
+        Me.txtOrden.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtOrden.Location = New System.Drawing.Point(177, 134)
+        Me.txtOrden.MaxLength = 35
+        Me.txtOrden.Name = "txtOrden"
+        Me.txtOrden.Size = New System.Drawing.Size(190, 26)
+        Me.txtOrden.TabIndex = 76
+        Me.ToolTip1.SetToolTip(Me.txtOrden, "Escriba el Tipo de Transporte")
+        '
         'Label6
         '
         Me.Label6.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -726,16 +736,6 @@ Partial Class frm_pedido
         Me.Label8.Text = "Orden de Compra"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'txtOrden
-        '
-        Me.txtOrden.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtOrden.Location = New System.Drawing.Point(177, 134)
-        Me.txtOrden.MaxLength = 35
-        Me.txtOrden.Name = "txtOrden"
-        Me.txtOrden.Size = New System.Drawing.Size(190, 26)
-        Me.txtOrden.TabIndex = 76
-        Me.ToolTip1.SetToolTip(Me.txtOrden, "Escriba el Tipo de Transporte")
-        '
         'Label11
         '
         Me.Label11.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -780,6 +780,7 @@ Partial Class frm_pedido
         Me.Name = "frm_pedido"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "\"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.dtgpedido, System.ComponentModel.ISupportInitialize).EndInit()

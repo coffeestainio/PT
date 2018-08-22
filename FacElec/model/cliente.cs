@@ -14,9 +14,10 @@
         public int canton;
         public int distrito;
         public string idautomercado;
+        public int medioPago;
 
         public cliente(int id_Cliente, string identificacion, int tipoIdentificacion, string nombre_encargado, string telefono, string nombreSociedad, string email, string direccion,
-                       int provincia, int canton, int distrito, string idautomercado)
+                       int provincia, int canton, int distrito, string idautomercado , int medioPago)
         {
             this.id_Cliente = id_Cliente;
             this.identificacion = identificacion;
@@ -31,6 +32,7 @@
             this.canton = canton;
             this.distrito = distrito;
             this.idautomercado = idautomercado;
+            this.medioPago = medioPago;
         }
     }
 }

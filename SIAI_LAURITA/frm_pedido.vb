@@ -955,10 +955,16 @@ Public Class frm_pedido
             rParameterValues.Add(rParameterDiscreteValue)
             rParameterFieldLocation.ApplyCurrentValues(rParameterValues)
 
+            Try
 
-            rfactura.PrintOptions.PrinterName = PrinterServer
-            rfactura.PrintOptions.PaperOrientation = PaperOrientation.Portrait
-            rfactura.PrintToPrinter(1, False, 1, 1)
+                rfactura.PrintOptions.PrinterName = PrinterServer
+                rfactura.PrintOptions.PaperOrientation = PaperOrientation.Portrait
+                rfactura.PrintToPrinter(1, False, 1, 1)
+            Catch
+                MsgBox("Hubo un error al conectarse con la impresora. La factura se genero correctamente.",MsgBoxStyle.Exclamation)
+
+            End Try
+
 
             'Dim rv As New frm_Report_Viewer
             'rv.crv.ReportSource = rfactura

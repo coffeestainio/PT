@@ -41,7 +41,7 @@ namespace FacElec.helpers
                                                 new XElement("CondicionVenta", (factura.plazo == 0) ? "1" : "2"),
                                                 new XElement("NumOrdenCompra", factura.ordenCompra),
                                                 new XElement("Moneda", 1),
-                                                new XElement("idMedioPago", 1),
+                                                new XElement("idMedioPago", factura.cliente[0].medioPago),
                                                 new XElement("DiasCredito", factura.plazo),
                                                 new XElement("Sucursal", 1),
                                                 new XElement("Terminal", 1),
