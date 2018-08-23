@@ -426,6 +426,15 @@ Public Class myForms
             m_datos_mantenimiento = Value
         End Set
     End Property
+    Private Shared m_consulta_facelec As frm_consulta_facelec
+    Public Shared Property frm_consulta_facelec() As frm_consulta_facelec
+        Get
+            Return m_consulta_facelec
+        End Get
+        Set(ByVal Value As frm_consulta_facelec)
+            m_consulta_facelec = Value
+        End Set
+    End Property
     Private Shared m_rpt_producto_existencias As frm_rpt_bodega_existencia_opciones
     Public Shared Property frm_rpt_producto_existencias() As frm_rpt_bodega_existencia_opciones
         Get

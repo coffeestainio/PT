@@ -49,6 +49,10 @@ Module Module1
         Return aux
     End Function
 
+    Public Sub EjectuarFacturacionElectronica()
+        Process.Start("cmd", "/c dotnet c:/FacElec/FacElec.dll")
+    End Sub
+
     Public Sub sqlquery(ByVal sql As String)
         Dim cmd As New SqlCommand
         cmd = New SqlClient.SqlCommand(sql, CONN1)
@@ -232,6 +236,15 @@ Module Module1
         " INNER JOIN CLIENTE ON Factura.Id_Cliente = CLIENTE.Id_Cliente " + _
           IIf(C = "", "", " and " + C) + _
         " GROUP BY Factura.Id_Factura, Factura.FECHA, Factura.Id_Cliente, CLIENTE.NOMBRE_comercial, factura.id_agente,Factura.Plazo, factura.piv"
+
+        Dim Tbl As DataTable = Table(sql, PK)
+        Return Tbl
+    End Function
+
+    Public Function FACError(ByVal C As String, ByVal PK As String) As DataTable
+        Dim sql As String
+        sql = "select id_factura, id_cliente, fecha, codError codigoError, descripcionError" + _
+        " from factura where sincronizada = 1 and codError <> 'CodError:00' and notacredito = 0 " + C
 
         Dim Tbl As DataTable = Table(sql, PK)
         Return Tbl
@@ -794,6 +807,10 @@ Module Module1
 
     Public Function Table(ByVal Q As String, ByVal Pk As String) As DataTable
         'Try
+        If CONN1.State = ConnectionState.Closed Then
+            CONN1.Open()
+        End If
+
         Dim command As New SqlCommand(Q, CONN1)
         Dim reader As SqlDataReader = command.ExecuteReader()
         Dim schema As DataTable = reader.GetSchemaTable()

@@ -655,7 +655,7 @@ Public Class frm_pedido
 
         Next h
 
-        Process.Start("cmd", "/c dotnet c:/FacElec/FacElec.dll")
+        EjectuarFacturacionElectronica()
 
         'Catch myerror As Exception
         'ONEX(Me.Name, myerror)
