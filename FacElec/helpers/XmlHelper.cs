@@ -21,6 +21,7 @@ namespace FacElec.helpers
             calculateTotals(factura);
 
             var cliente = factura.cliente[0];
+            var ignorarCliente = cliente.id_Cliente == 182;
 
             var numCuenta = "4445";
             var periodo = 0;
@@ -49,21 +50,20 @@ namespace FacElec.helpers
                                                 new XElement("FechaVencimiento", ""),
                                                 new XElement("SituacionEnvio", 1),
                                                 new XElement("Periodo", periodo),
-                                                new XElement("Receptor",
-                                                             new XElement("TipoIdentificacion", cliente.tipoIdentificacion),
-                                                             new XElement("IdentificacionReceptor", cliente.identificacion.Replace("-", "").Replace(" ","").Trim()),
-                                                             new XElement("NombreReceptor", cliente.nombre_sociedad),
-                                                             new XElement("idProvincia", cliente.provincia),
-                                                             new XElement("idCanton", cliente.canton),
-                                                             new XElement("idDistrito", cliente.distrito),
-                                                             new XElement("idBarrio", 1),
-                                                             new XElement("DireccionReceptor", cliente.direccion),
-                                                             new XElement("NumeroAreaTelReceptor", "506"),
-                                                             new XElement("NumeroTelReceptor", cliente.telefono.Replace("-", "")),
-                                                             new XElement("CorreoElectronicoReceptor", cliente.email),
-                                                             new XElement("CopiaCortesia", "rmorae@ice.co.cr;pcalvo@coffeestain.io")
-                                                            )
 
+                                                new XElement("Receptor",
+                                                             new XElement("NombreReceptor", cliente.nombre_sociedad),
+                                                             ignorarCliente ? new XElement("TipoIdentificacion", cliente.tipoIdentificacion) : null,
+                                                             ignorarCliente ? new XElement("IdentificacionReceptor", cliente.identificacion.Replace("-", "").Replace(" ","").Trim()) : null,
+                                                             ignorarCliente ? new XElement("idProvincia", cliente.provincia) : null,
+                                                             ignorarCliente ? new XElement("idCanton", cliente.canton) : null,
+                                                             ignorarCliente ? new XElement("idDistrito", cliente.distrito) : null,
+                                                             ignorarCliente ? new XElement("idBarrio", 1) : null,
+                                                             ignorarCliente ? new XElement("DireccionReceptor", cliente.direccion) : null,
+                                                             ignorarCliente ? new XElement("NumeroAreaTelReceptor", "506") : null,
+                                                             ignorarCliente ? new XElement("NumeroTelReceptor", cliente.telefono.Replace("-", "")) : null,
+                                                             ignorarCliente ? new XElement("CorreoElectronicoReceptor", cliente.email) : null,
+                                                             new XElement("CopiaCortesia", "rmorae@ice.co.cr;pcalvo@coffeestain.io")                                                                                     ) 
                                                ),
                                                 generateDetailsXml(factura.factura_Detalle),
                                                 generarNotaCredito(factura),
