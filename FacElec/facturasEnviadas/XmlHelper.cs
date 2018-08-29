@@ -21,7 +21,7 @@ namespace FacElec.helpers
             calculateTotals(factura);
 
             var cliente = factura.cliente[0];
-            var ignorarCliente = cliente.id_Cliente == 182;
+            var ignorarCliente = !(cliente.id_Cliente == 182);
 
             var numCuenta = "4445";
             var periodo = 0;
@@ -172,8 +172,8 @@ namespace FacElec.helpers
         }
 
 
-        public static void storeXml(XDocument xmlDoc, string facId){
-            var fileName = $"facturasEnviadas/facturaElectronica_{facId}.xml";
+        public static void storeXml(XDocument xmlDoc, string facId, bool notaCredito){
+            var fileName = $"facturasEnviadas/{(notaCredito ? "notacredito" : "facturaElectronica")}_{facId}.xml";
             System.IO.FileInfo file = new System.IO.FileInfo(fileName);
             file.Directory.Create();
             xmlDoc.Save(fileName);

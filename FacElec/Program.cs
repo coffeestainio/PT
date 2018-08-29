@@ -16,7 +16,7 @@ namespace FacElec
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
             Configuration = builder.Build();
-            SqlHelper.sqlConnection = Configuration.GetConnectionString("Development");
+            SqlHelper.sqlConnection = Configuration.GetConnectionString("Production");
 
             Sincronizador.SincronizarFacturas();
             //RestHelper.DoSomething();

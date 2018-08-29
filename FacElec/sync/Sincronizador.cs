@@ -21,7 +21,7 @@ namespace FacElec.sync
                 {
                     var xmlFac = XmlHelper.generateXML(fac);
 
-                    XmlHelper.storeXml(xmlFac, fac.id_factura);
+                    XmlHelper.storeXml(xmlFac, fac.id_factura, fac.notaCredito);
                     var resultado = RestHelper.SendFacturaElectronica(xmlFac);
 
                     resultados.Add(XmlHelper.validateResponse(fac.id_factura,resultado, fac.notaCredito));
