@@ -24,14 +24,15 @@ namespace FacElec.sync
                     XmlHelper.storeXml(xmlFac, fac.id_factura, fac.notaCredito);
                     var resultado = RestHelper.SendFacturaElectronica(xmlFac);
 
-                    resultados.Add(XmlHelper.validateResponse(fac.id_factura,resultado, fac.notaCredito));
-
+                    if (resultado != null)
+                        resultados.Add(XmlHelper.validateResponse(fac.id_factura, resultado, fac.notaCredito));
+                    else
+                        Program.log.Error("Hubo un error al sincronizar la factura con GTI");
                 }
-
                 SqlHelper.GuardarEstado(resultados);
             }
             else{
-                Program.log.Warn("Nothing to sync.");
+                Program.log.Warn("No hay facturas pendientes");
             }
 
         }

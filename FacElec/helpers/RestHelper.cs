@@ -19,16 +19,18 @@ namespace FacElec.helpers
                 var response = servicio.InsertarDocumentosAsync(docXml.ToString(), Program.env.email, Program.env.password);
                 response.Wait();
                 respuesta = response.Result;
+
+
+                XDocument resXml = XDocument.Parse(respuesta);
+                return resXml;
+
             }
             catch (Exception ex)
             {
-               Program.log.Error(ex.Message);
+                Program.log.Error(ex.Message);
+                return null;
             }
-
-            XDocument resXml = XDocument.Parse(respuesta);
-            return resXml;
         }
-
-
+                
     }
 }
