@@ -153,6 +153,9 @@ Public Class frm_factura_anular
         'Catch myerror As Exception
         '(Me.Name, myerror)
         'End Try
+
+        EjectuarFacturacionElectronica()
+
     End Sub
 
 End Class
