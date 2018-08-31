@@ -158,7 +158,7 @@ public partial class GTICargaFacturaSoapClient : System.ServiceModel.ClientBase<
         throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
     }
 
-    public static bool Pruebas;
+    public static bool Produccion;
 
     private static string UrlPruebas = "http://pruebas.gticr.com/WSCargaFacturaAsync/Pruebas/GTICargaFactura.asmx";
     private static string UrlProduccion = "http://www.facturaelectronica.cr/ServicioCargaFactura/GTICargaFactura.asmx";
@@ -167,11 +167,11 @@ public partial class GTICargaFacturaSoapClient : System.ServiceModel.ClientBase<
     {
         if ((endpointConfiguration == EndpointConfiguration.GTICargaFacturaSoap))
         {
-            return new System.ServiceModel.EndpointAddress(Pruebas ? UrlPruebas : UrlProduccion);
+            return new System.ServiceModel.EndpointAddress(Produccion ? UrlProduccion : UrlPruebas);
         }
         if ((endpointConfiguration == EndpointConfiguration.GTICargaFacturaSoap12))
         {
-            return new System.ServiceModel.EndpointAddress(Pruebas ? UrlPruebas : UrlProduccion);
+            return new System.ServiceModel.EndpointAddress(Produccion ? UrlProduccion : UrlPruebas);
         }
         throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
     }

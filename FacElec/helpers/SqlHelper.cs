@@ -46,7 +46,7 @@ namespace FacElec.helpers
                 }
             }
             catch (Exception ex ){
-                Console.WriteLine(ex);
+                Program.log.Error(ex.Message);
                 return null;
             }
 
@@ -87,13 +87,13 @@ namespace FacElec.helpers
                         connection.Open();
 
                         var updatedRows = command.ExecuteNonQuery();
-                        Console.WriteLine($"Number of processed rows {updatedRows}");
+                        Program.log.Info($"Number of processed rows {updatedRows}");
                     }
 
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    Program.log.Error(ex.Message);
                 }
             }
         }

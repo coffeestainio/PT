@@ -6,8 +6,6 @@ namespace FacElec.helpers
 {
     public static class RestHelper
     {
-        private const string email = "rmorae@ice.co.cr";
-        private const string password = "CtaGTI*2017";
 
         public static GTICargaFacturaSoapClient.EndpointConfiguration Ambiente;
 
@@ -18,13 +16,13 @@ namespace FacElec.helpers
             try
             {
                 var servicio = new GTICargaFacturaSoapClient(Ambiente);
-                var response = servicio.InsertarDocumentosAsync(docXml.ToString(), email, password);
+                var response = servicio.InsertarDocumentosAsync(docXml.ToString(), Program.env.email, Program.env.password);
                 response.Wait();
                 respuesta = response.Result;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+               Program.log.Error(ex.Message);
             }
 
             XDocument resXml = XDocument.Parse(respuesta);

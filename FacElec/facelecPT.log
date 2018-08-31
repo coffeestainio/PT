@@ -1,0 +1,6 @@
+2018-08-31 11:25:13,818 [1] INFO FacElec.Program - Leyendo configuracion
+2018-08-31 11:25:46,426 [1] INFO FacElec.Program - Leyendo configuracion
+2018-08-31 11:25:47,042 [1] INFO FacElec.Program - Ambiente de produccion?: True
+2018-08-31 11:25:47,047 [1] INFO FacElec.Program - Iniciando el proceso
+2018-08-31 11:25:49,710 [1] WARN FacElec.Program - Nothing to sync.
+2018-08-31 11:25:49,710 [1] INFO FacElec.Program - Proceso completado
