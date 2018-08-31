@@ -18,8 +18,10 @@ namespace FacElec
             Configuration = builder.Build();
             SqlHelper.sqlConnection = Configuration.GetConnectionString("Production");
 
+            GTICargaFacturaSoapClient.Pruebas = Configuration.GetSection("GTIPruebas").Value == "true";
+           
             Sincronizador.SincronizarFacturas();
-            //RestHelper.DoSomething();
+
         }
     }
 }

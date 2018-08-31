@@ -9,13 +9,15 @@ namespace FacElec.helpers
         private const string email = "rmorae@ice.co.cr";
         private const string password = "CtaGTI*2017";
 
+        public static GTICargaFacturaSoapClient.EndpointConfiguration Ambiente;
+
         public static XDocument SendFacturaElectronica(XDocument docXml)
         {
             string respuesta = "";
 
             try
             {
-                var servicio = new GTICargaFacturaSoapClient(GTICargaFacturaSoapClient.EndpointConfiguration.GTICargaFacturaSoap);
+                var servicio = new GTICargaFacturaSoapClient(Ambiente);
                 var response = servicio.InsertarDocumentosAsync(docXml.ToString(), email, password);
                 response.Wait();
                 respuesta = response.Result;
@@ -28,5 +30,7 @@ namespace FacElec.helpers
             XDocument resXml = XDocument.Parse(respuesta);
             return resXml;
         }
+
+
     }
 }
