@@ -23,7 +23,8 @@ namespace FacElec.helpers
             var cliente = factura.cliente[0];
             var ignorarCliente = !(cliente.id_Cliente == 182);
 
-            var numCuenta = "4445";
+            var numCuenta = Program.numCuenta;
+
             var periodo = 0;
             if (System.DateTime.Today.Month < 10)
                 periodo = System.DateTime.Today.Year;

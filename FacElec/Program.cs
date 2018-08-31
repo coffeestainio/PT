@@ -5,8 +5,9 @@ using FacElec.helpers;
 
 namespace FacElec
 {
-    class Program
+    public class Program
     {
+        public static int numCuenta;
 
         public static IConfiguration Configuration { get; set; }
         static void Main(string[] args)
@@ -19,7 +20,9 @@ namespace FacElec
             SqlHelper.sqlConnection = Configuration.GetConnectionString("Production");
 
             GTICargaFacturaSoapClient.Pruebas = Configuration.GetSection("GTIPruebas").Value == "true";
-           
+            numCuenta = Configuration.GetSection("GTIPruebas").Value == "true" ? 4445 : 42366;
+
+
             Sincronizador.SincronizarFacturas();
 
         }
