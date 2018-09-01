@@ -47,6 +47,17 @@ Partial Class frm_pedido
         Me.btneliminar = New System.Windows.Forms.Button
         Me.btnmodificar = New System.Windows.Forms.Button
         Me.dtgpedido = New System.Windows.Forms.DataGridView
+        Me.id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.presentacion = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.tpddescuento = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.Precio = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.TPDMonto = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.tpdiv = New System.Windows.Forms.DataGridViewCheckBoxColumn
+        Me.utilidad = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.costo = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.barcode = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip
         Me.lblproductos = New System.Windows.Forms.Label
         Me.Label10 = New System.Windows.Forms.Label
@@ -63,6 +74,7 @@ Partial Class frm_pedido
         Me.txt_orden = New System.Windows.Forms.TextBox
         Me.txttransporte = New System.Windows.Forms.TextBox
         Me.txt_observaciones = New System.Windows.Forms.TextBox
+        Me.txtOrden = New System.Windows.Forms.TextBox
         Me.Label6 = New System.Windows.Forms.Label
         Me.lblcliente_nombre = New System.Windows.Forms.Label
         Me.Label3 = New System.Windows.Forms.Label
@@ -74,17 +86,9 @@ Partial Class frm_pedido
         Me.Label5 = New System.Windows.Forms.Label
         Me.lbl_orden = New System.Windows.Forms.Label
         Me.Label7 = New System.Windows.Forms.Label
-        Me.id_producto = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.presentacion = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.tpddescuento = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.Precio = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.TPDMonto = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.tpdiv = New System.Windows.Forms.DataGridViewCheckBoxColumn
-        Me.utilidad = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.costo = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.barcode = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.Label8 = New System.Windows.Forms.Label
+        Me.Label11 = New System.Windows.Forms.Label
+        Me.dtpOrden = New System.Windows.Forms.DateTimePicker
         Me.Panel1.SuspendLayout()
         CType(Me.dtgpedido, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
@@ -119,7 +123,7 @@ Partial Class frm_pedido
         Me.Panel1.Controls.Add(Me.btnmodificar)
         Me.Panel1.Controls.Add(Me.dtgpedido)
         Me.Panel1.Controls.Add(Me.ToolStrip1)
-        Me.Panel1.Location = New System.Drawing.Point(20, 137)
+        Me.Panel1.Location = New System.Drawing.Point(20, 187)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(984, 531)
         Me.Panel1.TabIndex = 33
@@ -304,6 +308,129 @@ Partial Class frm_pedido
         Me.dtgpedido.Size = New System.Drawing.Size(913, 523)
         Me.dtgpedido.TabIndex = 35
         '
+        'id_producto
+        '
+        Me.id_producto.DataPropertyName = "id_producto"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.id_producto.DefaultCellStyle = DataGridViewCellStyle3
+        Me.id_producto.HeaderText = "Cód"
+        Me.id_producto.Name = "id_producto"
+        Me.id_producto.ReadOnly = True
+        Me.id_producto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.id_producto.Width = 60
+        '
+        'cantidad
+        '
+        Me.cantidad.DataPropertyName = "cantidad"
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.NullValue = Nothing
+        Me.cantidad.DefaultCellStyle = DataGridViewCellStyle4
+        Me.cantidad.HeaderText = "Cant"
+        Me.cantidad.Name = "cantidad"
+        Me.cantidad.ReadOnly = True
+        Me.cantidad.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.cantidad.Width = 50
+        '
+        'presentacion
+        '
+        Me.presentacion.DataPropertyName = "presentacion"
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.presentacion.DefaultCellStyle = DataGridViewCellStyle5
+        Me.presentacion.HeaderText = ""
+        Me.presentacion.Name = "presentacion"
+        Me.presentacion.ReadOnly = True
+        Me.presentacion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.presentacion.Width = 35
+        '
+        'nombre
+        '
+        Me.nombre.DataPropertyName = "nombre"
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nombre.DefaultCellStyle = DataGridViewCellStyle6
+        Me.nombre.HeaderText = "Nombre"
+        Me.nombre.Name = "nombre"
+        Me.nombre.ReadOnly = True
+        Me.nombre.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.nombre.Width = 450
+        '
+        'tpddescuento
+        '
+        Me.tpddescuento.DataPropertyName = "descuento"
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.Format = "N2"
+        DataGridViewCellStyle7.NullValue = Nothing
+        Me.tpddescuento.DefaultCellStyle = DataGridViewCellStyle7
+        Me.tpddescuento.HeaderText = "%"
+        Me.tpddescuento.Name = "tpddescuento"
+        Me.tpddescuento.ReadOnly = True
+        Me.tpddescuento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.tpddescuento.Width = 50
+        '
+        'Precio
+        '
+        Me.Precio.DataPropertyName = "precio"
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.Format = "N2"
+        DataGridViewCellStyle8.NullValue = Nothing
+        Me.Precio.DefaultCellStyle = DataGridViewCellStyle8
+        Me.Precio.HeaderText = "Precio"
+        Me.Precio.Name = "Precio"
+        Me.Precio.ReadOnly = True
+        Me.Precio.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.Precio.Width = 80
+        '
+        'TPDMonto
+        '
+        Me.TPDMonto.DataPropertyName = "Monto"
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.Format = "N2"
+        DataGridViewCellStyle9.NullValue = Nothing
+        Me.TPDMonto.DefaultCellStyle = DataGridViewCellStyle9
+        Me.TPDMonto.HeaderText = "Monto"
+        Me.TPDMonto.Name = "TPDMonto"
+        Me.TPDMonto.ReadOnly = True
+        Me.TPDMonto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'tpdiv
+        '
+        Me.tpdiv.DataPropertyName = "iv"
+        Me.tpdiv.HeaderText = "iv"
+        Me.tpdiv.Name = "tpdiv"
+        Me.tpdiv.ReadOnly = True
+        Me.tpdiv.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.tpdiv.Width = 25
+        '
+        'utilidad
+        '
+        Me.utilidad.DataPropertyName = "utilidad"
+        Me.utilidad.HeaderText = "utilidad"
+        Me.utilidad.Name = "utilidad"
+        Me.utilidad.ReadOnly = True
+        Me.utilidad.Visible = False
+        '
+        'costo
+        '
+        Me.costo.DataPropertyName = "costo"
+        Me.costo.HeaderText = "costo"
+        Me.costo.Name = "costo"
+        Me.costo.ReadOnly = True
+        Me.costo.Visible = False
+        '
+        'barcode
+        '
+        Me.barcode.DataPropertyName = "barcode"
+        DataGridViewCellStyle10.NullValue = Nothing
+        Me.barcode.DefaultCellStyle = DataGridViewCellStyle10
+        Me.barcode.HeaderText = "barcode"
+        Me.barcode.Name = "barcode"
+        Me.barcode.ReadOnly = True
+        '
         'ToolStrip1
         '
         Me.ToolStrip1.AutoSize = False
@@ -320,7 +447,7 @@ Partial Class frm_pedido
         'lblproductos
         '
         Me.lblproductos.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblproductos.Location = New System.Drawing.Point(127, 684)
+        Me.lblproductos.Location = New System.Drawing.Point(127, 738)
         Me.lblproductos.Name = "lblproductos"
         Me.lblproductos.Size = New System.Drawing.Size(29, 24)
         Me.lblproductos.TabIndex = 60
@@ -329,7 +456,7 @@ Partial Class frm_pedido
         'Label10
         '
         Me.Label10.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(23, 684)
+        Me.Label10.Location = New System.Drawing.Point(23, 738)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(92, 24)
         Me.Label10.TabIndex = 59
@@ -341,7 +468,7 @@ Partial Class frm_pedido
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel3.Controls.Add(Me.lbltotal)
         Me.Panel3.Controls.Add(Me.Label9)
-        Me.Panel3.Location = New System.Drawing.Point(605, 672)
+        Me.Panel3.Location = New System.Drawing.Point(605, 722)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(249, 42)
         Me.Panel3.TabIndex = 61
@@ -369,7 +496,7 @@ Partial Class frm_pedido
         '
         Me.btntotales.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btntotales.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btntotales.Location = New System.Drawing.Point(869, 684)
+        Me.btntotales.Location = New System.Drawing.Point(869, 734)
         Me.btntotales.Name = "btntotales"
         Me.btntotales.Size = New System.Drawing.Size(21, 22)
         Me.btntotales.TabIndex = 59
@@ -465,6 +592,16 @@ Partial Class frm_pedido
         Me.txt_observaciones.Size = New System.Drawing.Size(868, 26)
         Me.txt_observaciones.TabIndex = 74
         Me.ToolTip1.SetToolTip(Me.txt_observaciones, "Escriba el Tipo de Transporte")
+        '
+        'txtOrden
+        '
+        Me.txtOrden.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtOrden.Location = New System.Drawing.Point(177, 134)
+        Me.txtOrden.MaxLength = 35
+        Me.txtOrden.Name = "txtOrden"
+        Me.txtOrden.Size = New System.Drawing.Size(190, 26)
+        Me.txtOrden.TabIndex = 76
+        Me.ToolTip1.SetToolTip(Me.txtOrden, "Escriba el Tipo de Transporte")
         '
         'Label6
         '
@@ -589,134 +726,44 @@ Partial Class frm_pedido
         Me.Label7.Text = "Observ."
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'id_producto
+        'Label8
         '
-        Me.id_producto.DataPropertyName = "id_producto"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.NullValue = Nothing
-        Me.id_producto.DefaultCellStyle = DataGridViewCellStyle3
-        Me.id_producto.HeaderText = "Cód"
-        Me.id_producto.Name = "id_producto"
-        Me.id_producto.ReadOnly = True
-        Me.id_producto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.id_producto.Width = 60
+        Me.Label8.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(21, 133)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(150, 24)
+        Me.Label8.TabIndex = 75
+        Me.Label8.Text = "Orden de Compra"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'cantidad
+        'Label11
         '
-        Me.cantidad.DataPropertyName = "cantidad"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.NullValue = Nothing
-        Me.cantidad.DefaultCellStyle = DataGridViewCellStyle4
-        Me.cantidad.HeaderText = "Cant"
-        Me.cantidad.Name = "cantidad"
-        Me.cantidad.ReadOnly = True
-        Me.cantidad.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.cantidad.Width = 50
+        Me.Label11.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(373, 136)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(150, 24)
+        Me.Label11.TabIndex = 77
+        Me.Label11.Text = "Fecha de Orden"
+        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'presentacion
+        'dtpOrden
         '
-        Me.presentacion.DataPropertyName = "presentacion"
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.presentacion.DefaultCellStyle = DataGridViewCellStyle5
-        Me.presentacion.HeaderText = ""
-        Me.presentacion.Name = "presentacion"
-        Me.presentacion.ReadOnly = True
-        Me.presentacion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.presentacion.Width = 35
-        '
-        'nombre
-        '
-        Me.nombre.DataPropertyName = "nombre"
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nombre.DefaultCellStyle = DataGridViewCellStyle6
-        Me.nombre.HeaderText = "Nombre"
-        Me.nombre.Name = "nombre"
-        Me.nombre.ReadOnly = True
-        Me.nombre.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.nombre.Width = 450
-        '
-        'tpddescuento
-        '
-        Me.tpddescuento.DataPropertyName = "descuento"
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.Format = "N2"
-        DataGridViewCellStyle7.NullValue = Nothing
-        Me.tpddescuento.DefaultCellStyle = DataGridViewCellStyle7
-        Me.tpddescuento.HeaderText = "%"
-        Me.tpddescuento.Name = "tpddescuento"
-        Me.tpddescuento.ReadOnly = True
-        Me.tpddescuento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.tpddescuento.Width = 50
-        '
-        'Precio
-        '
-        Me.Precio.DataPropertyName = "precio"
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.Format = "N2"
-        DataGridViewCellStyle8.NullValue = Nothing
-        Me.Precio.DefaultCellStyle = DataGridViewCellStyle8
-        Me.Precio.HeaderText = "Precio"
-        Me.Precio.Name = "Precio"
-        Me.Precio.ReadOnly = True
-        Me.Precio.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.Precio.Width = 80
-        '
-        'TPDMonto
-        '
-        Me.TPDMonto.DataPropertyName = "Monto"
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.Format = "N2"
-        DataGridViewCellStyle9.NullValue = Nothing
-        Me.TPDMonto.DefaultCellStyle = DataGridViewCellStyle9
-        Me.TPDMonto.HeaderText = "Monto"
-        Me.TPDMonto.Name = "TPDMonto"
-        Me.TPDMonto.ReadOnly = True
-        Me.TPDMonto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'tpdiv
-        '
-        Me.tpdiv.DataPropertyName = "iv"
-        Me.tpdiv.HeaderText = "iv"
-        Me.tpdiv.Name = "tpdiv"
-        Me.tpdiv.ReadOnly = True
-        Me.tpdiv.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.tpdiv.Width = 25
-        '
-        'utilidad
-        '
-        Me.utilidad.DataPropertyName = "utilidad"
-        Me.utilidad.HeaderText = "utilidad"
-        Me.utilidad.Name = "utilidad"
-        Me.utilidad.ReadOnly = True
-        Me.utilidad.Visible = False
-        '
-        'costo
-        '
-        Me.costo.DataPropertyName = "costo"
-        Me.costo.HeaderText = "costo"
-        Me.costo.Name = "costo"
-        Me.costo.ReadOnly = True
-        Me.costo.Visible = False
-        '
-        'barcode
-        '
-        Me.barcode.DataPropertyName = "barcode"
-        DataGridViewCellStyle10.NullValue = Nothing
-        Me.barcode.DefaultCellStyle = DataGridViewCellStyle10
-        Me.barcode.HeaderText = "barcode"
-        Me.barcode.Name = "barcode"
-        Me.barcode.ReadOnly = True
+        Me.dtpOrden.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpOrden.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpOrden.Location = New System.Drawing.Point(514, 138)
+        Me.dtpOrden.Name = "dtpOrden"
+        Me.dtpOrden.Size = New System.Drawing.Size(126, 26)
+        Me.dtpOrden.TabIndex = 78
         '
         'frm_pedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1016, 725)
+        Me.ClientSize = New System.Drawing.Size(1016, 788)
+        Me.Controls.Add(Me.dtpOrden)
+        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.txtOrden)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.txt_observaciones)
         Me.Controls.Add(Me.txttransporte)
@@ -733,6 +780,7 @@ Partial Class frm_pedido
         Me.Name = "frm_pedido"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "\"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.dtgpedido, System.ComponentModel.ISupportInitialize).EndInit()
@@ -795,4 +843,8 @@ Partial Class frm_pedido
     Friend WithEvents utilidad As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents costo As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents barcode As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents txtOrden As System.Windows.Forms.TextBox
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents dtpOrden As System.Windows.Forms.DateTimePicker
 End Class

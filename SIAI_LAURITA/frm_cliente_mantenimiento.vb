@@ -1,3 +1,4 @@
+
 Public Class frm_cliente_mantenimiento
     Inherits System.Windows.Forms.Form
 
@@ -75,6 +76,18 @@ Public Class frm_cliente_mantenimiento
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents cbprecio As System.Windows.Forms.ComboBox
     Friend WithEvents Label18 As System.Windows.Forms.Label
+    Friend WithEvents Label21 As System.Windows.Forms.Label
+    Friend WithEvents Label20 As System.Windows.Forms.Label
+    Friend WithEvents Label19 As System.Windows.Forms.Label
+    Friend WithEvents cbDistrito As System.Windows.Forms.ComboBox
+    Friend WithEvents cbCanton As System.Windows.Forms.ComboBox
+    Friend WithEvents cbProvincia As System.Windows.Forms.ComboBox
+    Friend WithEvents txtAutomercado As System.Windows.Forms.TextBox
+    Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents Label23 As System.Windows.Forms.Label
+    Friend WithEvents cbIdentificacion As System.Windows.Forms.ComboBox
+    Friend WithEvents Label24 As System.Windows.Forms.Label
+    Friend WithEvents cbPago As System.Windows.Forms.ComboBox
     Friend WithEvents btnaceptar As System.Windows.Forms.Button
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
@@ -83,6 +96,16 @@ Public Class frm_cliente_mantenimiento
         Me.btncancelar = New System.Windows.Forms.Button
         Me.btnaceptar = New System.Windows.Forms.Button
         Me.Panel1 = New System.Windows.Forms.Panel
+        Me.cbIdentificacion = New System.Windows.Forms.ComboBox
+        Me.Label23 = New System.Windows.Forms.Label
+        Me.txtAutomercado = New System.Windows.Forms.TextBox
+        Me.Label22 = New System.Windows.Forms.Label
+        Me.cbDistrito = New System.Windows.Forms.ComboBox
+        Me.cbCanton = New System.Windows.Forms.ComboBox
+        Me.cbProvincia = New System.Windows.Forms.ComboBox
+        Me.Label21 = New System.Windows.Forms.Label
+        Me.Label20 = New System.Windows.Forms.Label
+        Me.Label19 = New System.Windows.Forms.Label
         Me.cbprecio = New System.Windows.Forms.ComboBox
         Me.Label18 = New System.Windows.Forms.Label
         Me.cbid_zona = New System.Windows.Forms.ComboBox
@@ -126,6 +149,8 @@ Public Class frm_cliente_mantenimiento
         Me.Label1 = New System.Windows.Forms.Label
         Me.PictureBox3 = New System.Windows.Forms.PictureBox
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.Label24 = New System.Windows.Forms.Label
+        Me.cbPago = New System.Windows.Forms.ComboBox
         Me.Panel1.SuspendLayout()
         CType(Me.pblimite_credito, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbnombre_comercial, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -150,7 +175,7 @@ Public Class frm_cliente_mantenimiento
         '
         Me.btncancelar.Image = CType(resources.GetObject("btncancelar.Image"), System.Drawing.Image)
         Me.btncancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btncancelar.Location = New System.Drawing.Point(404, 549)
+        Me.btncancelar.Location = New System.Drawing.Point(415, 719)
         Me.btncancelar.Name = "btncancelar"
         Me.btncancelar.Size = New System.Drawing.Size(88, 32)
         Me.btncancelar.TabIndex = 17
@@ -162,7 +187,7 @@ Public Class frm_cliente_mantenimiento
         '
         Me.btnaceptar.Image = CType(resources.GetObject("btnaceptar.Image"), System.Drawing.Image)
         Me.btnaceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnaceptar.Location = New System.Drawing.Point(290, 549)
+        Me.btnaceptar.Location = New System.Drawing.Point(301, 719)
         Me.btnaceptar.Name = "btnaceptar"
         Me.btnaceptar.Size = New System.Drawing.Size(88, 32)
         Me.btnaceptar.TabIndex = 16
@@ -173,6 +198,18 @@ Public Class frm_cliente_mantenimiento
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Panel1.Controls.Add(Me.cbPago)
+        Me.Panel1.Controls.Add(Me.Label24)
+        Me.Panel1.Controls.Add(Me.cbIdentificacion)
+        Me.Panel1.Controls.Add(Me.Label23)
+        Me.Panel1.Controls.Add(Me.txtAutomercado)
+        Me.Panel1.Controls.Add(Me.Label22)
+        Me.Panel1.Controls.Add(Me.cbDistrito)
+        Me.Panel1.Controls.Add(Me.cbCanton)
+        Me.Panel1.Controls.Add(Me.cbProvincia)
+        Me.Panel1.Controls.Add(Me.Label21)
+        Me.Panel1.Controls.Add(Me.Label20)
+        Me.Panel1.Controls.Add(Me.Label19)
         Me.Panel1.Controls.Add(Me.cbprecio)
         Me.Panel1.Controls.Add(Me.Label18)
         Me.Panel1.Controls.Add(Me.cbid_zona)
@@ -217,15 +254,115 @@ Public Class frm_cliente_mantenimiento
         Me.Panel1.Controls.Add(Me.PictureBox3)
         Me.Panel1.Location = New System.Drawing.Point(23, 29)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(754, 514)
+        Me.Panel1.Size = New System.Drawing.Size(754, 684)
         Me.Panel1.TabIndex = 0
+        '
+        'cbIdentificacion
+        '
+        Me.cbIdentificacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbIdentificacion.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbIdentificacion.Items.AddRange(New Object() {"Cedula Fisica", "Cedula Juridica", "Dimex", "Nite", "Extranjera"})
+        Me.cbIdentificacion.Location = New System.Drawing.Point(468, 45)
+        Me.cbIdentificacion.Name = "cbIdentificacion"
+        Me.cbIdentificacion.Size = New System.Drawing.Size(251, 26)
+        Me.cbIdentificacion.TabIndex = 108
+        Me.ToolTip1.SetToolTip(Me.cbIdentificacion, "Seleccione el agente del cliente")
+        '
+        'Label23
+        '
+        Me.Label23.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Location = New System.Drawing.Point(334, 47)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(144, 24)
+        Me.Label23.TabIndex = 107
+        Me.Label23.Text = "Tipo Identificacion"
+        Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtAutomercado
+        '
+        Me.txtAutomercado.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAutomercado.Location = New System.Drawing.Point(166, 181)
+        Me.txtAutomercado.MaxLength = 35
+        Me.txtAutomercado.Name = "txtAutomercado"
+        Me.txtAutomercado.Size = New System.Drawing.Size(255, 26)
+        Me.txtAutomercado.TabIndex = 106
+        Me.ToolTip1.SetToolTip(Me.txtAutomercado, "Id Para clientes de automercado")
+        '
+        'Label22
+        '
+        Me.Label22.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.Location = New System.Drawing.Point(20, 183)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(143, 24)
+        Me.Label22.TabIndex = 105
+        Me.Label22.Text = "ID Auto Mercado"
+        Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'cbDistrito
+        '
+        Me.cbDistrito.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbDistrito.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbDistrito.Location = New System.Drawing.Point(487, 369)
+        Me.cbDistrito.Name = "cbDistrito"
+        Me.cbDistrito.Size = New System.Drawing.Size(225, 26)
+        Me.cbDistrito.TabIndex = 104
+        Me.ToolTip1.SetToolTip(Me.cbDistrito, "Seleccione el agente del cliente")
+        '
+        'cbCanton
+        '
+        Me.cbCanton.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbCanton.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbCanton.Location = New System.Drawing.Point(170, 369)
+        Me.cbCanton.Name = "cbCanton"
+        Me.cbCanton.Size = New System.Drawing.Size(234, 26)
+        Me.cbCanton.TabIndex = 103
+        Me.ToolTip1.SetToolTip(Me.cbCanton, "Seleccione el agente del cliente")
+        '
+        'cbProvincia
+        '
+        Me.cbProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbProvincia.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbProvincia.Location = New System.Drawing.Point(170, 330)
+        Me.cbProvincia.Name = "cbProvincia"
+        Me.cbProvincia.Size = New System.Drawing.Size(234, 26)
+        Me.cbProvincia.TabIndex = 102
+        '
+        'Label21
+        '
+        Me.Label21.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(416, 371)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(88, 24)
+        Me.Label21.TabIndex = 101
+        Me.Label21.Text = "Distrito"
+        Me.Label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label20
+        '
+        Me.Label20.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.Location = New System.Drawing.Point(20, 371)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(88, 24)
+        Me.Label20.TabIndex = 100
+        Me.Label20.Text = "Canton"
+        Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label19
+        '
+        Me.Label19.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.Location = New System.Drawing.Point(17, 330)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(88, 24)
+        Me.Label19.TabIndex = 99
+        Me.Label19.Text = "Provincia"
+        Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'cbprecio
         '
         Me.cbprecio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbprecio.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbprecio.Items.AddRange(New Object() {"Precio 1", "Precio 2"})
-        Me.cbprecio.Location = New System.Drawing.Point(384, 342)
+        Me.cbprecio.Location = New System.Drawing.Point(385, 484)
         Me.cbprecio.Name = "cbprecio"
         Me.cbprecio.Size = New System.Drawing.Size(108, 26)
         Me.cbprecio.TabIndex = 97
@@ -235,7 +372,7 @@ Public Class frm_cliente_mantenimiento
         '
         Me.Label18.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.Label18.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(321, 344)
+        Me.Label18.Location = New System.Drawing.Point(322, 486)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(56, 24)
         Me.Label18.TabIndex = 98
@@ -246,7 +383,7 @@ Public Class frm_cliente_mantenimiento
         '
         Me.cbid_zona.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbid_zona.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbid_zona.Location = New System.Drawing.Point(166, 180)
+        Me.cbid_zona.Location = New System.Drawing.Point(170, 218)
         Me.cbid_zona.Name = "cbid_zona"
         Me.cbid_zona.Size = New System.Drawing.Size(251, 26)
         Me.cbid_zona.TabIndex = 4
@@ -256,7 +393,7 @@ Public Class frm_cliente_mantenimiento
         '
         Me.Label17.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.Label17.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(19, 180)
+        Me.Label17.Location = New System.Drawing.Point(24, 221)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(56, 24)
         Me.Label17.TabIndex = 96
@@ -266,7 +403,7 @@ Public Class frm_cliente_mantenimiento
         'txtdescuento
         '
         Me.txtdescuento.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtdescuento.Location = New System.Drawing.Point(169, 312)
+        Me.txtdescuento.Location = New System.Drawing.Point(170, 454)
         Me.txtdescuento.MaxLength = 5
         Me.txtdescuento.Name = "txtdescuento"
         Me.txtdescuento.Size = New System.Drawing.Size(46, 26)
@@ -298,7 +435,7 @@ Public Class frm_cliente_mantenimiento
         'pblimite_credito
         '
         Me.pblimite_credito.Image = CType(resources.GetObject("pblimite_credito.Image"), System.Drawing.Image)
-        Me.pblimite_credito.Location = New System.Drawing.Point(262, 386)
+        Me.pblimite_credito.Location = New System.Drawing.Point(263, 528)
         Me.pblimite_credito.Name = "pblimite_credito"
         Me.pblimite_credito.Size = New System.Drawing.Size(12, 12)
         Me.pblimite_credito.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -331,7 +468,7 @@ Public Class frm_cliente_mantenimiento
         'txtplazo
         '
         Me.txtplazo.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtplazo.Location = New System.Drawing.Point(169, 344)
+        Me.txtplazo.Location = New System.Drawing.Point(170, 486)
         Me.txtplazo.MaxLength = 2
         Me.txtplazo.Name = "txtplazo"
         Me.txtplazo.Size = New System.Drawing.Size(40, 26)
@@ -342,7 +479,7 @@ Public Class frm_cliente_mantenimiento
         'txtlimite_credito
         '
         Me.txtlimite_credito.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtlimite_credito.Location = New System.Drawing.Point(169, 378)
+        Me.txtlimite_credito.Location = New System.Drawing.Point(170, 520)
         Me.txtlimite_credito.MaxLength = 8
         Me.txtlimite_credito.Name = "txtlimite_credito"
         Me.txtlimite_credito.Size = New System.Drawing.Size(87, 26)
@@ -353,7 +490,7 @@ Public Class frm_cliente_mantenimiento
         'txttelefono
         '
         Me.txttelefono.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txttelefono.Location = New System.Drawing.Point(169, 280)
+        Me.txttelefono.Location = New System.Drawing.Point(170, 422)
         Me.txttelefono.MaxLength = 12
         Me.txttelefono.Name = "txttelefono"
         Me.txttelefono.Size = New System.Drawing.Size(116, 26)
@@ -363,7 +500,7 @@ Public Class frm_cliente_mantenimiento
         'txtobservaciones
         '
         Me.txtobservaciones.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtobservaciones.Location = New System.Drawing.Point(166, 461)
+        Me.txtobservaciones.Location = New System.Drawing.Point(167, 634)
         Me.txtobservaciones.MaxLength = 50
         Me.txtobservaciones.Multiline = True
         Me.txtobservaciones.Name = "txtobservaciones"
@@ -373,7 +510,7 @@ Public Class frm_cliente_mantenimiento
         'txttelefono_encargado
         '
         Me.txttelefono_encargado.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txttelefono_encargado.Location = New System.Drawing.Point(587, 420)
+        Me.txttelefono_encargado.Location = New System.Drawing.Point(588, 593)
         Me.txttelefono_encargado.MaxLength = 8
         Me.txttelefono_encargado.Name = "txttelefono_encargado"
         Me.txttelefono_encargado.Size = New System.Drawing.Size(80, 26)
@@ -383,7 +520,7 @@ Public Class frm_cliente_mantenimiento
         'txtnombre_encargado
         '
         Me.txtnombre_encargado.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtnombre_encargado.Location = New System.Drawing.Point(166, 424)
+        Me.txtnombre_encargado.Location = New System.Drawing.Point(167, 597)
         Me.txtnombre_encargado.MaxLength = 35
         Me.txtnombre_encargado.Name = "txtnombre_encargado"
         Me.txtnombre_encargado.Size = New System.Drawing.Size(328, 26)
@@ -393,7 +530,7 @@ Public Class frm_cliente_mantenimiento
         'txtfax
         '
         Me.txtfax.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtfax.Location = New System.Drawing.Point(383, 280)
+        Me.txtfax.Location = New System.Drawing.Point(384, 422)
         Me.txtfax.MaxLength = 12
         Me.txtfax.Name = "txtfax"
         Me.txtfax.Size = New System.Drawing.Size(120, 26)
@@ -403,7 +540,7 @@ Public Class frm_cliente_mantenimiento
         'txtdireccion
         '
         Me.txtdireccion.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtdireccion.Location = New System.Drawing.Point(169, 248)
+        Me.txtdireccion.Location = New System.Drawing.Point(170, 286)
         Me.txtdireccion.MaxLength = 80
         Me.txtdireccion.Name = "txtdireccion"
         Me.txtdireccion.Size = New System.Drawing.Size(549, 26)
@@ -413,7 +550,7 @@ Public Class frm_cliente_mantenimiento
         'txtemail
         '
         Me.txtemail.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtemail.Location = New System.Drawing.Point(169, 216)
+        Me.txtemail.Location = New System.Drawing.Point(170, 254)
         Me.txtemail.MaxLength = 35
         Me.txtemail.Name = "txtemail"
         Me.txtemail.Size = New System.Drawing.Size(325, 26)
@@ -454,7 +591,7 @@ Public Class frm_cliente_mantenimiento
         '
         Me.Label16.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.Label16.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(517, 424)
+        Me.Label16.Location = New System.Drawing.Point(518, 597)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(64, 24)
         Me.Label16.TabIndex = 84
@@ -465,7 +602,7 @@ Public Class frm_cliente_mantenimiento
         '
         Me.Label8.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.Label8.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(19, 424)
+        Me.Label8.Location = New System.Drawing.Point(16, 597)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(80, 24)
         Me.Label8.TabIndex = 83
@@ -475,7 +612,7 @@ Public Class frm_cliente_mantenimiento
         'PictureBox5
         '
         Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
-        Me.PictureBox5.Location = New System.Drawing.Point(262, 386)
+        Me.PictureBox5.Location = New System.Drawing.Point(263, 528)
         Me.PictureBox5.Name = "PictureBox5"
         Me.PictureBox5.Size = New System.Drawing.Size(8, 8)
         Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -486,7 +623,7 @@ Public Class frm_cliente_mantenimiento
         '
         Me.Label15.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.Label15.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(19, 378)
+        Me.Label15.Location = New System.Drawing.Point(20, 520)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(48, 24)
         Me.Label15.TabIndex = 77
@@ -496,7 +633,7 @@ Public Class frm_cliente_mantenimiento
         'Label14
         '
         Me.Label14.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(19, 344)
+        Me.Label14.Location = New System.Drawing.Point(20, 486)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(56, 24)
         Me.Label14.TabIndex = 76
@@ -507,7 +644,7 @@ Public Class frm_cliente_mantenimiento
         '
         Me.cbid_agente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbid_agente.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbid_agente.Location = New System.Drawing.Point(384, 312)
+        Me.cbid_agente.Location = New System.Drawing.Point(385, 454)
         Me.cbid_agente.Name = "cbid_agente"
         Me.cbid_agente.Size = New System.Drawing.Size(327, 26)
         Me.cbid_agente.TabIndex = 11
@@ -517,7 +654,7 @@ Public Class frm_cliente_mantenimiento
         '
         Me.Label13.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.Label13.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(321, 314)
+        Me.Label13.Location = New System.Drawing.Point(322, 456)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(56, 24)
         Me.Label13.TabIndex = 75
@@ -527,7 +664,7 @@ Public Class frm_cliente_mantenimiento
         'Label11
         '
         Me.Label11.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(19, 312)
+        Me.Label11.Location = New System.Drawing.Point(17, 454)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(88, 24)
         Me.Label11.TabIndex = 74
@@ -537,7 +674,7 @@ Public Class frm_cliente_mantenimiento
         'Label10
         '
         Me.Label10.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(19, 248)
+        Me.Label10.Location = New System.Drawing.Point(18, 286)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(88, 24)
         Me.Label10.TabIndex = 73
@@ -547,7 +684,7 @@ Public Class frm_cliente_mantenimiento
         'Label9
         '
         Me.Label9.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(19, 216)
+        Me.Label9.Location = New System.Drawing.Point(20, 254)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(56, 24)
         Me.Label9.TabIndex = 72
@@ -558,7 +695,7 @@ Public Class frm_cliente_mantenimiento
         '
         Me.Label7.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.Label7.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(321, 282)
+        Me.Label7.Location = New System.Drawing.Point(322, 424)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(32, 24)
         Me.Label7.TabIndex = 71
@@ -608,7 +745,7 @@ Public Class frm_cliente_mantenimiento
         '
         Me.Label4.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.Label4.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(19, 460)
+        Me.Label4.Location = New System.Drawing.Point(16, 634)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(112, 24)
         Me.Label4.TabIndex = 57
@@ -617,7 +754,7 @@ Public Class frm_cliente_mantenimiento
         'Label3
         '
         Me.Label3.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(19, 280)
+        Me.Label3.Location = New System.Drawing.Point(17, 422)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(80, 24)
         Me.Label3.TabIndex = 53
@@ -654,11 +791,33 @@ Public Class frm_cliente_mantenimiento
         Me.PictureBox3.TabIndex = 67
         Me.PictureBox3.TabStop = False
         '
+        'Label24
+        '
+        Me.Label24.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.Label24.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.Location = New System.Drawing.Point(19, 557)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(117, 24)
+        Me.Label24.TabIndex = 109
+        Me.Label24.Text = "Medio de pago"
+        Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'cbPago
+        '
+        Me.cbPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbPago.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbPago.Items.AddRange(New Object() {"Efectivo", "Tarjeta", "Cheque", "Transferencia - Deposito"})
+        Me.cbPago.Location = New System.Drawing.Point(170, 557)
+        Me.cbPago.Name = "cbPago"
+        Me.cbPago.Size = New System.Drawing.Size(323, 26)
+        Me.cbPago.TabIndex = 110
+        Me.ToolTip1.SetToolTip(Me.cbPago, "Seleccione el agente del cliente")
+        '
         'frm_cliente_mantenimiento
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(803, 588)
+        Me.ClientSize = New System.Drawing.Size(803, 759)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btncancelar)
         Me.Controls.Add(Me.btnaceptar)
@@ -667,7 +826,7 @@ Public Class frm_cliente_mantenimiento
         Me.Name = "frm_cliente_mantenimiento"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Mantenimiento de Clientes"
+        Me.Text = "g"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.pblimite_credito, System.ComponentModel.ISupportInitialize).EndInit()
@@ -682,8 +841,8 @@ Public Class frm_cliente_mantenimiento
 
 #End Region
 
-
-
+    Public Provincias As ArrayList
+    Public loading As Boolean = False
 
     Private Sub btnaceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnaceptar.Click
         'Try
@@ -746,6 +905,13 @@ Public Class frm_cliente_mantenimiento
             .rowc("id_grupo") = cbid(cbgrupo.Text)
             .rowc("id_zona") = cbid(cbid_zona.Text)
             .rowc("id_precio") = Val(cbprecio.SelectedIndex + 1)
+            .rowc("provincia") = Val(cbProvincia.SelectedIndex + 1)
+            .rowc("canton") = Val(cbCanton.SelectedIndex + 1)
+            .rowc("distrito") = Val(cbDistrito.SelectedIndex + 1)
+            .rowc("idautomercado") = txtAutomercado.Text
+            .rowc("tipoIdentificacion") = cbIdentificacion.SelectedIndex + 1
+            .rowc("medioPago") = cbPago.SelectedIndex + 1
+
 
             If lbltitulo.Text = "Incluir Cliente" Then .Dvcliente.Table.Rows.Add(.rowc)
             .Dacliente.Update(.Dscliente, "cliente")
@@ -893,64 +1059,11 @@ Public Class frm_cliente_mantenimiento
         End If
     End Sub
 
-
-    Private Sub txtplazo_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtplazo.TextChanged
-
-    End Sub
-
-    Private Sub txtlimite_credito_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtlimite_credito.TextChanged
-
-    End Sub
-
-    Private Sub txtidentificacion_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtidentificacion.TextChanged
-
-    End Sub
-
-    Private Sub txtnombre_sociedad_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtnombre_sociedad.TextChanged
-
-    End Sub
-
     Private Sub cbgrupo_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles cbgrupo.KeyPress
         If e.KeyChar = Convert.ToChar(Keys.Return) Then
             e.Handled = True
             SendKeys.Send("{TAB}")
         End If
-    End Sub
-
-    Private Sub cbgrupo_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbgrupo.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub txtnombre_comercial_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtnombre_comercial.TextChanged
-
-    End Sub
-
-    Private Sub txtemail_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtemail.TextChanged
-
-    End Sub
-
-    Private Sub txtdireccion_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtdireccion.TextChanged
-
-    End Sub
-
-    Private Sub txttelefono_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txttelefono.TextChanged
-
-    End Sub
-
-    Private Sub txtfax_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtfax.TextChanged
-
-    End Sub
-
-    Private Sub txtnombre_encargado_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtnombre_encargado.TextChanged
-
-    End Sub
-
-    Private Sub txttelefono_encargado_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txttelefono_encargado.TextChanged
-
-    End Sub
-
-    Private Sub txtobservaciones_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtobservaciones.TextChanged
-
     End Sub
 
     Private Sub txtdescuento_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtdescuento.KeyPress
@@ -973,11 +1086,65 @@ Public Class frm_cliente_mantenimiento
         End If
     End Sub
 
-    Private Sub cbid_zona_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbid_zona.SelectedIndexChanged
+    Public Sub PopulateCBAddress()
+        Provincias = PopulateDistritos()
+
+        For Each prov As Provincia In Provincias
+            cbProvincia.Items.Add(prov.name)
+        Next
+        cbProvincia.SelectedIndex = 0
 
     End Sub
 
-    Private Sub cbid_agente_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbid_agente.SelectedIndexChanged
+
+    Private Sub frm_cliente_mantenimiento_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If Not loading Then
+
+            If Provincias.Count = 0 Then
+                Provincias = PopulateDistritos()
+            End If
+            cbProvincia.Items.Clear()
+
+            For Each prov As Provincia In Provincias
+                cbProvincia.Items.Add(prov.name)
+            Next
+            cbProvincia.SelectedIndex = 0
+        End If
+
+    End Sub
+
+    Private Sub cbProvincia_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbProvincia.SelectedIndexChanged
+        Dim selectedProv As Provincia
+        selectedProv = Provincias(cbProvincia.SelectedIndex)
+        cbCanton.Items.Clear()
+
+        For Each cant As Canton In selectedProv.cantones
+            cbCanton.Items.Add(cant.name)
+        Next
+
+        cbCanton.SelectedIndex = 0
+    End Sub
+
+    Private Sub cbCanton_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbCanton.SelectedIndexChanged
+        Dim selectedCanton As Canton
+        Dim selectedProvincia As Provincia
+
+        selectedProvincia = Provincias(cbProvincia.SelectedIndex)
+        selectedCanton = selectedProvincia.cantones(cbCanton.SelectedIndex)
+
+        cbDistrito.Items.Clear()
+
+        For Each dist As Distrito In selectedCanton.distritos
+            cbDistrito.Items.Add(dist.name)
+        Next
+
+        cbDistrito.SelectedIndex = 0
+    End Sub
+
+    Private Sub Label23_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label23.Click
 
     End Sub
 End Class
+
+
+

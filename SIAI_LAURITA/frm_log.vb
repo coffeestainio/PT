@@ -98,7 +98,7 @@ Public Class frm_log
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(555, 24)
         Me.Label1.TabIndex = 3
-        Me.Label1.Text = "PT 2016 02.24"
+        Me.Label1.Text = "Facturacion Electronica - 1.0 Pre-Prod"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label3
@@ -303,8 +303,7 @@ Public Class frm_log
             Path = System.AppDomain.CurrentDomain.BaseDirectory()
             Intento = 0
 
-
-            CONN1 = New SqlConnection("server=" + SERVER + ";User ID=pcalvo;password=Skaman89;Database=PT;Persist Security Info=True")
+            CONN1 = New SqlConnection(SERVER)
             CONN1.Open()
 
 
@@ -425,6 +424,15 @@ Public Class myForms
         End Get
         Set(ByVal Value As frm_datos_mantenimiento)
             m_datos_mantenimiento = Value
+        End Set
+    End Property
+    Private Shared m_consulta_facelec As frm_consulta_facelec
+    Public Shared Property frm_consulta_facelec() As frm_consulta_facelec
+        Get
+            Return m_consulta_facelec
+        End Get
+        Set(ByVal Value As frm_consulta_facelec)
+            m_consulta_facelec = Value
         End Set
     End Property
     Private Shared m_rpt_producto_existencias As frm_rpt_bodega_existencia_opciones

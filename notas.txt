@@ -1,0 +1,5 @@
+Neceisto saber cual es nuestro numero de cuenta!:
+IdBarrio = 1 para todos,
+confirmar correo de cortecia
+preguntar por exoneracion
+cual es tu numero interno de proveedor de automercado?

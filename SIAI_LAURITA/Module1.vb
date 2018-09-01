@@ -8,7 +8,7 @@ Module Module1
     'Public Const SERVER As String = "S1"
     'Public Const SERVER As String = "S1"
     'Public Const SERVER As String = "SQL01"
-    Public Const SERVER As String = "192.168.1.113"
+    Public Const SERVER As String = "Server=tcp:pt2.database.windows.net,1433;Initial Catalog=PT2;Persist Security Info=False;User ID=PTSQL;Password=SQLPT12345!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
 
     Public Const PrinterServer As String = "\\SQL01\LASER"
 
@@ -21,7 +21,7 @@ Module Module1
     Public Const NEGOCIO As String = "PRODUCTOS TERMICOS, S.A."
     Public Const CJ As String = "Céd. Jur. 3-101-440551"
     Public Const TELEFONO As String = "Tel. 2288-2065   Fax. 2289-8818"
-    Public Const DIRECCION As String = "Escazú, Costa Rica   www.productostermicos.com"
+    Public Const DIRECCION As String = "Escazú, Costa Rica www.productostermicos.com"
 
     Public USUARIO_NOMBRE As String
     Public USUARIO_NIVEL As Integer
@@ -48,6 +48,10 @@ Module Module1
         End If
         Return aux
     End Function
+
+    Public Sub EjectuarFacturacionElectronica()
+        Process.Start("cmd", "/c dotnet c:/FacElec/FacElec.dll")
+    End Sub
 
     Public Sub sqlquery(ByVal sql As String)
         Dim cmd As New SqlCommand
@@ -232,6 +236,15 @@ Module Module1
         " INNER JOIN CLIENTE ON Factura.Id_Cliente = CLIENTE.Id_Cliente " + _
           IIf(C = "", "", " and " + C) + _
         " GROUP BY Factura.Id_Factura, Factura.FECHA, Factura.Id_Cliente, CLIENTE.NOMBRE_comercial, factura.id_agente,Factura.Plazo, factura.piv"
+
+        Dim Tbl As DataTable = Table(sql, PK)
+        Return Tbl
+    End Function
+
+    Public Function FACError(ByVal C As String, ByVal PK As String) As DataTable
+        Dim sql As String
+        sql = "select id_factura, id_cliente, fecha, codError codigoError, descripcionError" + _
+        " from factura where sincronizada = 1 and codError <> 'CodError:00' and notacredito = 0 " + C
 
         Dim Tbl As DataTable = Table(sql, PK)
         Return Tbl
@@ -794,6 +807,10 @@ Module Module1
 
     Public Function Table(ByVal Q As String, ByVal Pk As String) As DataTable
         'Try
+        If CONN1.State = ConnectionState.Closed Then
+            CONN1.Open()
+        End If
+
         Dim command As New SqlCommand(Q, CONN1)
         Dim reader As SqlDataReader = command.ExecuteReader()
         Dim schema As DataTable = reader.GetSchemaTable()

@@ -44,7 +44,6 @@ Public Class frm_principal
     Friend WithEvents TSMfactura_anular As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TSMrecibo_anular As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TSMdevolucion_reversar As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents btnconsulta As System.Windows.Forms.ToolStripButton
     Friend WithEvents StatusStrip1 As System.Windows.Forms.StatusStrip
     Friend WithEvents SLBL1 As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents SLBL2 As System.Windows.Forms.ToolStripStatusLabel
@@ -63,6 +62,9 @@ Public Class frm_principal
     Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents tsmind As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ReversarNotaDébitoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents btnconsulta As System.Windows.Forms.ToolStripDropDownButton
+    Friend WithEvents DocumentosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents FacturacionElectronicaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
@@ -101,13 +103,15 @@ Public Class frm_principal
         Me.TSMdevolucion_reversar = New System.Windows.Forms.ToolStripMenuItem
         Me.TSMRNC = New System.Windows.Forms.ToolStripMenuItem
         Me.ReversarNotaDébitoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.btnconsulta = New System.Windows.Forms.ToolStripButton
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip
         Me.SLBL1 = New System.Windows.Forms.ToolStripStatusLabel
         Me.SLBL2 = New System.Windows.Forms.ToolStripStatusLabel
         Me.SLBL3 = New System.Windows.Forms.ToolStripStatusLabel
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Label12 = New System.Windows.Forms.Label
+        Me.btnconsulta = New System.Windows.Forms.ToolStripDropDownButton
+        Me.DocumentosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.FacturacionElectronicaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
@@ -156,7 +160,7 @@ Public Class frm_principal
         Me.btnpedido.Image = CType(resources.GetObject("btnpedido.Image"), System.Drawing.Image)
         Me.btnpedido.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnpedido.Name = "btnpedido"
-        Me.btnpedido.Size = New System.Drawing.Size(96, 58)
+        Me.btnpedido.Size = New System.Drawing.Size(101, 58)
         Me.btnpedido.Text = "Pedidos"
         Me.btnpedido.ToolTipText = "Crear, Cargar, Consultar, Facturar Pedidos"
         '
@@ -165,7 +169,7 @@ Public Class frm_principal
         Me.btncompra.Image = CType(resources.GetObject("btncompra.Image"), System.Drawing.Image)
         Me.btncompra.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btncompra.Name = "btncompra"
-        Me.btncompra.Size = New System.Drawing.Size(101, 58)
+        Me.btncompra.Size = New System.Drawing.Size(107, 58)
         Me.btncompra.Text = "Compras"
         Me.btncompra.ToolTipText = "Consulta e Re Impresión de Docuementos"
         '
@@ -174,7 +178,7 @@ Public Class frm_principal
         Me.btndatos.Image = CType(resources.GetObject("btndatos.Image"), System.Drawing.Image)
         Me.btndatos.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btndatos.Name = "btndatos"
-        Me.btndatos.Size = New System.Drawing.Size(87, 58)
+        Me.btndatos.Size = New System.Drawing.Size(89, 58)
         Me.btndatos.Text = "Datos"
         Me.btndatos.ToolTipText = "Agentes, Clientes, Productos, Listas de Precios, Proveedores, Usuarios, Parámetro" & _
             "s"
@@ -185,69 +189,69 @@ Public Class frm_principal
         Me.btncredito.Image = CType(resources.GetObject("btncredito.Image"), System.Drawing.Image)
         Me.btncredito.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btncredito.Name = "btncredito"
-        Me.btncredito.Size = New System.Drawing.Size(103, 58)
+        Me.btncredito.Size = New System.Drawing.Size(107, 58)
         Me.btncredito.Text = "Crédito"
         '
         'TSMestado
         '
         Me.TSMestado.Name = "TSMestado"
-        Me.TSMestado.Size = New System.Drawing.Size(197, 22)
+        Me.TSMestado.Size = New System.Drawing.Size(201, 22)
         Me.TSMestado.Text = "Movimientos de Cuenta"
         '
         'tsmcreditovencido
         '
         Me.tsmcreditovencido.Name = "tsmcreditovencido"
-        Me.tsmcreditovencido.Size = New System.Drawing.Size(197, 22)
+        Me.tsmcreditovencido.Size = New System.Drawing.Size(201, 22)
         Me.tsmcreditovencido.Text = "Crédito Vencido"
         '
         'TSMICuentasxcobrar
         '
         Me.TSMICuentasxcobrar.Name = "TSMICuentasxcobrar"
-        Me.TSMICuentasxcobrar.Size = New System.Drawing.Size(197, 22)
+        Me.TSMICuentasxcobrar.Size = New System.Drawing.Size(201, 22)
         Me.TSMICuentasxcobrar.Text = "Cuentas x Cobrar"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(194, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(198, 6)
         '
         'TSMrecibo
         '
         Me.TSMrecibo.Name = "TSMrecibo"
-        Me.TSMrecibo.Size = New System.Drawing.Size(197, 22)
+        Me.TSMrecibo.Size = New System.Drawing.Size(201, 22)
         Me.TSMrecibo.Text = "Recibo"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(194, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(198, 6)
         '
         'TSMnotacredito
         '
         Me.TSMnotacredito.Name = "TSMnotacredito"
-        Me.TSMnotacredito.Size = New System.Drawing.Size(197, 22)
+        Me.TSMnotacredito.Size = New System.Drawing.Size(201, 22)
         Me.TSMnotacredito.Text = "Nota de Crédito"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(194, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(198, 6)
         '
         'TSMdevolucion
         '
         Me.TSMdevolucion.Name = "TSMdevolucion"
-        Me.TSMdevolucion.Size = New System.Drawing.Size(197, 22)
+        Me.TSMdevolucion.Size = New System.Drawing.Size(201, 22)
         Me.TSMdevolucion.Text = "Devolución"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(194, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(198, 6)
         '
         'tsmind
         '
         Me.tsmind.Name = "tsmind"
-        Me.tsmind.Size = New System.Drawing.Size(197, 22)
+        Me.tsmind.Size = New System.Drawing.Size(201, 22)
         Me.tsmind.Text = "Nota Débito"
         '
         'btnbodega
@@ -256,13 +260,13 @@ Public Class frm_principal
         Me.btnbodega.Image = CType(resources.GetObject("btnbodega.Image"), System.Drawing.Image)
         Me.btnbodega.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnbodega.Name = "btnbodega"
-        Me.btnbodega.Size = New System.Drawing.Size(104, 58)
+        Me.btnbodega.Size = New System.Drawing.Size(108, 58)
         Me.btnbodega.Text = "Bodega"
         '
         'TSMbajuste
         '
         Me.TSMbajuste.Name = "TSMbajuste"
-        Me.TSMbajuste.Size = New System.Drawing.Size(116, 22)
+        Me.TSMbajuste.Size = New System.Drawing.Size(107, 22)
         Me.TSMbajuste.Text = "Ajuste"
         '
         'btnreporte
@@ -270,7 +274,7 @@ Public Class frm_principal
         Me.btnreporte.Image = CType(resources.GetObject("btnreporte.Image"), System.Drawing.Image)
         Me.btnreporte.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnreporte.Name = "btnreporte"
-        Me.btnreporte.Size = New System.Drawing.Size(103, 58)
+        Me.btnreporte.Size = New System.Drawing.Size(105, 58)
         Me.btnreporte.Text = "Reportes"
         Me.btnreporte.ToolTipText = "Reportes Varios"
         '
@@ -280,47 +284,38 @@ Public Class frm_principal
         Me.btnmovimiento.Image = CType(resources.GetObject("btnmovimiento.Image"), System.Drawing.Image)
         Me.btnmovimiento.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btnmovimiento.Name = "btnmovimiento"
-        Me.btnmovimiento.Size = New System.Drawing.Size(127, 58)
+        Me.btnmovimiento.Size = New System.Drawing.Size(138, 58)
         Me.btnmovimiento.Text = "Movimientos"
         '
         'TSMfactura_anular
         '
         Me.TSMfactura_anular.Name = "TSMfactura_anular"
-        Me.TSMfactura_anular.Size = New System.Drawing.Size(193, 22)
+        Me.TSMfactura_anular.Size = New System.Drawing.Size(189, 22)
         Me.TSMfactura_anular.Text = "Anular Factura"
         '
         'TSMrecibo_anular
         '
         Me.TSMrecibo_anular.Name = "TSMrecibo_anular"
-        Me.TSMrecibo_anular.Size = New System.Drawing.Size(193, 22)
+        Me.TSMrecibo_anular.Size = New System.Drawing.Size(189, 22)
         Me.TSMrecibo_anular.Text = "Anular Recibo"
         '
         'TSMdevolucion_reversar
         '
         Me.TSMdevolucion_reversar.Name = "TSMdevolucion_reversar"
-        Me.TSMdevolucion_reversar.Size = New System.Drawing.Size(193, 22)
+        Me.TSMdevolucion_reversar.Size = New System.Drawing.Size(189, 22)
         Me.TSMdevolucion_reversar.Text = "Reversar Devolución"
         '
         'TSMRNC
         '
         Me.TSMRNC.Name = "TSMRNC"
-        Me.TSMRNC.Size = New System.Drawing.Size(193, 22)
+        Me.TSMRNC.Size = New System.Drawing.Size(189, 22)
         Me.TSMRNC.Text = "Reversar Nota Crédito"
         '
         'ReversarNotaDébitoToolStripMenuItem
         '
         Me.ReversarNotaDébitoToolStripMenuItem.Name = "ReversarNotaDébitoToolStripMenuItem"
-        Me.ReversarNotaDébitoToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
+        Me.ReversarNotaDébitoToolStripMenuItem.Size = New System.Drawing.Size(189, 22)
         Me.ReversarNotaDébitoToolStripMenuItem.Text = "Reversar Nota Débito"
-        '
-        'btnconsulta
-        '
-        Me.btnconsulta.Image = CType(resources.GetObject("btnconsulta.Image"), System.Drawing.Image)
-        Me.btnconsulta.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btnconsulta.Name = "btnconsulta"
-        Me.btnconsulta.Size = New System.Drawing.Size(101, 58)
-        Me.btnconsulta.Text = "Consulta"
-        Me.btnconsulta.ToolTipText = "Consulta e Re Impresión de Docuementos"
         '
         'StatusStrip1
         '
@@ -374,6 +369,28 @@ Public Class frm_principal
         Me.Label12.Text = "PJC Solutions"
         Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.Label12.Visible = False
+        '
+        'btnconsulta
+        '
+        Me.btnconsulta.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DocumentosToolStripMenuItem, Me.FacturacionElectronicaToolStripMenuItem})
+        Me.btnconsulta.Image = CType(resources.GetObject("btnconsulta.Image"), System.Drawing.Image)
+        Me.btnconsulta.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnconsulta.Name = "btnconsulta"
+        Me.btnconsulta.Size = New System.Drawing.Size(115, 58)
+        Me.btnconsulta.Text = "Consulta"
+        Me.btnconsulta.ToolTipText = "Consulta e Re Impresión de Docuementos"
+        '
+        'DocumentosToolStripMenuItem
+        '
+        Me.DocumentosToolStripMenuItem.Name = "DocumentosToolStripMenuItem"
+        Me.DocumentosToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
+        Me.DocumentosToolStripMenuItem.Text = "Documentos"
+        '
+        'FacturacionElectronicaToolStripMenuItem
+        '
+        Me.FacturacionElectronicaToolStripMenuItem.Name = "FacturacionElectronicaToolStripMenuItem"
+        Me.FacturacionElectronicaToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
+        Me.FacturacionElectronicaToolStripMenuItem.Text = "Facturacion Electronica"
         '
         'frm_principal
         '
@@ -492,11 +509,7 @@ Public Class frm_principal
     End Sub
 
     Private Sub btnconsulta_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnconsulta.Click
-        ToolStrip.Enabled = False
-        Dim consulta_documento As New frm_consulta_documento
-        myForms.frm_consulta_documento = consulta_documento
-        myForms.frm_consulta_documento.Owner = Me
-        consulta_documento.Show()
+        
     End Sub
 
     Private Sub btnpedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnpedido.Click
@@ -554,7 +567,7 @@ Public Class frm_principal
     Private Sub tsmind_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsmind.Click
         ToolStrip.Enabled = False
         Consulta = False
-        Dim nota_debito As New frm_Nota_debito
+        Dim nota_debito As New frm_Nota_Debito
         myForms.frm_nota_debito = nota_debito
         myForms.frm_nota_debito.Owner = Me
         nota_debito.Show()
@@ -570,5 +583,21 @@ Public Class frm_principal
 
     Private Sub PictureBox11_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox11.Click
 
+    End Sub
+
+    Private Sub DocumentosToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DocumentosToolStripMenuItem.Click
+        ToolStrip.Enabled = False
+        Dim consulta_documento As New frm_consulta_documento
+        myForms.frm_consulta_documento = consulta_documento
+        myForms.frm_consulta_documento.Owner = Me
+        consulta_documento.Show()
+    End Sub
+
+    Private Sub FacturacionElectronicaToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FacturacionElectronicaToolStripMenuItem.Click
+        ToolStrip.Enabled = False
+        Dim consulta_facelec As New frm_consulta_facelec
+        myForms.frm_consulta_facelec = consulta_facelec
+        myForms.frm_consulta_facelec.Owner = Me
+        consulta_facelec.Show()
     End Sub
 End Class

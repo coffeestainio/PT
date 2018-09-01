@@ -184,7 +184,7 @@ Public Class frm_reportes_admin
             Case "rbfactura"
                 Dim factura As DataTable
                 Dim rfactura As New rpt_facturas
-                Criterio = "factura.fecha>='" + EDATE(dtpdesde.Text) + "' and factura.fecha<='" + EDATE(dtphasta.Text) + "'"
+                Criterio = " factura.fecha>='" + EDATE(dtpdesde.Text) + " 00:00:00' and factura.fecha<='" + EDATE(dtphasta.Text) + " 23:59:59'"
                 factura = FACM(Criterio, True, "")
 
                 Dim nombre_sociedad As DataColumn = New DataColumn("nombre_sociedad")
@@ -429,8 +429,8 @@ Public Class frm_reportes_admin
                 Dim ClienteId As String
 
                 If txtvnid_cliente.Text = "" Then
-                    Criterio = "fecha>='" + EDATE(dtpdesde.Text) + "' and fecha<='" + EDATE(dtphasta.Text) + "'"
-                    Criterionc = "fecha>='" + EDATE(dtpdesde.Text) + "' and fecha<='" + EDATE(dtphasta.Text) + "'"
+                    Criterio = "fecha>='" + EDATE(dtpdesde.Text) + " 00:00:00' and fecha<='" + EDATE(dtphasta.Text) + " 23:59:59'"
+                    Criterionc = "fecha>='" + EDATE(dtpdesde.Text) + " 00:00:00' and fecha<='" + EDATE(dtphasta.Text) + " 23:59:59'"
                 Else
                     ClienteId = rowc("id_cliente").ToString + " - " + rowc("nombre_sociedad")
                     If rowc("id_grupo") > 1 And chkventa.Checked Then
@@ -489,7 +489,7 @@ Public Class frm_reportes_admin
             Case "rbdevolucion"
                 Dim devolucion As DataTable
                 Dim rdevolucion As New rpt_devoluciones
-                Criterio = "fecha>='" + EDATE(dtpdesde.Text) + "' and fecha<='" + EDATE(dtphasta.Text) + "'"
+                Criterio = "fecha>='" + EDATE(dtpdesde.Text) + " 00:00:00' and fecha<='" + EDATE(dtphasta.Text) + " 23:59:59'"
                 devolucion = DEVM(Criterio, True, "")
 
 
@@ -520,8 +520,8 @@ Public Class frm_reportes_admin
             Case "rb_facturas_cliente_periodo"
                 Dim factura As DataTable
                 Dim rfacturas_periodo As New rpt_facturas_periodos
-                Dim criterioBusqueda As String = "factura.fecha>='" & EDATE(dtpdesde.Text) & "' " & _
-                            "and factura.fecha<='" & EDATE(dtphasta.Text) & "' " & _
+                Dim criterioBusqueda As String = "factura.fecha>='" & EDATE(dtpdesde.Text) & " 00:00:00' " & _
+                            "and factura.fecha<='" & EDATE(dtphasta.Text) & " 23:59:59' " & _
                             "and factura.id_cliente = " & txtfcp_idcliente.Text & " "
 
                 factura = FACM(criterioBusqueda, False, "")

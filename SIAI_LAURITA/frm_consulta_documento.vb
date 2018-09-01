@@ -41,7 +41,7 @@ Public Class frm_consulta_documento
                 If Val(txtid_documento.Text) > 0 Then
                     criterio = " factura.id_factura = " + txtid_documento.Text
                 Else
-                    criterio = " factura.fecha>='" + EDATE(dtpdesde.Text) + "' and factura.fecha<='" + EDATE(dtphasta.Text) + "'"
+                    criterio = " factura.fecha>='" + EDATE(dtpdesde.Text) + " 00:00:00' and factura.fecha<='" + EDATE(dtphasta.Text) + " 23:59:59'"
                     If Val(txtid_cliente.Text) > 0 Then criterio = criterio + " and factura.id_cliente=" + txtid_cliente.Text
                 End If
                 Dim Factura As DataTable
