@@ -23,8 +23,6 @@ namespace FacElec.helpers
             var cliente = factura.cliente[0];
             var ignorarCliente = !(cliente.id_Cliente == 182);
 
-            var numCuenta = Program.numCuenta;
-
             var periodo = 0;
             if (System.DateTime.Today.Month < 10)
                 periodo = System.DateTime.Today.Year;
@@ -38,7 +36,7 @@ namespace FacElec.helpers
                                    new XElement("Encabezado",
                                                 new XElement("NumeroFactura", factura.id_factura),
                                                 new XElement("FechaFactura", factura.fecha.ToString("yyyy-MM-dd hh:mm:ss tt",CultureInfo.InvariantCulture)),
-                                                new XElement("Emisor", new XElement("NumCuenta", numCuenta)),
+                                                new XElement("Emisor", new XElement("NumCuenta", Program.env.account)),
                                                 new XElement("TipoCambio", "1.00"),
                                                 new XElement("TipoDoc", (!factura.notaCredito) ? "1" : "3"),
                                                 new XElement("CondicionVenta", (factura.plazo == 0) ? "1" : "2"),
