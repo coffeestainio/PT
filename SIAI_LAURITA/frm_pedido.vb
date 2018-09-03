@@ -541,10 +541,7 @@ Public Class frm_pedido
         btnfacturar.Enabled = False
 
         Facturas_Generar()
-        Facturas_imprimir(1)
-        Facturas_imprimir(2)
-        Facturas_imprimir(3)
-
+        Facturas_imprimir(1, True)
 
         If Not cbid_pedido.Text = "Nuevo" Then
             Dim cmd As New SqlCommand
@@ -664,7 +661,7 @@ Public Class frm_pedido
     End Sub
 
 
-    Private Sub Facturas_imprimir(ByVal Doc As String)
+    Private Sub Facturas_imprimir(ByVal Doc As String, ByVal enPantalla As Boolean)
         'Try
 
 
@@ -879,7 +876,7 @@ Public Class frm_pedido
             rParameterFieldLocation = rParameterFieldDefinitions.Item("Total")
             rParameterValues = rParameterFieldLocation.CurrentValues
             rParameterDiscreteValue = New CrystalDecisions.Shared.ParameterDiscreteValue
-            rParameterDiscreteValue.Value = "¢ " + FormatNumber(FGravado + Fiv + FExento -DCEDI, 2)
+            rParameterDiscreteValue.Value = "¢ " + FormatNumber(FGravado + Fiv + FExento - DCEDI, 2)
             rParameterValues.Add(rParameterDiscreteValue)
             rParameterFieldLocation.ApplyCurrentValues(rParameterValues)
 
@@ -955,20 +952,23 @@ Public Class frm_pedido
             rParameterValues.Add(rParameterDiscreteValue)
             rParameterFieldLocation.ApplyCurrentValues(rParameterValues)
 
-            Try
+            If (enPantalla = False) Then
 
-                rfactura.PrintOptions.PrinterName = PrinterServer
-                rfactura.PrintOptions.PaperOrientation = PaperOrientation.Portrait
-                rfactura.PrintToPrinter(1, False, 1, 1)
-            Catch
-                MsgBox("Hubo un error al conectarse con la impresora. La factura se genero correctamente.",MsgBoxStyle.Exclamation)
+                Try
 
-            End Try
+                    rfactura.PrintOptions.PrinterName = PrinterServer
+                    rfactura.PrintOptions.PaperOrientation = PaperOrientation.Portrait
+                    rfactura.PrintToPrinter(1, False, 1, 1)
+                Catch
+                    MsgBox("Hubo un error al conectarse con la impresora. La factura se genero correctamente.", MsgBoxStyle.Exclamation)
 
+                End Try
 
-            'Dim rv As New frm_Report_Viewer
-            'rv.crv.ReportSource = rfactura
-            'rv.Show()
+            Else
+                Dim rv As New frm_Report_Viewer
+                rv.crv.ReportSource = rfactura
+                rv.Show()
+            End If
 
         Next h
         'Catch myerror As Exception
@@ -1130,9 +1130,9 @@ Public Class frm_pedido
 
 
     Private Sub btnimprimir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnimprimir.Click
-        If chkoriginal.Checked Then Facturas_imprimir(1)
-        If chkcopia.Checked Then Facturas_imprimir(2)
-        If chkarchivo.Checked Then Facturas_imprimir(3)
+        If chkoriginal.Checked Then Facturas_imprimir(1, False)
+        If chkcopia.Checked Then Facturas_imprimir(2, False)
+        If chkarchivo.Checked Then Facturas_imprimir(3, False)
 
     End Sub
 

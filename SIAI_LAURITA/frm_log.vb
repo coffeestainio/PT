@@ -59,13 +59,13 @@ Public Class frm_log
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents lblVersion As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents ToolTip As System.Windows.Forms.ToolTip
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_log))
-        Me.Label1 = New System.Windows.Forms.Label
+        Me.lblVersion = New System.Windows.Forms.Label
         Me.Label3 = New System.Windows.Forms.Label
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.txtnombre = New System.Windows.Forms.TextBox
@@ -89,17 +89,16 @@ Public Class frm_log
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Label1
+        'lblVersion
         '
-        Me.Label1.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.Label1.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.CornflowerBlue
-        Me.Label1.Location = New System.Drawing.Point(0, -1)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(555, 24)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = "Facturacion Electronica - 1.0 Pre-Prod"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblVersion.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.lblVersion.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblVersion.ForeColor = System.Drawing.Color.CornflowerBlue
+        Me.lblVersion.Location = New System.Drawing.Point(0, -1)
+        Me.lblVersion.Name = "lblVersion"
+        Me.lblVersion.Size = New System.Drawing.Size(555, 24)
+        Me.lblVersion.TabIndex = 3
+        Me.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label3
         '
@@ -260,7 +259,7 @@ Public Class frm_log
         Me.ClientSize = New System.Drawing.Size(552, 189)
         Me.Controls.Add(Me.frmlog)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lblVersion)
         Me.Controls.Add(Me.PictureBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -298,6 +297,8 @@ Public Class frm_log
             'MessageBox.Show("Copia Sin Licencia", "", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1)
             'Application.Exit()
             'End If
+
+            lblVersion.Text = Version
 
 
             Path = System.AppDomain.CurrentDomain.BaseDirectory()
@@ -412,7 +413,7 @@ Public Class frm_log
 
     End Sub
 
-    Private Sub Label1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label1.Click
+    Private Sub Label1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lblVersion.Click
 
     End Sub
 End Class
