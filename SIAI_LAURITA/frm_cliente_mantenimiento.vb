@@ -96,6 +96,8 @@ Public Class frm_cliente_mantenimiento
         Me.btncancelar = New System.Windows.Forms.Button
         Me.btnaceptar = New System.Windows.Forms.Button
         Me.Panel1 = New System.Windows.Forms.Panel
+        Me.cbPago = New System.Windows.Forms.ComboBox
+        Me.Label24 = New System.Windows.Forms.Label
         Me.cbIdentificacion = New System.Windows.Forms.ComboBox
         Me.Label23 = New System.Windows.Forms.Label
         Me.txtAutomercado = New System.Windows.Forms.TextBox
@@ -149,8 +151,6 @@ Public Class frm_cliente_mantenimiento
         Me.Label1 = New System.Windows.Forms.Label
         Me.PictureBox3 = New System.Windows.Forms.PictureBox
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Label24 = New System.Windows.Forms.Label
-        Me.cbPago = New System.Windows.Forms.ComboBox
         Me.Panel1.SuspendLayout()
         CType(Me.pblimite_credito, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbnombre_comercial, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -256,6 +256,28 @@ Public Class frm_cliente_mantenimiento
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(754, 684)
         Me.Panel1.TabIndex = 0
+        '
+        'cbPago
+        '
+        Me.cbPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbPago.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbPago.Items.AddRange(New Object() {"Efectivo", "Tarjeta", "Cheque", "Transferencia - Deposito"})
+        Me.cbPago.Location = New System.Drawing.Point(170, 557)
+        Me.cbPago.Name = "cbPago"
+        Me.cbPago.Size = New System.Drawing.Size(323, 26)
+        Me.cbPago.TabIndex = 110
+        Me.ToolTip1.SetToolTip(Me.cbPago, "Seleccione el agente del cliente")
+        '
+        'Label24
+        '
+        Me.Label24.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.Label24.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.Location = New System.Drawing.Point(19, 557)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(117, 24)
+        Me.Label24.TabIndex = 109
+        Me.Label24.Text = "Medio de pago"
+        Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'cbIdentificacion
         '
@@ -551,9 +573,9 @@ Public Class frm_cliente_mantenimiento
         '
         Me.txtemail.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtemail.Location = New System.Drawing.Point(170, 254)
-        Me.txtemail.MaxLength = 35
+        Me.txtemail.MaxLength = 100
         Me.txtemail.Name = "txtemail"
-        Me.txtemail.Size = New System.Drawing.Size(325, 26)
+        Me.txtemail.Size = New System.Drawing.Size(549, 26)
         Me.txtemail.TabIndex = 5
         Me.ToolTip1.SetToolTip(Me.txtemail, "Escriba el E-mail del cliente")
         '
@@ -790,28 +812,6 @@ Public Class frm_cliente_mantenimiento
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox3.TabIndex = 67
         Me.PictureBox3.TabStop = False
-        '
-        'Label24
-        '
-        Me.Label24.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.Label24.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(19, 557)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(117, 24)
-        Me.Label24.TabIndex = 109
-        Me.Label24.Text = "Medio de pago"
-        Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'cbPago
-        '
-        Me.cbPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbPago.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbPago.Items.AddRange(New Object() {"Efectivo", "Tarjeta", "Cheque", "Transferencia - Deposito"})
-        Me.cbPago.Location = New System.Drawing.Point(170, 557)
-        Me.cbPago.Name = "cbPago"
-        Me.cbPago.Size = New System.Drawing.Size(323, 26)
-        Me.cbPago.TabIndex = 110
-        Me.ToolTip1.SetToolTip(Me.cbPago, "Seleccione el agente del cliente")
         '
         'frm_cliente_mantenimiento
         '

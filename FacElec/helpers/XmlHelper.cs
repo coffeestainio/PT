@@ -62,7 +62,7 @@ namespace FacElec.helpers
                                                              ignorarCliente ? new XElement("NumeroAreaTelReceptor", "506") : null,
                                                              ignorarCliente ? new XElement("NumeroTelReceptor", cliente.telefono.Replace("-", "")) : null,
                                                              ignorarCliente ? new XElement("CorreoElectronicoReceptor", cliente.email) : null,
-                                                             new XElement("CopiaCortesia", "rmorae@ice.co.cr;pcalvo@coffeestain.io")                                                                                     ) 
+                                                             new XElement("CopiaCortesia", "rmorae@ice.co.cr")                                                                                     ) 
                                                ),
                                                 generateDetailsXml(factura.factura_Detalle),
                                                 generarNotaCredito(factura),
@@ -113,10 +113,10 @@ namespace FacElec.helpers
                                new XElement("PrecioUnitario", detalle.precio),
                                new XElement("MontoDescuento", getDescuento(detalle)),
                                      new XElement("NaturalezaDescuento","Descuento"),
-                               new XElement("Impuestos",
+                                     (detalle.IV == false) ? null : new XElement("Impuestos",
                                            new XElement("Impuesto",
                                                            new XElement("CodigoImpuesto",1),
-                                                           new XElement("PorcentajeImpuesto",(detalle.IV == true) ? "13.00":"00.00"),
+                                                           new XElement("PorcentajeImpuesto", "13.00"),
                                                         new XElement("MontoImpuesto",getMontoImpuesto(detalle)),
                                                            new XElement("Exoneracion",null)
                                                           )
