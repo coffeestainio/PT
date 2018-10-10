@@ -80,7 +80,14 @@ namespace FacElec.helpers
                                                              new XElement("TotalImpuesto", totalImpuestos),
                                                              new XElement("TotalComprobante", totalVentaNeta + totalImpuestos)
                                                              ),
-                                                new XElement("Otros", "")
+                                                new XElement("ParametrosAdicionales",
+                                                             new XElement("Param21","8492"),
+                                                             new XElement("Param22",factura.ordenCompra),
+                                                             new XElement("Param24",""),
+                                                             new XElement("Param23", factura.fechaOrden.ToString("yyyy-MM-dd hh:mm:ss tt", CultureInfo.InvariantCulture)),
+                                                             new XElement("Param26","")
+                                                            ),
+                                                new XElement("Otros", "Notas")
                                                )
                                          )
             );
