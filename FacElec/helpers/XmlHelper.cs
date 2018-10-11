@@ -22,6 +22,7 @@ namespace FacElec.helpers
 
             var cliente = factura.cliente[0];
             var ignorarCliente = !(cliente.id_Cliente == 182);
+            var automercado = (cliente.id_Cliente == 191);
 
             var periodo = 0;
             if (System.DateTime.Today.Month < 10)
@@ -80,13 +81,14 @@ namespace FacElec.helpers
                                                              new XElement("TotalImpuesto", totalImpuestos),
                                                              new XElement("TotalComprobante", totalVentaNeta + totalImpuestos)
                                                              ),
-                                                new XElement("ParametrosAdicionales",
-                                                             new XElement("Param21","8492"),
-                                                             new XElement("Param22",factura.ordenCompra),
-                                                             new XElement("Param24",""),
-                                                             new XElement("Param23", factura.fechaOrden.ToString("yyyy-MM-dd hh:mm:ss tt", CultureInfo.InvariantCulture)),
-                                                             new XElement("Param26","")
-                                                            ),
+                                                automercado ? new XElement("ParametrosAdicionales",                                                          
+                                                                           new XElement("Param21","8498"),
+                                                                           (!factura.notaCredito)? new XElement("Param22",factura.ordenCompra) : null,
+                                                                           (!factura.notaCredito)? new XElement("Param24","7449020000547") : null,
+                                                                           (!factura.notaCredito)? new XElement("Param23", factura.fechaOrden.ToString("yyyy-MM-dd hh:mm:ss tt", CultureInfo.InvariantCulture)): null,
+                                                                           (!factura.notaCredito) ? new XElement("Param26",""): null,
+                                                                           factura.notaCredito ? new XElement("Param30",""):null
+                                                                          ) : null,
                                                 new XElement("Otros", "Notas")
                                                )
                                          )

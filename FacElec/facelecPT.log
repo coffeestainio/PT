@@ -7,3 +7,8 @@
 2018-08-31 11:34:04,539 [1] INFO FacElec.Program - Leyendo configuracion
 2018-08-31 11:34:05,479 [1] INFO FacElec.Program - Ambiente de produccion?: True
 2018-08-31 11:34:05,486 [1] INFO FacElec.Program - Iniciando el proceso
+2018-10-11 13:05:31,676 [1] INFO FacElec.Program - Leyendo configuracion
+2018-10-11 13:05:32,215 [1] INFO FacElec.Program - Ambiente de produccion?: False
+2018-10-11 13:05:32,216 [1] INFO FacElec.Program - Iniciando el proceso
+2018-10-11 13:05:37,522 [1] INFO FacElec.Program - Number of processed rows 1
+2018-10-11 13:05:37,522 [1] INFO FacElec.Program - Proceso completado
