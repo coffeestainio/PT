@@ -84,12 +84,11 @@ namespace FacElec.helpers
                                                 automercado ? new XElement("ParametrosAdicionales",                                                          
                                                                            new XElement("Param21","8498"),
                                                                            (!factura.notaCredito)? new XElement("Param22",factura.ordenCompra) : null,
-                                                                           (!factura.notaCredito)? new XElement("Param24","7449020000547") : null,
                                                                            (!factura.notaCredito)? new XElement("Param23", factura.fechaOrden.ToString("yyyy-MM-dd hh:mm:ss tt", CultureInfo.InvariantCulture)): null,
                                                                            (!factura.notaCredito) ? new XElement("Param26",""): null,
                                                                            factura.notaCredito ? new XElement("Param30",""):null
                                                                           ) : null,
-                                                new XElement("Otros", "Notas")
+                                            new XElement("Otros", factura.observaciones)
                                                )
                                          )
             );
