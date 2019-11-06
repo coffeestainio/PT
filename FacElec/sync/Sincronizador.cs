@@ -9,7 +9,7 @@ namespace FacElec.sync
     public static class Sincronizador
     {
 
-        public static void SincronizarFacturas()
+        public static void SincronizarFacturas(bool pruebas)
         {
             
             var facturas = new List<Factura>();
@@ -22,14 +22,14 @@ namespace FacElec.sync
                     var xmlFac = XmlHelper.generateXML(fac);
 
                     XmlHelper.storeXml(xmlFac, fac.id_factura, fac.notaCredito);
-                    var resultado = RestHelper.SendFacturaElectronica(xmlFac);
 
+                    var resultado = RestHelper.SendFacturaElectronica(xmlFac);
                     if (resultado != null)
                         resultados.Add(XmlHelper.validateResponse(fac.id_factura, resultado, fac.notaCredito));
                     else
                         Program.log.Error("Hubo un error al sincronizar la factura con GTI");
                 }
-                SqlHelper.GuardarEstado(resultados);
+                if (!pruebas) SqlHelper.GuardarEstado(resultados);
             }
             else{
                 Program.log.Warn("No hay facturas pendientes");

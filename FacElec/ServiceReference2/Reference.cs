@@ -160,7 +160,7 @@ public partial class GTICargaFacturaSoapClient : System.ServiceModel.ClientBase<
 
     public static bool Produccion;
 
-    private static string UrlPruebas = "http://pruebas.gticr.com/WSCargaFacturaAsync/Pruebas/GTICargaFactura.asmx";
+    private static string UrlPruebas = "http://pruebas.gticr.com/AplicacionFEPruebas/WSCargaFactura/Pruebas/GTICargaFactura.asmx";
     private static string UrlProduccion = "http://www.facturaelectronica.cr/ServicioCargaFactura/GTICargaFactura.asmx";
 
     private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration)

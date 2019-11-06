@@ -29,7 +29,6 @@ namespace FacElec
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
             Configuration = builder.Build();
-            SqlHelper.sqlConnection = Configuration.GetConnectionString("Production");
 
             var prod = Configuration["Env"] == "Prod";
             GTICargaFacturaSoapClient.Produccion = prod;
@@ -37,18 +36,23 @@ namespace FacElec
             log.Info($"Ambiente de produccion?: {prod}");
 
             if (prod)
+            {
                 env = new Env(int.Parse(Configuration["Ambientes:Prod:Account"]),
                           Configuration["Ambientes:Prod:User"],
                               Configuration["Ambientes:Prod:Password"]);
-
+                SqlHelper.sqlConnection = Configuration.GetConnectionString("Production");
+            }
             else
+            {
                 env = new Env(int.Parse(Configuration["Ambientes:Dev:Account"]),
                           Configuration["Ambientes:Dev:User"],
                               Configuration["Ambientes:Dev:Password"]);
+                SqlHelper.sqlConnection = Configuration.GetConnectionString("Development");
+            }
 
             log.Info("Iniciando el proceso");
 
-            Sincronizador.SincronizarFacturas();
+            Sincronizador.SincronizarFacturas(!prod);
 
             log.Info("Proceso completado");
 

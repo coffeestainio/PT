@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.Linq;
@@ -49,6 +50,7 @@ namespace FacElec.helpers
                                                 new XElement("Terminal", 1),
                                                 new XElement("FechaVencimiento", ""),
                                                 new XElement("SituacionEnvio", 1),
+                                                new XElement("CodigoActividad", 523901),
                                                 new XElement("Periodo", periodo),
 
                                                 new XElement("Receptor",
@@ -61,20 +63,25 @@ namespace FacElec.helpers
                                                              ignorarCliente ? new XElement("idBarrio", 1) : null,
                                                              ignorarCliente ? new XElement("DireccionReceptor", cliente.direccion) : null,
                                                              ignorarCliente ? new XElement("NumeroAreaTelReceptor", "506") : null,
-                                                             ignorarCliente ? new XElement("NumeroTelReceptor", cliente.telefono.Replace("-", "")) : null,
+                                                             ignorarCliente ? new XElement("NumeroTelReceptor", cliente.telefono.Replace("-", "").Trim()) : null,
                                                              ignorarCliente ? new XElement("CorreoElectronicoReceptor", cliente.email) : null,
-                                                             new XElement("CopiaCortesia", "rmorae@ice.co.cr")                                                                                     ) 
+                                                             new XElement("CopiaCortesia", "ptermicoscr@gmail.com")                                                                                     ) 
                                                ),
                                                 generateDetailsXml(factura.factura_Detalle),
                                                 generarNotaCredito(factura),
                                                 new XElement("Totales",
                                                              new XElement("TotalServGravados", 0),
                                                              new XElement("TotalServExentos", 0),
+                                                             new XElement("TotalServExonerados", 0),
                                                              new XElement("TotalMercanciasGravadas", totalGravado),
                                                              new XElement("TotalMercanciasExentas", totalExento),
+                                                             new XElement("TotalMercanciasExoneradas", 0),
                                                              new XElement("TotalMercanciasGravadas", totalGravado),
                                                              new XElement("TotalGravado", totalGravado),
                                                              new XElement("TotalExento", totalExento),
+                                                             new XElement("TotalExonerado", 0),
+                                                             new XElement("TotalOtrosCargos", 0),
+                                                             new XElement("TotalIVADevuelto", 0),
                                                              new XElement("TotalVenta", total),
                                                              new XElement("TotalDescuentos", totalDescuentos),
                                                              new XElement("TotalVentaNeta", totalVentaNeta),
@@ -113,20 +120,22 @@ namespace FacElec.helpers
 
                foreach(factura_Detalle detalle in detalles)
                 xml.Add(new XElement("Linea",
-                                new XElement("Tipo", "M"),
+                               new XElement("CodigoTipo", "01"),
                                new XElement("CodigoProducto", detalle.producto[0].id_producto),
-                                     new XElement("Cantidad",detalle.cantidad),
+                               new XElement("Cantidad",detalle.cantidad),
                                new XElement("UnidadMedida", 1),
                                new XElement("DetalleMerc", detalle.producto[0].nombre),
                                new XElement("PrecioUnitario", detalle.precio),
-                               new XElement("MontoDescuento", getDescuento(detalle)),
-                                     new XElement("NaturalezaDescuento","Descuento"),
-                                     (detalle.IV == false) ? null : new XElement("Impuestos",
+                               (getDescuento(detalle) == 0) ? null : new XElement("Descuentos",
+                                      new XElement("MontoDescuento", getDescuento(detalle)),
+                                      new XElement("NaturalezaDescuento", "Descuento")
+                               ),
+                               (detalle.IV == false) ? null : new XElement("Impuestos",
                                            new XElement("Impuesto",
-                                                           new XElement("CodigoImpuesto",1),
+                                                           new XElement("CodigoImpuesto",01),
+                                                           new XElement("CodigoTarifa", 08),
                                                            new XElement("PorcentajeImpuesto", "13.00"),
-                                                        new XElement("MontoImpuesto",getMontoImpuesto(detalle)),
-                                                           new XElement("Exoneracion",null)
+                                                           new XElement("MontoImpuesto",getMontoImpuesto(detalle))
                                                           )
                                              )
                                 ) 
@@ -180,10 +189,17 @@ namespace FacElec.helpers
 
 
         public static void storeXml(XDocument xmlDoc, string facId, bool notaCredito){
-            var fileName = $"facturasEnviadas/{(notaCredito ? "notacredito" : "facturaElectronica")}_{facId}.xml";
-            System.IO.FileInfo file = new System.IO.FileInfo(fileName);
-            file.Directory.Create();
-            xmlDoc.Save(fileName);
+            try
+            {
+                var fileName = $"facturasEnviadas/{(notaCredito ? "notacredito" : "facturaElectronica")}_{facId}.xml";
+                System.IO.FileInfo file = new System.IO.FileInfo(fileName);
+                file.Directory.Create();
+                xmlDoc.Save(fileName);
+            }
+            catch (Exception ex){
+                Program.log.Error("Error al almacenar el XML para la factura: " + facId);
+                Program.log.Error(ex.Message);
+            }
         }
 
         public static GTIResponse validateResponse(string idFactura, XDocument xResponse, bool notaCredito)

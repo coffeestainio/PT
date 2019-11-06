@@ -35,6 +35,20 @@
     <None Remove="app.config" />
     <None Remove="facturasEnviadas\facturaElectronica_18202.xml" />
     <None Remove="facturasEnviadas\facturaElectronica_18354.xml" />
+    <None Remove="facturasEnviadas\facturaElectronica_18195.xml" />
+    <None Remove="facturasEnviadas\facturaElectronica_18198.xml" />
+    <None Remove="facturasEnviadas\facturaElectronica_18218.xml" />
+    <None Remove="facturasEnviadas\facturaElectronica_18219.xml" />
+    <None Remove="facturasEnviadas\facturaElectronica_18390.xml" />
+    <None Remove="facturasEnviadas\facturaElectronica_18217.xml" />
+    <None Remove="facturasEnviadas\facturaElectronica_18218.xml" />
+    <None Remove="facturasEnviadas\facturaElectronica_18212.xml" />
+    <None Remove="facturasEnviadas\facturaElectronica_18215.xml" />
+    <None Remove="facturasEnviadas\facturaElectronica_18216.xml" />
+    <None Remove="facturasEnviadas\notacredito_18213.xml" />
+    <None Remove="facturasEnviadas\notacredito_18214.xml" />
+    <None Remove="facelecPT.log" />
+    <None Remove="facturasEnviadas\facturaElectronica_19708.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Update="appsettings.json">
