@@ -268,3 +268,6 @@ Parameter name: via
 2019-07-02 23:21:37,357 [1] INFO FacElec.Program - Iniciando el proceso
 2019-07-02 23:22:12,244 [1] INFO FacElec.Program - Number of processed rows 1
 2019-07-02 23:22:12,245 [1] INFO FacElec.Program - Proceso completado
+2020-09-19 16:27:32,161 [1] INFO FacElec.Program - Leyendo configuracion
+2020-09-19 16:27:32,695 [1] INFO FacElec.Program - Ambiente de produccion?: False
+2020-09-19 16:27:32,695 [1] INFO FacElec.Program - Iniciando el proceso

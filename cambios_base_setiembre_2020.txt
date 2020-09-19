@@ -1,0 +1,2 @@
+ALTER TABLE Producto
+ADD Cabys varchar(13) NULL;

@@ -121,6 +121,7 @@ namespace FacElec.helpers
                foreach(factura_Detalle detalle in detalles)
                 xml.Add(new XElement("Linea",
                                new XElement("CodigoTipo", "01"),
+                               new XElement("Codigo", detalle.producto[0].cabys),
                                new XElement("CodigoProducto", detalle.producto[0].id_producto),
                                new XElement("Cantidad",detalle.cantidad),
                                new XElement("UnidadMedida", 1),
