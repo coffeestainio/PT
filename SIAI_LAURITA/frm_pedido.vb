@@ -67,7 +67,7 @@ Public Class frm_pedido
         If Not Consulta Then
             CONN1.Open()
             TPD_crear()
-            CB_crear(cbid_agente, "Agente", "id_Agente")
+            CB_crear(cbid_agente, "Agente", "id_agente")
 
             Dim Ptro As DataTable
             Ptro = Table("select * from parametro", "")
@@ -111,6 +111,14 @@ Public Class frm_pedido
             cbid_pedido.Focus()
             Carga_pedidos()
             identifica_pedido()
+            If cbid_agente.Items.Count > 1 Then
+                Dim z As Integer
+                For z = 0 To cbid_agente.Items.Count - 1
+                    If cbid_agente.Items.Item(z).ToString.Split("-")(0) = rowc("id_agente").ToString() Then
+                        cbid_agente.SelectedIndex = z
+                    End If
+                Next
+            End If
         End If
         cliente_ID = txtid_cliente.Text
         If cliente_ID = 61 Then

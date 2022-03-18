@@ -2386,10 +2386,10 @@ Public Class frm_datos_mantenimiento
         Try
             ' Insert
             Daproducto.InsertCommand = CONN1.CreateCommand()
-            Daproducto.InsertCommand.CommandText = "INSERT INTO producto(nombre, presentacion, costo,precio1, precio2,id_proveedor,iv,observaciones,barcode,id_familia)" + _
-            "VALUES(@nombre, @presentacion,@costo,@precio1,@precio2, @id_proveedor,@iv,@observaciones,@barcode,@id_familia); " & _
+            Daproducto.InsertCommand.CommandText = "INSERT INTO producto(nombre, presentacion, costo,precio1, precio2,id_proveedor,iv,observaciones,barcode,id_familia,cabys)" + _
+            "VALUES(@nombre, @presentacion,@costo,@precio1,@precio2, @id_proveedor,@iv,@observaciones,@barcode,@id_familia,@cabys); " & _
             "SELECT id_producto, nombre,presentacion,id_proveedor, observaciones,barcode,id_familia FROM producto WHERE (id_producto = @@IDENTITY)"
-            AddParams(Daproducto.InsertCommand, "nombre", "presentacion", "costo", "precio1", "precio2", "id_proveedor", "observaciones", "barcode", "id_familia")
+            AddParams(Daproducto.InsertCommand, "nombre", "presentacion", "costo", "precio1", "precio2", "id_proveedor", "observaciones", "barcode", "id_familia", "cabys")
             Daproducto.InsertCommand.Parameters.Add("@iv", SqlDbType.Bit, 0, "iv")
 
             ' Update
@@ -2397,8 +2397,8 @@ Public Class frm_datos_mantenimiento
             Daproducto.UpdateCommand.CommandText = _
                 "UPDATE producto SET " + _
                 "nombre = @nombre, presentacion = @presentacion,costo = @costo,precio1 = @precio1, precio2 = @precio2, id_proveedor=@id_proveedor,iv=@iv,observaciones=@observaciones, " + _
-                "barcode=@barcode,id_familia=@id_familia WHERE id_producto = @id_producto"
-            AddParams(Daproducto.UpdateCommand, "id_producto", "nombre", "presentacion", "costo", "precio1", "precio2", "id_proveedor", "observaciones", "barcode", "id_familia")
+                "barcode=@barcode,id_familia=@id_familia,cabys=@cabys WHERE id_producto = @id_producto"
+            AddParams(Daproducto.UpdateCommand, "id_producto", "nombre", "presentacion", "costo", "precio1", "precio2", "id_proveedor", "observaciones", "barcode", "id_familia", "cabys")
             Daproducto.UpdateCommand.Parameters.Add("@iv", SqlDbType.Bit, 0, "iv")
 
         Catch myerror As SqlException
@@ -2456,6 +2456,11 @@ Public Class frm_datos_mantenimiento
             .txtcosto.Text = rowprd("costo")
             .txtprecio1.Text = rowprd("precio1")
             .txtprecio2.Text = rowprd("precio2")
+            Try
+                .txtCabys.Text = rowprd("cabys").ToString
+            Catch ex As Exception
+                .txtCabys.Text = ""
+            End Try
             .lblutilidad.Text = FormatNumber(.utilidad() * 100, 2)
             .txtbarcode.Text = rowprd("barcode").ToString.TrimEnd
             .txtobservaciones.Text = rowprd("observaciones").ToString.TrimEnd

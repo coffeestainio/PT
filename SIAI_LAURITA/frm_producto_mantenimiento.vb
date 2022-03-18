@@ -68,6 +68,8 @@ Public Class frm_producto_mantenimiento
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents pbprecio2 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
+    Friend WithEvents txtCabys As System.Windows.Forms.TextBox
+    Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents btnaceptar As System.Windows.Forms.Button
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
@@ -110,6 +112,8 @@ Public Class frm_producto_mantenimiento
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.Label10 = New System.Windows.Forms.Label
         Me.PictureBox5 = New System.Windows.Forms.PictureBox
+        Me.txtCabys = New System.Windows.Forms.TextBox
+        Me.Label14 = New System.Windows.Forms.Label
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbprecio1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -136,7 +140,7 @@ Public Class frm_producto_mantenimiento
         '
         Me.btncancelar.Image = CType(resources.GetObject("btncancelar.Image"), System.Drawing.Image)
         Me.btncancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btncancelar.Location = New System.Drawing.Point(387, 473)
+        Me.btncancelar.Location = New System.Drawing.Point(387, 521)
         Me.btncancelar.Name = "btncancelar"
         Me.btncancelar.Size = New System.Drawing.Size(88, 32)
         Me.btncancelar.TabIndex = 9
@@ -148,7 +152,7 @@ Public Class frm_producto_mantenimiento
         '
         Me.btnaceptar.Image = CType(resources.GetObject("btnaceptar.Image"), System.Drawing.Image)
         Me.btnaceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnaceptar.Location = New System.Drawing.Point(278, 473)
+        Me.btnaceptar.Location = New System.Drawing.Point(278, 521)
         Me.btnaceptar.Name = "btnaceptar"
         Me.btnaceptar.Size = New System.Drawing.Size(88, 32)
         Me.btnaceptar.TabIndex = 9
@@ -160,7 +164,7 @@ Public Class frm_producto_mantenimiento
         '
         Me.cbid_proveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbid_proveedor.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbid_proveedor.Location = New System.Drawing.Point(134, 207)
+        Me.cbid_proveedor.Location = New System.Drawing.Point(134, 247)
         Me.cbid_proveedor.Name = "cbid_proveedor"
         Me.cbid_proveedor.Size = New System.Drawing.Size(248, 26)
         Me.cbid_proveedor.TabIndex = 4
@@ -171,7 +175,7 @@ Public Class frm_producto_mantenimiento
         Me.cbpresentacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbpresentacion.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbpresentacion.Items.AddRange(New Object() {"und", "cjs", "doc"})
-        Me.cbpresentacion.Location = New System.Drawing.Point(134, 172)
+        Me.cbpresentacion.Location = New System.Drawing.Point(134, 212)
         Me.cbpresentacion.Name = "cbpresentacion"
         Me.cbpresentacion.Size = New System.Drawing.Size(65, 26)
         Me.cbpresentacion.TabIndex = 3
@@ -191,7 +195,7 @@ Public Class frm_producto_mantenimiento
         '
         Me.cbid_familia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbid_familia.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbid_familia.Location = New System.Drawing.Point(134, 132)
+        Me.cbid_familia.Location = New System.Drawing.Point(134, 172)
         Me.cbid_familia.Name = "cbid_familia"
         Me.cbid_familia.Size = New System.Drawing.Size(283, 26)
         Me.cbid_familia.TabIndex = 2
@@ -200,7 +204,7 @@ Public Class frm_producto_mantenimiento
         'txtcosto
         '
         Me.txtcosto.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtcosto.Location = New System.Drawing.Point(134, 247)
+        Me.txtcosto.Location = New System.Drawing.Point(134, 287)
         Me.txtcosto.MaxLength = 14
         Me.txtcosto.Name = "txtcosto"
         Me.txtcosto.Size = New System.Drawing.Size(88, 26)
@@ -211,7 +215,7 @@ Public Class frm_producto_mantenimiento
         'txtprecio1
         '
         Me.txtprecio1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtprecio1.Location = New System.Drawing.Point(134, 288)
+        Me.txtprecio1.Location = New System.Drawing.Point(134, 328)
         Me.txtprecio1.MaxLength = 14
         Me.txtprecio1.Name = "txtprecio1"
         Me.txtprecio1.Size = New System.Drawing.Size(88, 26)
@@ -232,7 +236,7 @@ Public Class frm_producto_mantenimiento
         'txtprecio2
         '
         Me.txtprecio2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtprecio2.Location = New System.Drawing.Point(134, 329)
+        Me.txtprecio2.Location = New System.Drawing.Point(134, 369)
         Me.txtprecio2.MaxLength = 14
         Me.txtprecio2.Name = "txtprecio2"
         Me.txtprecio2.Size = New System.Drawing.Size(88, 26)
@@ -243,7 +247,7 @@ Public Class frm_producto_mantenimiento
         'PictureBox3
         '
         Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(228, 298)
+        Me.PictureBox3.Location = New System.Drawing.Point(228, 338)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(8, 8)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -263,7 +267,7 @@ Public Class frm_producto_mantenimiento
         'Label3
         '
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(14, 172)
+        Me.Label3.Location = New System.Drawing.Point(14, 212)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(114, 24)
         Me.Label3.TabIndex = 24
@@ -273,7 +277,7 @@ Public Class frm_producto_mantenimiento
         'Label4
         '
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(14, 382)
+        Me.Label4.Location = New System.Drawing.Point(14, 422)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(120, 24)
         Me.Label4.TabIndex = 25
@@ -302,7 +306,7 @@ Public Class frm_producto_mantenimiento
         'Label1
         '
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(14, 207)
+        Me.Label1.Location = New System.Drawing.Point(14, 247)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(88, 24)
         Me.Label1.TabIndex = 30
@@ -332,7 +336,7 @@ Public Class frm_producto_mantenimiento
         'txtobservaciones
         '
         Me.txtobservaciones.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtobservaciones.Location = New System.Drawing.Point(134, 382)
+        Me.txtobservaciones.Location = New System.Drawing.Point(134, 422)
         Me.txtobservaciones.MaxLength = 50
         Me.txtobservaciones.Multiline = True
         Me.txtobservaciones.Name = "txtobservaciones"
@@ -352,7 +356,7 @@ Public Class frm_producto_mantenimiento
         'Label8
         '
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(14, 133)
+        Me.Label8.Location = New System.Drawing.Point(14, 173)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(114, 24)
         Me.Label8.TabIndex = 34
@@ -362,7 +366,7 @@ Public Class frm_producto_mantenimiento
         'pbprecio1
         '
         Me.pbprecio1.Image = CType(resources.GetObject("pbprecio1.Image"), System.Drawing.Image)
-        Me.pbprecio1.Location = New System.Drawing.Point(228, 298)
+        Me.pbprecio1.Location = New System.Drawing.Point(228, 338)
         Me.pbprecio1.Name = "pbprecio1"
         Me.pbprecio1.Size = New System.Drawing.Size(12, 12)
         Me.pbprecio1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -373,7 +377,7 @@ Public Class frm_producto_mantenimiento
         'Label9
         '
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(20, 247)
+        Me.Label9.Location = New System.Drawing.Point(20, 287)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(66, 24)
         Me.Label9.TabIndex = 71
@@ -383,6 +387,8 @@ Public Class frm_producto_mantenimiento
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Panel1.Controls.Add(Me.txtCabys)
+        Me.Panel1.Controls.Add(Me.Label14)
         Me.Panel1.Controls.Add(Me.txtprecio2)
         Me.Panel1.Controls.Add(Me.Label13)
         Me.Panel1.Controls.Add(Me.pbprecio2)
@@ -419,13 +425,13 @@ Public Class frm_producto_mantenimiento
         Me.Panel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel1.Location = New System.Drawing.Point(12, 28)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(725, 439)
+        Me.Panel1.Size = New System.Drawing.Size(725, 487)
         Me.Panel1.TabIndex = 0
         '
         'Label13
         '
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(20, 331)
+        Me.Label13.Location = New System.Drawing.Point(20, 371)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(66, 24)
         Me.Label13.TabIndex = 83
@@ -435,7 +441,7 @@ Public Class frm_producto_mantenimiento
         'pbprecio2
         '
         Me.pbprecio2.Image = CType(resources.GetObject("pbprecio2.Image"), System.Drawing.Image)
-        Me.pbprecio2.Location = New System.Drawing.Point(228, 335)
+        Me.pbprecio2.Location = New System.Drawing.Point(228, 375)
         Me.pbprecio2.Name = "pbprecio2"
         Me.pbprecio2.Size = New System.Drawing.Size(12, 12)
         Me.pbprecio2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -446,7 +452,7 @@ Public Class frm_producto_mantenimiento
         'Label12
         '
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(419, 249)
+        Me.Label12.Location = New System.Drawing.Point(419, 289)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(27, 24)
         Me.Label12.TabIndex = 80
@@ -456,7 +462,7 @@ Public Class frm_producto_mantenimiento
         'pbcosto
         '
         Me.pbcosto.Image = CType(resources.GetObject("pbcosto.Image"), System.Drawing.Image)
-        Me.pbcosto.Location = New System.Drawing.Point(228, 255)
+        Me.pbcosto.Location = New System.Drawing.Point(228, 295)
         Me.pbcosto.Name = "pbcosto"
         Me.pbcosto.Size = New System.Drawing.Size(12, 12)
         Me.pbcosto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -467,7 +473,7 @@ Public Class frm_producto_mantenimiento
         'PictureBox2
         '
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(228, 259)
+        Me.PictureBox2.Location = New System.Drawing.Point(228, 299)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(8, 8)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -477,7 +483,7 @@ Public Class frm_producto_mantenimiento
         'lblutilidad
         '
         Me.lblutilidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblutilidad.Location = New System.Drawing.Point(338, 249)
+        Me.lblutilidad.Location = New System.Drawing.Point(338, 289)
         Me.lblutilidad.Name = "lblutilidad"
         Me.lblutilidad.Size = New System.Drawing.Size(75, 24)
         Me.lblutilidad.TabIndex = 77
@@ -486,7 +492,7 @@ Public Class frm_producto_mantenimiento
         'Label11
         '
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(270, 249)
+        Me.Label11.Location = New System.Drawing.Point(270, 289)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(64, 24)
         Me.Label11.TabIndex = 76
@@ -517,7 +523,7 @@ Public Class frm_producto_mantenimiento
         'Label10
         '
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(20, 290)
+        Me.Label10.Location = New System.Drawing.Point(20, 330)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(66, 24)
         Me.Label10.TabIndex = 73
@@ -527,17 +533,37 @@ Public Class frm_producto_mantenimiento
         'PictureBox5
         '
         Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
-        Me.PictureBox5.Location = New System.Drawing.Point(228, 335)
+        Me.PictureBox5.Location = New System.Drawing.Point(228, 375)
         Me.PictureBox5.Name = "PictureBox5"
         Me.PictureBox5.Size = New System.Drawing.Size(8, 8)
         Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox5.TabIndex = 84
         Me.PictureBox5.TabStop = False
         '
+        'txtCabys
+        '
+        Me.txtCabys.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCabys.Location = New System.Drawing.Point(134, 131)
+        Me.txtCabys.MaxLength = 14
+        Me.txtCabys.Name = "txtCabys"
+        Me.txtCabys.Size = New System.Drawing.Size(145, 26)
+        Me.txtCabys.TabIndex = 85
+        Me.ToolTip1.SetToolTip(Me.txtCabys, "Introduzca el codigo cabys")
+        '
+        'Label14
+        '
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(14, 132)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(114, 24)
+        Me.Label14.TabIndex = 86
+        Me.Label14.Text = "Cabys"
+        Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'frm_producto_mantenimiento
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-        Me.ClientSize = New System.Drawing.Size(754, 514)
+        Me.ClientSize = New System.Drawing.Size(754, 564)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btncancelar)
         Me.Controls.Add(Me.btnaceptar)
@@ -616,6 +642,7 @@ Public Class frm_producto_mantenimiento
             .rowprd("precio2") = Val(txtprecio2.Text)
             .rowprd("Iv") = IIf(chkiv.Checked, 1, 0)
             .rowprd("barcode") = txtbarcode.Text
+            .rowprd("cabys") = txtCabys.Text
             .rowprd("id_familia") = cbid(cbid_familia.Text)
             If lbltitulo.Text = "Incluir Producto" Then .Dvproducto.Table.Rows.Add(.rowprd)
             .Daproducto.Update(.Dsproducto, "producto")
@@ -721,7 +748,7 @@ Public Class frm_producto_mantenimiento
         End If
     End Sub
 
-   
+
     Public Function utilidad() As Decimal
         utilidad = (Val(txtprecio1.Text) / Val(txtcosto.Text)) - 1
     End Function
@@ -746,6 +773,14 @@ Public Class frm_producto_mantenimiento
     End Sub
 
     Private Sub txtnombre_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtnombre.TextChanged
+
+    End Sub
+
+    Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtCabys.TextChanged
+
+    End Sub
+
+    Private Sub Label14_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label14.Click
 
     End Sub
 End Class
