@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Xml.Linq;
+using ServiceReference;
 
 namespace FacElec.helpers
 {

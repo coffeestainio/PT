@@ -1,0 +1,29 @@
+{
+  "providerId": "Microsoft.Tools.ServiceModel.Svcutil",
+  "version": "2.0.3",
+  "options": {
+    "inputs": [
+      "https://www.facturaelectronica.cr/ServicioCargaFactura/GTICargaFactura.asmx?WSDL"
+    ],
+    "namespaceMappings": [
+      "*, ServiceReference"
+    ],
+    "outputFile": "Reference.cs",
+    "references": [
+      "log4net, {log4net, 2.0.8}",
+      "Microsoft.Extensions.Configuration, {Microsoft.Extensions.Configuration, 2.1.1}",
+      "Microsoft.Extensions.Configuration.Abstractions, {Microsoft.Extensions.Configuration.Abstractions, 2.1.1}",
+      "Microsoft.Extensions.Configuration.FileExtensions, {Microsoft.Extensions.Configuration.FileExtensions, 2.1.1}",
+      "Microsoft.Extensions.Configuration.Json, {Microsoft.Extensions.Configuration.Json, 2.1.1}",
+      "Microsoft.Extensions.FileProviders.Abstractions, {Microsoft.Extensions.FileProviders.Abstractions, 2.1.1}",
+      "Microsoft.Extensions.FileProviders.Physical, {Microsoft.Extensions.FileProviders.Physical, 2.1.1}",
+      "Microsoft.Extensions.FileSystemGlobbing, {Microsoft.Extensions.FileSystemGlobbing, 2.1.1}",
+      "Microsoft.Extensions.Primitives, {Microsoft.Extensions.Primitives, 2.1.1}",
+      "Newtonsoft.Json, {Newtonsoft.Json, 13.0.1}",
+      "System.Data.SqlClient, {System.Data.SqlClient, 4.5.1}",
+      "System.Runtime.CompilerServices.Unsafe, {System.Runtime.CompilerServices.Unsafe, 4.5.1}"
+    ],
+    "targetFramework": "netcoreapp2.1",
+    "typeReuseMode": "All"
+  }
+}

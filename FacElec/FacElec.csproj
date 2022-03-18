@@ -12,7 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Data.SqlClient" Version="4.5.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="2.1.1" />
@@ -49,6 +49,11 @@
     <None Remove="facturasEnviadas\notacredito_18214.xml" />
     <None Remove="facelecPT.log" />
     <None Remove="facturasEnviadas\facturaElectronica_19708.xml" />
+    <None Remove="ServiceReference3\dotnet-svcutil.params.json" />
+    <None Remove="ServiceReference4\dotnet-svcutil.params.json" />
+    <None Remove="ServiceReference5\dotnet-svcutil.params.json" />
+    <None Remove="ServiceReference6\dotnet-svcutil.params.json" />
+    <None Remove="ServiceReference\dotnet-svcutil.params.json" />
   </ItemGroup>
   <ItemGroup>
     <None Update="appsettings.json">
@@ -57,5 +62,14 @@
     <None Update="log4net.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="ServiceReference3\Reference.cs" />
+    <Compile Remove="ServiceReference4\Reference.cs" />
+    <Compile Remove="ServiceReference5\Reference.cs" />
+    <Compile Remove="ServiceReference6\Reference.cs" />
+    <Compile Remove="ServiceReference\Reference.cs" />
+    <Compile Remove="ServiceReference1\Reference.cs" />
+    <Compile Remove="ServiceReference2\Reference.cs" />
   </ItemGroup>
 </Project>
